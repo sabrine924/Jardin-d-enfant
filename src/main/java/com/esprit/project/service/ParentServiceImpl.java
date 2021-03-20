@@ -20,13 +20,13 @@ public class ParentServiceImpl implements IParentService{
 	
 	
 	@Autowired
-	private ParentRepository parentRepository;
 	
+	 ParentRepository ParentRepository;
 	private static final Logger l = LogManager.getLogger(ParentServiceImpl.class);
 	
 	@Override
 	public List<Parent> retrieveAllParents(){
-		List<Parent> parents = (List<Parent>) parentRepository.findAll();
+		List<Parent> parents = (List<Parent>) ParentRepository.findAll();
 		for (User parent : parents){
 			l.info("Parent :" + parent);
 		}
@@ -34,21 +34,21 @@ public class ParentServiceImpl implements IParentService{
 	}
 	@Override
 	public Parent addParent(Parent parent){
-		return parentRepository.save(parent);
+		return ParentRepository.save(parent);
 		
 	}
 	@Override
 	public void deleteParent(String id){
 		long id1 = Long.parseLong(id);
-		parentRepository.deleteById(id1);
+		ParentRepository.deleteById(id1);
 	}
 	@Override
 	public Parent updateParent(Parent parent){
-		return parentRepository.save(parent);
+		return ParentRepository.save(parent);
 	}
 	@Override
 	public Optional<Parent> retrieveParent(String id){
-		Optional<Parent> parent = parentRepository.findById(Long.parseLong(id));
+		Optional<Parent> parent = ParentRepository.findById(Long.parseLong(id));
 		l.info("Parent :" + parent);
 		return parent;
 	}
