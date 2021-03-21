@@ -60,6 +60,8 @@ public class Event implements Serializable {
 
 	@OneToMany(mappedBy="event", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Comment> comments;
+	@OneToMany(mappedBy="event", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<KinderGarden> Kindergardens;
 	
 	
 	/*@ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
