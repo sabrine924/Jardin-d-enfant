@@ -1,4 +1,4 @@
-package com.esprit.spring.DAO;
+package com.esprit.project.control;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,9 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.esprit.project.entity.Event;
+import com.esprit.project.entity.User;
 import com.esprit.project.service.IEventService;
 
-@CrossOrigin("http://localhost:4200")
+//@CrossOrigin("http://localhost:4200")
 @RestController
 public class EventRestController {
 	
@@ -31,6 +32,7 @@ public class EventRestController {
 	List<Event> Event = eventService.retrieveAllEvents();
 	return Event;
 	}
+	
 	@GetMapping("/retrieve-events/{event-id}")
 	@ResponseBody
 	public Optional<Event> retrieveUser(@PathVariable("event-id") String id) {
