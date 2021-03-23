@@ -1,5 +1,6 @@
 package com.esprit.project.entity;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,6 +21,12 @@ public class Comment {
 	private Long id;
 	@Column(name="Comments")
 	private String content;
+	
+
+	@ManyToOne(fetch=FetchType.LAZY)
+	private Event event;
+	
+	
 	
 	
 	public Long getId() {
@@ -61,24 +68,15 @@ public class Comment {
 
 	@Override
 	public String toString() {
-		return "Comment [id=" + id + ", content=" + content + ", event=" + event + ", commenter=" + commenter + "]";
+		return "Comment [id=" + id + ", content=" + content + "]";
 	}
 
+	
 
 
-	@ManyToOne(fetch=FetchType.LAZY)
-	private Event event;
-	@ManyToOne(fetch=FetchType.LAZY)
-	private Parent commenter;
 
 
-	public Parent getCommenter() {
-		return commenter;
-	}
 
-	public void setCommenter(Parent commenter) {
-		this.commenter = commenter;
-	}
 	
 
 }

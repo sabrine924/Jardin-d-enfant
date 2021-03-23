@@ -16,7 +16,7 @@ import javax.persistence.OneToOne;
 @Entity
 @Table(name="T_USER")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class User implements Serializable {
+public  class User implements Serializable {
 	private static final long serialVersionUID = 1l;
 	
 	@Id

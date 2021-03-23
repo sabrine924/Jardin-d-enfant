@@ -2,6 +2,7 @@ package com.esprit.project.entity;
 
 
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -11,7 +12,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -33,8 +33,11 @@ public class KinderGarden extends User {
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="kinderGarden")
 	private Set<Inscription> inscriptions;
-	@ManyToOne(fetch=FetchType.LAZY)
-	private Event event;
+	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<Event> event;
+	
+
 	
 	public KinderGarden(){
 		
@@ -52,5 +55,11 @@ public class KinderGarden extends User {
 	public void setId(long id) {
 		this.id = id;
 	}
+
+	@Override
+	public String toString() {
+		return "KinderGarden [id=" + id + "]";
+	}
+	
 	
 }

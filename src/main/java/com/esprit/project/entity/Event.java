@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 //import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 //import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -54,14 +55,19 @@ public class Event implements Serializable {
 	private String Name;
 	@Column(name="Location")
 	private String Location;
+	
+	
+	@OneToMany(mappedBy="event", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<Comment> comments;
+	
 
 	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Parent> Parents;
+	
+	@ManyToOne
+	KinderGarden kinderGarden;
 
-	@OneToMany(mappedBy="event", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<Comment> comments;
-	@OneToMany(mappedBy="event", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<KinderGarden> Kindergardens;
+	
 	
 	
 	/*@ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -187,6 +193,7 @@ public class Event implements Serializable {
 				+ startHour + ", EndHour=" + EndHour + ", date=" + date + ", nbrlike=" + nbrlike + ", Name=" + Name
 				+ ", Location=" + Location + "]";
 	}
+	
     
 	
 	

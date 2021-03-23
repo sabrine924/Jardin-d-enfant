@@ -1,8 +1,12 @@
 package com.esprit.project.entity;
 
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -32,6 +36,11 @@ public class Parent extends User {
 	
 	@ManyToOne
 	Inscription inscription;
+	
+	@ManyToMany(mappedBy="Parents", cascade = CascadeType.ALL)
+	private List<Event> events;
+	
+	
 	
 	public Parent(){
 		
@@ -121,6 +130,16 @@ public class Parent extends User {
 	public String toString(){
 		return super.toString()+"firstNameChild :" +firstNameChild + "lastNameChild :"+ lastNameChild+"age :"+age+"health"+health;
 	}
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+
+	
 	
 	
 	
