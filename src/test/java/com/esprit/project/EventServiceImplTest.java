@@ -31,7 +31,7 @@ public class EventServiceImplTest {
 	public void testAddEvents() throws ParseException, Exception{
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	Date date = dateFormat.parse("2022-02-06");
-	Event E = new Event((long) 1 , "evenement sport" , " sport pour  de  nos enfants ",05, 07, date, 60,  "eventsX" , "Ariana");
+	Event E = new Event((long) 1 , "evenement sport" , " sport pour  de  nos enfants ",05, 07, date, 60,  "eventsX" , "Ariana", "img1");
 	us.addEvents(E);
 	}
 	@Test
@@ -46,12 +46,16 @@ public class EventServiceImplTest {
 	public void testupdateEvents() throws Exception{
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date d = dateFormat.parse("1995-07-02");
-		Event E = new Event( new Long(2), "evenemnt traditionnel ","tradition",5, 04, d, 60, "tunisie",  "Kairouan");
-		us.updateEvents(E);
+		Event E = new Event( new Long(2), "evenemnt traditionnel ","tradition",5, 04, d, 60, "tunisie",  "Kairouan","img2");
+		us.update(E);
 	}
 	@Test
 	public void testRetrieveEvents(){
 		us.retrieveEvents("2");
+	}
+	@Test 
+	public void testparentJoinEvent(){
+		
 	}
 	
 	

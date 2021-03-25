@@ -13,5 +13,6 @@ import com.esprit.project.entity.Parent;
 
 @Repository
 public interface ParentRepository extends CrudRepository<Parent, Long> {
+	Parent findByEmail(String email);
 	
 }

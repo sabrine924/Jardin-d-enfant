@@ -16,10 +16,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 //import javax.persistence.ManyToOne;
+//import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.lang.NonNull;
 
 //import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -55,17 +58,20 @@ public class Event implements Serializable {
 	private String Name;
 	@Column(name="Location")
 	private String Location;
+	@NonNull
+	private String imgUrl;
+	
 	
 	
 	@OneToMany(mappedBy="event", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Comment> comments;
 	
 
-	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<Parent> Parents;
+	@ManyToMany( mappedBy="events", cascade=CascadeType.ALL)
+	private List<Parent> parents;  
 	
 	@ManyToOne
-	KinderGarden kinderGarden;
+	KinderGarden kinderGarden; 
 
 	
 	
@@ -143,8 +149,16 @@ public class Event implements Serializable {
 	}
 	
 	
+	
+	
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
 	public Event(Long idEvent, String subject, String description, int startHour, int endHour, Date date, int nbrlike,
-			String name, String location) {
+			String name, String location, String imgUrl) {
 		
 		this.idEvent = idEvent;
 		this.Subject = subject;
@@ -155,10 +169,11 @@ public class Event implements Serializable {
 		this.nbrlike = nbrlike;
 		this.Name = name;
 		this.Location = location;
+		this.imgUrl = imgUrl;
 	}
 	
 	
-	public Event(long idEvent, String subject, String description, int startHour, int endHour, Date date, int nbrlike, String name, String location) {
+	public Event(long idEvent, String subject, String description, int startHour, int endHour, Date date, int nbrlike, String name, String location, String imgUrl) {
 		this.idEvent = idEvent;
 		this.Subject = subject;
 		this.Description = description;
@@ -168,6 +183,8 @@ public class Event implements Serializable {
 		this.nbrlike = nbrlike;
 		this.Name = name;
 		this.Location = location;
+		this.imgUrl = imgUrl;
+	
 	}
 
 	
@@ -178,22 +195,24 @@ public class Event implements Serializable {
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
+	
+	
+	
 	public List<Parent> getParents() {
-		return Parents;
-		
+		return parents;
 	}
 	public void setParents(List<Parent> parents) {
-		Parents = parents;
+		this.parents = parents;
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "Event [idEvent=" + idEvent + ", Subject=" + Subject + ", Description=" + Description + ", startHour="
 				+ startHour + ", EndHour=" + EndHour + ", date=" + date + ", nbrlike=" + nbrlike + ", Name=" + Name
-				+ ", Location=" + Location + "]";
+				+ ", Location=" + Location + ", imgUrl=" + imgUrl + "]";
 	}
 	
+	
+
     
 	
 	

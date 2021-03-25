@@ -1,8 +1,6 @@
 package com.esprit.project.entity;
 
 import java.io.Serializable;
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,6 +41,8 @@ public  class User implements Serializable {
 	
 	@OneToOne
 	private Profile profile;
+	
+
 	
 	public User(){
 		

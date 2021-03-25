@@ -25,10 +25,20 @@ public class Comment {
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Event event;
+	@ManyToOne(fetch=FetchType.LAZY)
+	private Parent comments;
 	
 	
 	
 	
+	public Parent getComments() {
+		return comments;
+	}
+
+	public void setComments(Parent comments) {
+		this.comments = comments;
+	}
+
 	public Long getId() {
 		return id;
 	}

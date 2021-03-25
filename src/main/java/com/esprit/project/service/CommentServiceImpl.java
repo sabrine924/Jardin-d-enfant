@@ -2,6 +2,8 @@ package com.esprit.project.service;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,12 @@ public class CommentServiceImpl implements ICommentService {
 	public void deleteById(String id) {
 		commentrepository.deleteById(Long.parseLong(id));
 		
+	}
+
+	@Override
+	public List<Comment> findCommentsByEvent(Long idEvent) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

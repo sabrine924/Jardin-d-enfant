@@ -11,11 +11,16 @@ public interface IEventService {
 	
 	  Event  addEvents(Event E);
 	  void    deleteEventById(String idEvent);
-	  Event  updateEvents(Event E);
+	  public Optional<Event> update(Event event);
 	  List<Event> retrieveAllEvents();
 	  Optional<Event> retrieveEvents(String id);
-	 void parentJoinEvent(Long identif, Long idEvent);
-	  void cancelUserAttendance(Long identif, Long idEvent);
+	void parentJoinEvent(Long id, Long idEvent);
+	 void cancelParentAttendance(Long id, Long idEvent);
+	Event add(Event E);
+	Event findEventById(Long idEvent);
+
+	
+	
 	 
 	  
 	

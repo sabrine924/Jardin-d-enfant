@@ -52,4 +52,9 @@ public class ParentServiceImpl implements IParentService{
 		l.info("Parent :" + parent);
 		return parent;
 	}
+	@Override
+	public Parent findByEmail(String email) {
+		return ParentRepository.findByEmail(email);
+	}
+	
 }

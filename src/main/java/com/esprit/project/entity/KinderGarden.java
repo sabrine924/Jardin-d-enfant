@@ -34,11 +34,11 @@ public class KinderGarden extends User {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="kinderGarden")
 	private Set<Inscription> inscriptions;
 	
-	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<Event> event;
+	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="kinderGarden")
+	private List<Event> event; 
 	
 
-	
 	public KinderGarden(){
 		
 	}

@@ -17,4 +17,5 @@ public interface IParentService {
 	void deleteParent(String id);
 	Parent updateParent(Parent parent);
 	Optional<Parent> retrieveParent(String id);
+	Parent  findByEmail(String email);
 }
