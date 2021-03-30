@@ -28,6 +28,15 @@ public class Rdv implements Serializable{
 		this.idRdv = idRdv;
 		}
 	
+	public Rdv(int idRdv, String id_Trans, String date, String id_Emett, String subject) {
+		super();
+		this.idRdv = idRdv;
+		Id_Trans = id_Trans;
+		Date = date;
+		Id_Emett = id_Emett;
+		Subject = subject;
+	}
+
 	@Column(name="Id_Trans")
 	private String Id_Trans;
 	

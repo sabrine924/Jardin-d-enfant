@@ -26,6 +26,14 @@ public class Email implements Serializable {
 	public void setIdEmail(int idEmail) {
 		this.idEmail = idEmail;
 	}
+	public Email(int idEmail, String trans_mail, String subject, String description, String emett_mail) {
+		super();
+		this.idEmail = idEmail;
+		Trans_mail = trans_mail;
+		Subject = subject;
+		Description = description;
+		Emett_mail = emett_mail;
+	}
 	public String getTrans_mail() {
 		return Trans_mail;
 	}
