@@ -1,5 +1,8 @@
 package com.esprit.project;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +23,9 @@ public class RdvServiceImplAddTest {
 	
 	@Test
 	public void test() throws ParseException, java.text.ParseException {
-		Rdv rdv1 = new Rdv(1,"a","b","c","d");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = dateFormat.parse("2022-02-06");
+		Rdv rdv1 = new Rdv(1,"a",date,"c","d");
 		rdv.addRdv(rdv1);
 	}
 

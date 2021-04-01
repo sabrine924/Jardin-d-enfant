@@ -16,11 +16,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-//import com.esprit.project.entity.Account;
 import com.esprit.project.entity.Administrator;
+import com.esprit.project.service.IAdministratorService;
+
+//import com.esprit.project.entity.Account;
+
 //import com.esprit.project.entity.User;
 //import com.esprit.project.service.IAccountService;
-import com.esprit.project.service.IAdministratorService;
+
 //import com.esprit.project.service.IUserService;
 
 
@@ -67,6 +70,7 @@ public class AdministratorRestController {
 	public Administrator modifyAdministrator(@RequestBody Administrator administrator) {
 	return administratorService.updateAdministrator(administrator);
 	}
+}
 	
 	/*
 	/ http://localhost:8081/SpringMVC/servlet/retrive-user-jpql/{d1}/{d2}
@@ -93,4 +97,3 @@ public class AdministratorRestController {
 	public List<User> retrieveUserbybirthdateRole(@PathVariable("role") Role role) {
 	return userService.retrieveUsersByRole(role);
 		}*/
-}

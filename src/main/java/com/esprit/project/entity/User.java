@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.Table;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -43,6 +44,17 @@ public  class User implements Serializable {
 	
 	@OneToOne
 	private Profile profile;
+	
+	
+	@ManyToOne
+	Email email1;
+	
+	@ManyToOne
+	Message message;
+	
+	@ManyToOne
+	Rdv rdv;
+	
 	
 	public User(){
 		

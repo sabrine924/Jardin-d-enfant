@@ -68,7 +68,11 @@ public class Email implements Serializable {
 	private String Emett_mail;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="email")
-	private Set<User> users; 
+	private Set<User> users;
+
+	
+	
+	
 	
 
 }

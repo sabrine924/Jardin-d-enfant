@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.esprit.project.entity.Email;
+import com.esprit.project.repository.EmailRepository;
 
 import org.springframework.stereotype.Service;
 @Service

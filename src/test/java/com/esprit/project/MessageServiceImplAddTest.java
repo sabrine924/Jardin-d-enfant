@@ -1,6 +1,9 @@
 package com.esprit.project;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 //import org.apache.logging.log4j.LogManager;
 //import org.apache.logging.log4j.Logger;
 import org.junit.Test;
@@ -26,7 +29,9 @@ public class MessageServiceImplAddTest {
 	
 	@Test
 	public void test() throws ParseException, java.text.ParseException {
-		Message message1 = new Message(1,"a","b","c","d","e");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = dateFormat.parse("2022-02-06");
+		Message message1 = new Message(1,"a",date,"c","d","e");
 		message.addMessage(message1);
 	}
 

@@ -1,6 +1,7 @@
 package com.esprit.project.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -28,11 +29,11 @@ public class Rdv implements Serializable{
 		this.idRdv = idRdv;
 		}
 	
-	public Rdv(int idRdv, String id_Trans, String date, String id_Emett, String subject) {
+	public Rdv(int idRdv, String id_Trans, Date date, String id_Emett, String subject) {
 		super();
 		this.idRdv = idRdv;
 		Id_Trans = id_Trans;
-		Date = date;
+		this.date = date;
 		Id_Emett = id_Emett;
 		Subject = subject;
 	}
@@ -46,11 +47,11 @@ public class Rdv implements Serializable{
 	public void setId_Trans(String id_Trans) {
 		Id_Trans = id_Trans;
 	}
-	public String getDate() {
-		return Date;
+	public Date getDate() {
+		return date;
 	}
-	public void setDate(String date) {
-		Date = date;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	
 	public String getSubject() {
@@ -62,7 +63,7 @@ public class Rdv implements Serializable{
 
 	@Column(name="Date")
 	@Temporal(TemporalType.DATE)
-	private String Date;
+	private Date date;
 	@Column(name="Id_Emett")
 	private String Id_Emett;
 	public String getId_Emett() {

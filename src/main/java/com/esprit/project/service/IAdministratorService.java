@@ -14,7 +14,7 @@ public interface IAdministratorService {
 
 	List<Administrator> retrieveAllAdministrators();
 	Administrator addAdministrator(Administrator admin);
-	void deleteAdministrator(String id);
+	void deleteAdministrator(String administratorId);
 	Administrator updateAdministrator(Administrator admin);
 	Optional<Administrator> retrieveAdministrator(String id);
 }

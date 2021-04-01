@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.esprit.project.entity.Message;
+import com.esprit.project.repository.MessageRepository;
 
 
 @Service

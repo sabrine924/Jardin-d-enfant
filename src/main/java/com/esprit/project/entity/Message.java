@@ -1,8 +1,8 @@
 package com.esprit.project.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+
 
 @Entity
 @Table( name = "T_Message")
@@ -33,23 +35,23 @@ public class Message implements Serializable{
 	public Message() {
 	
 	}
-	public Message(int idMessage, String trans_message, String date, String description, String emett_message,
+	public Message(int idMessage, String trans_message, Date date, String description, String emett_message,
 			String subject) {
 		super();
 		this.idMessage = idMessage;
 		Trans_message = trans_message;
-		Date = date;
+		this.date = date;
 		Description = description;
 		Emett_message = emett_message;
 		Subject = subject;
 		//this.users = users;
 	}
-	public Message(int idMessage, String trans_message, String date, String description, String emett_message,
+	public Message(int idMessage, String trans_message, Date date, String description, String emett_message,
 			String subject, Set<User> users) {
 		super();
 		this.idMessage = idMessage;
 		Trans_message = trans_message;
-		Date = date;
+		this.date = date;
 		Description = description;
 		Emett_message = emett_message;
 		Subject = subject;
@@ -61,11 +63,11 @@ public class Message implements Serializable{
 	public void setTrans_message(String trans_message) {
 		Trans_message = trans_message;
 	}
-	public String getDate() {
-		return Date;
+	public Date getDate() {
+		return date;
 	}
-	public void setDate(String date) {
-		Date = date;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	public String getDescription() {
 		return Description;
@@ -90,7 +92,7 @@ public class Message implements Serializable{
 
 	@Column(name="Date")
 	@Temporal(TemporalType.DATE)
-	private String Date;
+	private Date date;
 	@Column(name="Description")
 	 private String Description;
 	@Column(name="Emett_message")
