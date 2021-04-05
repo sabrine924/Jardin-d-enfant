@@ -72,29 +72,5 @@ public class InscriptionRestController {
 	return inscriptionService.updateInscription(inscription);
 	}
 	
-	/*
-	/ http://localhost:8081/SpringMVC/servlet/retrive-user-jpql/{d1}/{d2}
-	@GetMapping("/retrive-user-jpql/{d1}/{d2}")
-	@ResponseBody
-	public List<User> retrieveUserbybirthdate(@PathVariable("d1") String d1,@PathVariable("d2") String d2) throws ParseException {
-	Date date1=new SimpleDateFormat("yyyy-MM-dd").parse(d1);  
-	Date date2=new SimpleDateFormat("yyyy-MM-dd").parse(d2);
-	return userService.retrieveUsersByBirthDate(date1, date2);
-	}
 	
-	// http://localhost:8081/SpringMVC/servlet/retrive-user-sql/{date1}/{date2}
-	@GetMapping("retrive-user-sql/{date1}/{date2}")
-	@ResponseBody
-	public List<User> retrieveUserbybirthdateSql(@PathVariable("date1") String d1,@PathVariable("date2") String d2) throws ParseException {
-	Date date1=new SimpleDateFormat("yyyy-MM-dd").parse(d1);  
-	Date date2=new SimpleDateFormat("yyyy-MM-dd").parse(d2);
-	return userService.retrieveUsersByBirthDatesql(date1, date2);
-	}
-	
-	// http://localhost:8081/SpringMVC/servlet/retrieve-user-role/{role}
-	@GetMapping("/retrieve-user-role/{role}")
-	@ResponseBody
-	public List<User> retrieveUserbybirthdateRole(@PathVariable("role") Role role) {
-	return userService.retrieveUsersByRole(role);
-		}*/
 }

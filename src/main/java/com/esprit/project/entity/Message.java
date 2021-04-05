@@ -20,6 +20,7 @@ import javax.persistence.TemporalType;
 @Table( name = "T_Message")
 public class Message implements Serializable{
 	private static final long serialVersionUID = 1L;
+	public static final String RecipientType = null;
 	@Id
 	@GeneratedValue ( strategy = GenerationType.IDENTITY)
 	private int idMessage;

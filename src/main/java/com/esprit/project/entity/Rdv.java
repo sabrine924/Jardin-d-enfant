@@ -29,24 +29,19 @@ public class Rdv implements Serializable{
 		this.idRdv = idRdv;
 		}
 	
-	public Rdv(int idRdv, String id_Trans, Date date, String id_Emett, String subject) {
+	public Rdv(int idRdv, String id_User, Date date, String id_Administrator, String subject) {
 		super();
 		this.idRdv = idRdv;
-		Id_Trans = id_Trans;
+		Id_User = id_User;
 		this.date = date;
-		Id_Emett = id_Emett;
+		Id_Administrator = id_Administrator;
 		Subject = subject;
 	}
 
-	@Column(name="Id_Trans")
-	private String Id_Trans;
+	@Column(name="id_User")
+	private String Id_User;
 	
-	public String getId_Trans() {
-		return Id_Trans;
-	}
-	public void setId_Trans(String id_Trans) {
-		Id_Trans = id_Trans;
-	}
+	
 	public Date getDate() {
 		return date;
 	}
@@ -64,14 +59,9 @@ public class Rdv implements Serializable{
 	@Column(name="Date")
 	@Temporal(TemporalType.DATE)
 	private Date date;
-	@Column(name="Id_Emett")
-	private String Id_Emett;
-	public String getId_Emett() {
-		return Id_Emett;
-	}
-	public void setId_Emett(String id_Emett) {
-		Id_Emett = id_Emett;
-	}
+	@Column(name="Id_Administrator")
+	private String Id_Administrator;
+	
 
 	@Column(name="Subject")
 	 private String Subject;

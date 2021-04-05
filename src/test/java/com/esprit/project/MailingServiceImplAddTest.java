@@ -1,4 +1,4 @@
-package com.esprit.project;
+/*package com.esprit.project;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,7 +21,8 @@ public class MailingServiceImplAddTest {
 	@Test
 	public void test() throws ParseException, java.text.ParseException {
 		Email email1 = new Email(1,"a","b","c","d");
-		email.addEmail(email1);
+		email.sendmail(User user );
 	}
 
 }
+*/

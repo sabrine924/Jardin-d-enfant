@@ -26,19 +26,26 @@ public class Email implements Serializable {
 	public void setIdEmail(int idEmail) {
 		this.idEmail = idEmail;
 	}
-	public Email(int idEmail, String trans_mail, String subject, String description, String emett_mail) {
+	public Email(int idEmail, String User_email, String subject, String description, String Administrator_email) {
 		super();
 		this.idEmail = idEmail;
-		Trans_mail = trans_mail;
+		User_email = user_email;
 		Subject = subject;
 		Description = description;
-		Emett_mail = emett_mail;
+		Administrator_email = administrator_email;
+	
 	}
-	public String getTrans_mail() {
-		return Trans_mail;
+	public String getUser_email() {
+		return user_email;
 	}
-	public void setTrans_mail(String trans_mail) {
-		Trans_mail = trans_mail;
+	public void setUser_email(String user_email) {
+		this.user_email = user_email;
+	}
+	public String getAdministrator_email() {
+		return administrator_email;
+	}
+	public void setAdministrator_email(String administrator_email) {
+		this.administrator_email = administrator_email;
 	}
 	public String getSubject() {
 		return Subject;
@@ -52,20 +59,15 @@ public class Email implements Serializable {
 	public void setDescription(String description) {
 		Description = description;
 	}
-	public String getEmett_mail() {
-		return Emett_mail;
-	}
-	public void setEmett_mail(String emett_mail) {
-		Emett_mail = emett_mail;
-	}
-	@Column(name="Trans_mail")
-	private String Trans_mail;
+	
+	@Column(name="user_email")
+	private String user_email;
 	@Column(name="Subject")
 	private String Subject;
 	@Column(name="Description")
 	 private String Description;
-	@Column(name="Emett_mail")
-	private String Emett_mail;
+	@Column(name="administrator_email")
+	private String administrator_email;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="email")
 	private Set<User> users;
