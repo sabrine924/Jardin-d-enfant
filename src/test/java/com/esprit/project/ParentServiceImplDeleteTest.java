@@ -25,7 +25,7 @@ public class ParentServiceImplDeleteTest {
 	
 	@Test
 	public void test() {
-		parent.deleteParent("2");
+		parent.deleteParent((long)2);
 	}
 
 }

@@ -22,7 +22,7 @@ public class ParentServiceImplRetrieveParentTest {
 	
 	@Test
 	public void test() {
-		parent.retrieveParent("1");
+		parent.retrieveParent((long)1);
 	}
 
 }

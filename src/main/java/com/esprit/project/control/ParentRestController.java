@@ -6,6 +6,8 @@ import java.util.Date;*/
 import java.util.List;
 import java.util.Optional;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +34,6 @@ import com.esprit.project.entity.Parent;
 import com.esprit.project.service.IParentService;
 
 
-
 @RestController
 public class ParentRestController {
 	
@@ -42,31 +43,31 @@ public class ParentRestController {
 	// http://localhost:8081/SpringMVC/servlet/retrieve-all-parents
 	@GetMapping("/retrieve-all-parents")
 	@ResponseBody
-	public List<Parent> getParent() {
+	public List<Parent> getParents() {
 	List<Parent> list = parentService.retrieveAllParents();
 	return list;
 	}
 	
 	// http://localhost:8081/SpringMVC/servlet/retrieve-parent/{parent-id}
-	@GetMapping("/retrieve-parent/{parent-id}")
+	@GetMapping("/retrieve-parent/{id}")
 	@ResponseBody
-	public Optional<Parent> retrieveParent(@PathVariable("parent-id") String parentId) {
-	return parentService.retrieveParent(parentId);
+	public Optional<Parent> retrieveParent(@PathVariable("id") Long id) {
+	return parentService.retrieveParent(id);
 	}
 	
 	// http://localhost:8081/SpringMVC/servlet/add-parent
 	@PostMapping("/add-parent")
 	@ResponseBody
-	public Parent addParent(@RequestBody Parent parent1) {
-	Parent parent = parentService.addParent(parent1);
+	public Parent addParent(@RequestBody Parent p) {
+	Parent parent = parentService.addParent(p);
 	return parent;
 	}
 	
 	// http://localhost:8081/SpringMVC/servlet/remove-parent/{parent-id}
-	@DeleteMapping("/remove-parent/{parent-id}")
+	@DeleteMapping("/remove-parent/{id}")
 	@ResponseBody
-	public void removeParent(@PathVariable("parent-id") String parentId) {
-		parentService.deleteParent(parentId);
+	public void removeParent(@PathVariable("id") Long id) {
+		parentService.deleteParent(id);
 	}
 	
 	// http://localhost:8081/SpringMVC/servlet/modify-parent
@@ -75,6 +76,8 @@ public class ParentRestController {
 	public Parent modifyParent(@RequestBody Parent parent) {
 	return parentService.updateParent(parent);
 	}
+	
+	
 	
 	/*
 	/ http://localhost:8081/SpringMVC/servlet/retrive-user-jpql/{d1}/{d2}

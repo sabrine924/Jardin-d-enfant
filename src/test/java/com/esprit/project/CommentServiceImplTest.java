@@ -37,6 +37,10 @@ public class CommentServiceImplTest {
 	public void TestDeltetComment(){
 		cs.deleteById("2");
 	}
+	@Test
+	public void testretrieveComments(){
+		cs.retrieveAllComments();
+	}
 
 	
 }

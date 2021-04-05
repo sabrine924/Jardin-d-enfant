@@ -25,7 +25,7 @@ public class UserServiceImplAddTest {
 	
 	@Test
 	public void test() throws ParseException, java.text.ParseException {
-		User u = new User("youssef","benammar",26157304,"yba@gmail.com","haouaria");
+		User u = new User("youssef","benammar",93147141,"yba@gmail.com","haouaria");
 		user.addUser(u);
 	}
 

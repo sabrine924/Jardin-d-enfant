@@ -55,11 +55,11 @@ public class Profile implements Serializable {
 		this.location = location;
 	}
 
-	public long getId() {
+	public long getid() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setid(long id) {
 		this.id = id;
 	}
 

@@ -1,8 +1,8 @@
 package com.esprit.project.control;
 
-/*import java.text.ParseException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;*/
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,8 +63,9 @@ public class UserRestController {
 	public User modifyUser(@RequestBody User user) {
 	return userService.updateUser(user);
 	}
+}
 	
-	/*/ http://localhost:8081/SpringMVC/servlet/retrive-user-jpql/{d1}/{d2}
+	/* http://localhost:8081/SpringMVC/servlet/retrive-user-jpql/{d1}/{d2}
 	@GetMapping("/retrive-user-jpql/{d1}/{d2}")
 	@ResponseBody
 	public List<User> retrieveUserbybirthdate(@PathVariable("d1") String d1,@PathVariable("d2") String d2) throws ParseException {
@@ -88,4 +89,4 @@ public class UserRestController {
 	public List<User> retrieveUserbybirthdateRole(@PathVariable("role") Role role) {
 	return userService.retrieveUsersByRole(role);
 		}*/
-}
+

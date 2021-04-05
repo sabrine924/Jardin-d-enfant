@@ -14,7 +14,8 @@ public interface IParentService {
 
 	List<Parent> retrieveAllParents();
 	Parent addParent(Parent parent);
-	void deleteParent(String id);
+	void deleteParent(Long id);
 	Parent updateParent(Parent parent);
-	Optional<Parent> retrieveParent(String id);
+	Optional<Parent> retrieveParent(Long id);
+	
 }

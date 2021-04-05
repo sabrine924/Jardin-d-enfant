@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import java.util.Date;
 import java.util.List;
+//import java.util.Set;
+//import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,22 +14,34 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.JoinColumn;
+//import javax.persistence.JoinTable;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+//import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 //import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+
+
 //import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
 
 
 
 @Entity
 @Table( name = "T_Events")
+@JsonIgnoreProperties(  "Parents" )
+
 public class Event implements Serializable {
 
 	/**
@@ -60,35 +74,32 @@ public class Event implements Serializable {
 	@OneToMany(mappedBy="event", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Comment> comments;
 	
-
-	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<Parent> Parents;
 	
+
+	//@ManyToMany(mappedBy = "Events",  cascade =   CascadeType.ALL )
+	@ManyToMany( cascade=  CascadeType.ALL )
+	/*@JoinTable(
+			name = "Parent_Event",
+			joinColumns =  @JoinColumn(name= "id_event") ,
+		    inverseJoinColumns =  @JoinColumn(name = "id") 
+			
+			)*/
+	@JsonIgnore
+	private List<Parent> parents;
+	@JsonIgnore
 	@ManyToOne
 	KinderGarden kinderGarden;
+	
+	
+	//@JsonBackReference
+	@OneToOne
+	private Cagnotte cagnotte;
 
 	
-	
-	
-	/*@ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "CAL_ID")
-    @JsonBackReference
-    private CalendarEvents calendar;
-	    public CalendarEvents getCalendar() {
-	        return calendar;
-	    }
-
-	    public void setCalendar(CalendarEvents calendar) {
-	        this.calendar = calendar;
-	    }*/
-	    
-	    public Event() {
-			
-		}
-	public Long getIdEvent() {
+	public Long getidEvent() {
 		return idEvent;
 	}
-	public void setIdEvent(Long idEvent) {
+	public void setidEvent(Long idEvent) {
 		this.idEvent = idEvent;
 	}
 	public String getSubject() {
@@ -156,6 +167,11 @@ public class Event implements Serializable {
 		this.Name = name;
 		this.Location = location;
 	}
+
+    
+    public Event() {
+		
+	}
 	
 	
 	public Event(long idEvent, String subject, String description, int startHour, int endHour, Date date, int nbrlike, String name, String location) {
@@ -178,21 +194,98 @@ public class Event implements Serializable {
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
+	
+	
+	
 	public List<Parent> getParents() {
-		return Parents;
-		
+		return parents;
 	}
 	public void setParents(List<Parent> parents) {
-		Parents = parents;
+		this.parents = parents;
+	}
+	public Cagnotte getCagnotte() {
+		return cagnotte;
+	}
+	public void setCagnotte(Cagnotte cagnotte) {
+		this.cagnotte = cagnotte;
 	}
 	
 	
+	
+	
+
 	@Override
 	public String toString() {
 		return "Event [idEvent=" + idEvent + ", Subject=" + Subject + ", Description=" + Description + ", startHour="
 				+ startHour + ", EndHour=" + EndHour + ", date=" + date + ", nbrlike=" + nbrlike + ", Name=" + Name
 				+ ", Location=" + Location + "]";
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((Description == null) ? 0 : Description.hashCode());
+		result = prime * result + EndHour;
+		result = prime * result + ((Location == null) ? 0 : Location.hashCode());
+		result = prime * result + ((Name == null) ? 0 : Name.hashCode());
+		result = prime * result + ((Subject == null) ? 0 : Subject.hashCode());
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		result = prime * result + ((idEvent == null) ? 0 : idEvent.hashCode());
+		result = prime * result + nbrlike;
+		result = prime * result + startHour;
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Event other = (Event) obj;
+		if (Description == null) {
+			if (other.Description != null)
+				return false;
+		} else if (!Description.equals(other.Description))
+			return false;
+		if (EndHour != other.EndHour)
+			return false;
+		if (Location == null) {
+			if (other.Location != null)
+				return false;
+		} else if (!Location.equals(other.Location))
+			return false;
+		if (Name == null) {
+			if (other.Name != null)
+				return false;
+		} else if (!Name.equals(other.Name))
+			return false;
+		if (Subject == null) {
+			if (other.Subject != null)
+				return false;
+		} else if (!Subject.equals(other.Subject))
+			return false;
+		if (date == null) {
+			if (other.date != null)
+				return false;
+		} else if (!date.equals(other.date))
+			return false;
+		if (idEvent == null) {
+			if (other.idEvent != null)
+				return false;
+		} else if (!idEvent.equals(other.idEvent))
+			return false;
+		if (nbrlike != other.nbrlike)
+			return false;
+		if (startHour != other.startHour)
+			return false;
+		return true;
+	}
+	
+
+	
 	
     
 	

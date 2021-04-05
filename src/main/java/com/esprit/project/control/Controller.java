@@ -13,7 +13,7 @@ import com.esprit.project.service.SmsRequest;
 
 
 @RestController
-@RequestMapping("api/v1/sms")
+@RequestMapping("/api/v1/sms")
 public class Controller {
 
     private final Service service;

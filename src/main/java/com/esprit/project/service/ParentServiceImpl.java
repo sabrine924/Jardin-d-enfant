@@ -3,6 +3,8 @@ package com.esprit.project.service;
 import java.util.List;
 import java.util.Optional;
 
+
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +13,6 @@ import org.springframework.stereotype.Service;
 import com.esprit.project.entity.Parent;
 import com.esprit.project.entity.User;
 import com.esprit.project.repository.ParentRepository;
-
-
 
 
 @Service
@@ -27,6 +27,7 @@ public class ParentServiceImpl implements IParentService{
 	@Override
 	public List<Parent> retrieveAllParents(){
 		List<Parent> parents = (List<Parent>) ParentRepository.findAll();
+		System.out.println(parents);
 		for (User parent : parents){
 			l.info("Parent :" + parent);
 		}
@@ -38,18 +39,26 @@ public class ParentServiceImpl implements IParentService{
 		
 	}
 	@Override
-	public void deleteParent(String id){
-		long id1 = Long.parseLong(id);
-		ParentRepository.deleteById(id1);
+	
+	public void deleteParent(Long id){
+		ParentRepository.deleteById(id);
 	}
 	@Override
+
 	public Parent updateParent(Parent parent){
 		return ParentRepository.save(parent);
 	}
 	@Override
-	public Optional<Parent> retrieveParent(String id){
-		Optional<Parent> parent = ParentRepository.findById(Long.parseLong(id));
+	
+	public Optional<Parent> retrieveParent(Long id){
+		Optional<Parent> parent = ParentRepository.findById(id);
 		l.info("Parent :" + parent);
 		return parent;
 	}
+	
+	public Optional<Parent>  findById(Long id) {
+		
+		return ParentRepository.findById(id);
+	}
+	
 }
