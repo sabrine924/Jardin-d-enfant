@@ -73,7 +73,7 @@ public class EventRestController {
 	}
 	
 
-	//http://localhost:8081/SpringMVC/servlet/events/{idEvent}/cagnottes/{idCagnotte}/modify-event
+	//http://localhost:8081/SpringMVC/servlet/modify-event
 	@PutMapping("/modify-event")
 	@ResponseBody
 	public Event modifyUser(@RequestBody Event event) {
@@ -108,7 +108,7 @@ public class EventRestController {
 						+ " localise a "+event.getLocation()+" a "+event.getStartHour()+"h. Le prix de ticket vaut "+event.getCagnotte().getAmount()+" dt";
 				SmsRequest smsRequest = new SmsRequest("+216"+parent.getPhone(), message);
 				System.out.println(smsRequest);
-				//service.sendSms(smsRequest);
+				service.sendSms(smsRequest);
 				
 			}
 			
