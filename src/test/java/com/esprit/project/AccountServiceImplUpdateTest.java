@@ -1,4 +1,4 @@
-package com.esprit.project;
+/*package com.esprit.project;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -36,3 +36,4 @@ public class AccountServiceImplUpdateTest {
 	}
 	
 }
+*/

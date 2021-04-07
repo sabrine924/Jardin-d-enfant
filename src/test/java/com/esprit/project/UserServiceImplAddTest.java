@@ -1,4 +1,4 @@
-package com.esprit.project;
+/*package com.esprit.project;
 
 
 //import org.apache.logging.log4j.LogManager;
@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
-import com.esprit.project.entity.User;
+import com.esprit.project.entity.User1;
 import com.esprit.project.service.IUserService;
 //import com.esprit.project.service.UserServiceImpl;
 import com.sun.el.parser.ParseException;
@@ -25,8 +25,9 @@ public class UserServiceImplAddTest {
 	
 	@Test
 	public void test() throws ParseException, java.text.ParseException {
-		User u = new User("youssef","benammar",26157304,"yba@gmail.com","haouaria");
+		User1 u = new User1("youssef","benammar",26157304,"yba@gmail.com","haouaria");
 		user.addUser(u);
 	}
 
 }
+*/

@@ -55,7 +55,7 @@ public class AdministratorRestController {
 	}
 	
 	// http://localhost:8081/SpringMVC/servlet/remove-account/{account-id}
-	@DeleteMapping("/remove-account/{account-id}")
+	@DeleteMapping("/remove-administrator/{administrator-id}")
 	@ResponseBody
 	public void removeAdministrator(@PathVariable("administrator-id") String administratorId) {
 	administratorService.deleteAdministrator(administratorId);

@@ -1,4 +1,4 @@
-package com.esprit.project;
+/*package com.esprit.project;
 
 
 //import org.apache.logging.log4j.LogManager;
@@ -31,3 +31,4 @@ public class KinderGardenServiceImplAddTest {
 	}
 
 }
+*/

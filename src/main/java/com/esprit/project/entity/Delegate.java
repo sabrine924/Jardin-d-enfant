@@ -1,11 +1,17 @@
 package com.esprit.project.entity;
 
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 
 
@@ -29,14 +35,24 @@ public class Delegate extends Parent {
 	}
 	
 	
-
-	public Delegate(long id, String firstName, String lastName, int phone, String email, String adress,
-			String firstNameChild, String lastNameChild, String age, String health) {
-		super(id, firstName, lastName, phone, email, adress, firstNameChild, lastNameChild, age, health);
+	public Delegate(String firstNameChild, String lastNameChild, String age, String health, Inscription inscription,
+			List<Event> events) {
+		super(firstNameChild, lastNameChild, age, health, inscription, events);
 		// TODO Auto-generated constructor stub
 	}
 
-	public long getId() {
+	public Delegate(@NotBlank @Size(max = 20) String username, @NotBlank @Size(max = 50) @Email String email,
+			@NotBlank @Size(max = 120) String password, String firstName, String lastName, int phone, String adress) {
+		super(username, email, password, firstName, lastName, phone, adress);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Delegate(String username, String email, String password) {
+		super(username, email, password);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Long getId() {
 		return id;
 	}
 

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.esprit.project.entity.User;
 import com.esprit.project.service.IUserService;
 
@@ -88,4 +89,5 @@ public class UserRestController {
 	public List<User> retrieveUserbybirthdateRole(@PathVariable("role") Role role) {
 	return userService.retrieveUsersByRole(role);
 		}*/
+	// http://localhost:8081/SpringMVC/servlet/retrieve-all-accounts
 }

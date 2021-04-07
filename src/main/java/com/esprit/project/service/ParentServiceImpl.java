@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.esprit.project.entity.Parent;
-import com.esprit.project.entity.User;
 import com.esprit.project.repository.ParentRepository;
 
 
@@ -27,7 +26,7 @@ public class ParentServiceImpl implements IParentService{
 	@Override
 	public List<Parent> retrieveAllParents(){
 		List<Parent> parents = (List<Parent>) ParentRepository.findAll();
-		for (User parent : parents){
+		for (Parent parent : parents){
 			l.info("Parent :" + parent);
 		}
 		return parents;
