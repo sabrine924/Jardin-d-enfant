@@ -24,7 +24,7 @@ import com.esprit.project.service.IAdministratorService;
 //import com.esprit.project.service.IUserService;
 
 
-
+/*
 @RestController
 public class AdministratorRestController {
 	
@@ -93,4 +93,4 @@ public class AdministratorRestController {
 	public List<User> retrieveUserbybirthdateRole(@PathVariable("role") Role role) {
 	return userService.retrieveUsersByRole(role);
 		}*/
-}
+

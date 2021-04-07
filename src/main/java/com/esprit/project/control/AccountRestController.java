@@ -1,5 +1,6 @@
 package com.esprit.project.control;
-
+/*
+/*
 /*import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;*/
@@ -22,7 +23,7 @@ import com.esprit.project.service.IAccountService;
 //import com.esprit.project.service.IUserService;
 
 
-
+/*
 @RestController
 public class AccountRestController {
 	
@@ -91,4 +92,4 @@ public class AccountRestController {
 	public List<User> retrieveUserbybirthdateRole(@PathVariable("role") Role role) {
 	return userService.retrieveUsersByRole(role);
 		}*/
-}
+

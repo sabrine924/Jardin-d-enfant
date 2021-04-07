@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -39,6 +40,9 @@ public class Parent extends User {
 	
 	@ManyToMany(mappedBy="Parents", cascade = CascadeType.ALL)
 	private List<Event> events;
+	
+	@OneToMany(mappedBy="Parent", cascade = CascadeType.ALL)
+	private List<Post> posts;
 	
 	
 	
