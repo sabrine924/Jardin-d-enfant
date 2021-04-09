@@ -10,20 +10,20 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+//import javax.persistence.FetchType;
 //import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
+//import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.JoinColumn;
+//import javax.persistence.JoinColumn;
 
 //import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -54,6 +54,9 @@ public class Parent extends User {
 	@ManyToOne
 	Inscription inscription;
 	
+	@ManyToOne
+	KinderGarden kindergarten;
+	
 	
 	
 	
@@ -79,8 +82,8 @@ public class Parent extends User {
 	
 	
 	
-	@ManyToMany(mappedBy="cagnotteparents", cascade = CascadeType.ALL)
-	private List<Cagnotte> cagnotte;
+	/*@ManyToMany(mappedBy="cagnotteparents", cascade = CascadeType.ALL)
+	private List<Cagnotte> cagnotte;*/
 	public Parent(){
 		
 	}
@@ -130,7 +133,7 @@ public class Parent extends User {
 	public String toString() {
 		return "Parent [id=" + id + ", firstNameChild=" + firstNameChild + ", lastNameChild=" + lastNameChild + ", age="
 				+ age + ", health=" + health + ", inscription=" + inscription + ", Events=" + Events + ", comments="
-				+ comments + ", cagnotte=" + cagnotte + "]";
+				+ comments + "]";
 	}
 
 	public String getFirstNameChild() {
@@ -198,13 +201,13 @@ public class Parent extends User {
 		this.comments = comments;
 	}
 
-	public List<Cagnotte> getCagnotte() {
+/*	public List<Cagnotte> getCagnotte() {
 		return cagnotte;
 	}
 
 	public void setCagnotte(List<Cagnotte> cagnotte) {
 		this.cagnotte = cagnotte;
-	}
+	}*/
 
 
 	@Override
@@ -251,6 +254,14 @@ public class Parent extends User {
 		} else if (!lastNameChild.equals(other.lastNameChild))
 			return false;
 		return true;
+	}
+
+	public KinderGarden getKindergarten() {
+		return kindergarten;
+	}
+
+	public void setKindergarten(KinderGarden kindergarten) {
+		this.kindergarten = kindergarten;
 	}
 
 	

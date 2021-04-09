@@ -10,16 +10,18 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 //import javax.persistence.JoinTable;
-import javax.persistence.JoinTable;
+//import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 //import javax.persistence.ManyToMany;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+//import javax.persistence.JoinColumn;
+//import javax.persistence.ManyToOne;
 //import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -27,20 +29,15 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
-
-//import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-
-
+//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
 @Table( name = "T_Events")
-@JsonIgnoreProperties(  "Parents" )
+//@JsonIgnoreProperties(  "Parents" )
+//@JsonIgnoreProperties(  "kindergartens" )
 
 public class Event implements Serializable {
 
@@ -69,26 +66,26 @@ public class Event implements Serializable {
 	private String Name;
 	@Column(name="Location")
 	private String Location;
-	
-	
+	@Column(name="JackpotDonation")
+	private float JackpotDonation;
+	@Enumerated(EnumType.STRING)
+	private CategoryEvent category;
+
 	@OneToMany(mappedBy="event", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Comment> comments;
 	
 	
 
-	//@ManyToMany(mappedBy = "Events",  cascade =   CascadeType.ALL )
+	
 	@ManyToMany( cascade=  CascadeType.ALL )
-	/*@JoinTable(
-			name = "Parent_Event",
-			joinColumns =  @JoinColumn(name= "id_event") ,
-		    inverseJoinColumns =  @JoinColumn(name = "id") 
-			
-			)*/
 	@JsonIgnore
 	private List<Parent> parents;
+
+	
+	
+	@ManyToMany( cascade=  CascadeType.ALL )
 	@JsonIgnore
-	@ManyToOne
-	KinderGarden kinderGarden;
+	private List<KinderGarden> kindergartens;
 	
 	
 	//@JsonBackReference
@@ -152,10 +149,15 @@ public class Event implements Serializable {
 	public void setLocation(String location) {
 		Location = location;
 	}
-	
-	
+
+	public float getJackpotDonation() {
+		return JackpotDonation;
+	}
+	public void setJackpotDonation(float JackpotDonation) {
+		this.JackpotDonation = JackpotDonation;
+	}
 	public Event(Long idEvent, String subject, String description, int startHour, int endHour, Date date, int nbrlike,
-			String name, String location) {
+			String name, String location, float JackpotDonation, CategoryEvent category) {
 		
 		this.idEvent = idEvent;
 		this.Subject = subject;
@@ -166,6 +168,8 @@ public class Event implements Serializable {
 		this.nbrlike = nbrlike;
 		this.Name = name;
 		this.Location = location;
+		this.JackpotDonation = JackpotDonation ;
+		this.category = category;
 	}
 
     
@@ -174,7 +178,7 @@ public class Event implements Serializable {
 	}
 	
 	
-	public Event(long idEvent, String subject, String description, int startHour, int endHour, Date date, int nbrlike, String name, String location) {
+	public Event(long idEvent, String subject, String description, int startHour, int endHour, Date date, int nbrlike, String name, String location, float JackpotDonation, CategoryEvent category ) {
 		this.idEvent = idEvent;
 		this.Subject = subject;
 		this.Description = description;
@@ -184,6 +188,8 @@ public class Event implements Serializable {
 		this.nbrlike = nbrlike;
 		this.Name = name;
 		this.Location = location;
+		this.JackpotDonation = JackpotDonation ;
+		this.category = category;
 	}
 
 	
@@ -214,11 +220,18 @@ public class Event implements Serializable {
 	
 	
 
+	public List<KinderGarden> getKindergartens() {
+		return kindergartens;
+	}
+	public void setKindergartens(List<KinderGarden> kindergartens) {
+		this.kindergartens = kindergartens;
+	}
+	
 	@Override
 	public String toString() {
 		return "Event [idEvent=" + idEvent + ", Subject=" + Subject + ", Description=" + Description + ", startHour="
 				+ startHour + ", EndHour=" + EndHour + ", date=" + date + ", nbrlike=" + nbrlike + ", Name=" + Name
-				+ ", Location=" + Location + "]";
+				+ ", Location=" + Location + ", JackpotDonation=" + JackpotDonation + ", category=" + category + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -229,13 +242,14 @@ public class Event implements Serializable {
 		result = prime * result + ((Location == null) ? 0 : Location.hashCode());
 		result = prime * result + ((Name == null) ? 0 : Name.hashCode());
 		result = prime * result + ((Subject == null) ? 0 : Subject.hashCode());
+		result = prime * result + ((cagnotte == null) ? 0 : cagnotte.hashCode());
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		result = prime * result + Float.floatToIntBits(JackpotDonation);
 		result = prime * result + ((idEvent == null) ? 0 : idEvent.hashCode());
 		result = prime * result + nbrlike;
 		result = prime * result + startHour;
 		return result;
 	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -267,10 +281,17 @@ public class Event implements Serializable {
 				return false;
 		} else if (!Subject.equals(other.Subject))
 			return false;
+		if (cagnotte == null) {
+			if (other.cagnotte != null)
+				return false;
+		} else if (!cagnotte.equals(other.cagnotte))
+			return false;
 		if (date == null) {
 			if (other.date != null)
 				return false;
 		} else if (!date.equals(other.date))
+			return false;
+		if (Float.floatToIntBits(JackpotDonation) != Float.floatToIntBits(other.JackpotDonation))
 			return false;
 		if (idEvent == null) {
 			if (other.idEvent != null)
@@ -283,12 +304,12 @@ public class Event implements Serializable {
 			return false;
 		return true;
 	}
-	
-
-	
-	
-    
-	
+	public CategoryEvent getCategory() {
+		return category;
+	}
+	public void setCategory(CategoryEvent category) {
+		this.category = category;
+	}
 	
 
 	}

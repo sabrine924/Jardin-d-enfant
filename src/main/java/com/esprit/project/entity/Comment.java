@@ -32,10 +32,6 @@ public class Comment {
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Event event;
 
-	
-	
-	
-	
 
 	public Long getId() {
 		return id;

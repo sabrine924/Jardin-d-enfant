@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.esprit.project.entity.Comment;
@@ -41,4 +42,12 @@ public class CommentRestController {
 		public void removeEvent(@PathVariable("comment-id") String id) {
 			commentservice.deleteById(id);
 }
+		
+		//URL: http://localhost:9293/SpringMVC/servlet/Comment/search/?pattern=
+				/*		@GetMapping("/Comment/search/")
+						public List<Comment> commentSearch(@RequestParam("pattern")String pattern){
+							//System.out.println(pattern);
+							return commentservice.searchComments(pattern);
+						
+						}*/
 }

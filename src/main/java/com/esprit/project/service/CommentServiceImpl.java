@@ -43,6 +43,11 @@ public class CommentServiceImpl implements ICommentService {
 		commentrepository.deleteById(Long.parseLong(id));
 		
 	}
-	
+/*	@Override
+	public List<Comment> searchComments(String pattern) {
+        return commentrepository.findCommentsByTextContaining(pattern);
+	}*/
+
+
 	
 }

@@ -29,6 +29,15 @@ public class InscriptionServiceImplAddTest {
 	public void test() throws ParseException, java.text.ParseException {
 		Inscription inscription = new Inscription(1,"active");
 		inscriptionrepo.addInscription(inscription);
+		
+		Inscription inscription1 = new Inscription(2,"active");
+		inscriptionrepo.addInscription(inscription1);
+		Inscription inscription2 = new Inscription(3,"active");
+		inscriptionrepo.addInscription(inscription2);
+		Inscription inscription3 = new Inscription(4,"active");
+		inscriptionrepo.addInscription(inscription3);
+		Inscription inscription4 = new Inscription(5,"active");
+		inscriptionrepo.addInscription(inscription4);
 	}
 
 }

@@ -60,6 +60,23 @@ public class Inscription implements Serializable {
 		this.status = status;
 	}
 	
+	
+	public KinderGarden getKinderGarden() {
+		return kinderGarden;
+	}
+
+	public void setKinderGarden(KinderGarden kinderGarden) {
+		this.kinderGarden = kinderGarden;
+	}
+
+	public Set<Parent> getParents() {
+		return parents;
+	}
+
+	public void setParents(Set<Parent> parents) {
+		this.parents = parents;
+	}
+
 	public String toString(){
 		return "  id  "+ id +"  statut  "+ status;
 

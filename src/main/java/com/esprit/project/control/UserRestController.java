@@ -1,8 +1,6 @@
 package com.esprit.project.control;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -18,8 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.esprit.project.entity.User;
 import com.esprit.project.service.IUserService;
-
-
 
 @RestController
 public class UserRestController {

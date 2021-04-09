@@ -1,13 +1,13 @@
 package com.esprit.project.entity;
 
-import java.util.List;
+//import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+//import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -27,19 +27,28 @@ public class Cagnotte {
 	@Id
 	@GeneratedValue
 	private Long idCagnotte;
-	@Column(name="Amount")
-	private double Amount;
+	@Column(name="TotalAmount")
+	private double TotalAmount;
 	
-	public double getAmount() {
-		return Amount;
+	
+	public double getTotalAmount() {
+		return TotalAmount;
 	}
-	public void setAmount(float amount) {
-		Amount = amount;
+
+
+
+
+	public void setTotalAmount(double totalAmount) {
+		TotalAmount = totalAmount;
 	}
+
+
+
+
 	public Cagnotte(Long idCagnotte, double d) {
 		super();
 		this.idCagnotte = idCagnotte;
-		Amount = d;
+		TotalAmount = d;
 	}
 	
 	
@@ -56,26 +65,72 @@ public class Cagnotte {
 	@JsonIgnore
 	private Event event;
 	//@JsonIgnore
-	@ManyToMany(cascade = CascadeType.ALL)
-	private List<Parent> cagnotteparents;
+	/*@ManyToMany(cascade = CascadeType.ALL)
+	private List<Parent> cagnotteparents;*/
 	
 	
-	public List<Parent> getCagnotteparents() {
+/*	public List<Parent> getCagnotteparents() {
 		return cagnotteparents;
 	}
 	public void setCagnotteparents(List<Parent> cagnotteparents) {
 		this.cagnotteparents = cagnotteparents;
-	}
+	}*/
+	
+	
+
+
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		long temp;
-		temp = Double.doubleToLongBits(Amount);
+		temp = Double.doubleToLongBits(TotalAmount);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((idCagnotte == null) ? 0 : idCagnotte.hashCode());
 		return result;
 	}
+
+
+
+
+	public Long getIdCagnotte() {
+		return idCagnotte;
+	}
+
+
+
+
+	public void setIdCagnotte(Long idCagnotte) {
+		this.idCagnotte = idCagnotte;
+	}
+
+
+
+
+	public Event getEvent() {
+		return event;
+	}
+
+
+
+
+	public void setEvent(Event event) {
+		this.event = event;
+	}
+
+
+
+
+	@Override
+	public String toString() {
+		return "Cagnotte [idCagnotte=" + idCagnotte + ", TotalAmount=" + TotalAmount + "]";
+	}
+
+
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -85,7 +140,7 @@ public class Cagnotte {
 		if (getClass() != obj.getClass())
 			return false;
 		Cagnotte other = (Cagnotte) obj;
-		if (Double.doubleToLongBits(Amount) != Double.doubleToLongBits(other.Amount))
+		if (Double.doubleToLongBits(TotalAmount) != Double.doubleToLongBits(other.TotalAmount))
 			return false;
 		if (idCagnotte == null) {
 			if (other.idCagnotte != null)
@@ -94,7 +149,7 @@ public class Cagnotte {
 			return false;
 		return true;
 	}
-	
+
 	
 	
 	

@@ -1,11 +1,13 @@
 package com.esprit.project.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,6 +37,9 @@ public class Administrator implements Serializable {
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="administrator")
 	private Set<Account> accounts;
+	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<Reclamation> reclamation ;
 	
 	
 	public Administrator() {
@@ -94,5 +99,15 @@ public class Administrator implements Serializable {
 	public String toString(){
 		return "  cin  "+ cin +"  fisrt name  "+ firstName +"  last name  "+ lastName +"  email  "+ email +"  number  "+ number;
 	}
+
+	public List<Reclamation> getReclamation() {
+		return reclamation;
+	}
+
+	public void setReclamation(List<Reclamation> reclamation) {
+		this.reclamation = reclamation;
+	}
+
+	
 	
 }

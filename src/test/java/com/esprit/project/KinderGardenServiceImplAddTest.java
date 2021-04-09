@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.esprit.project.entity.KinderGarden;
+import com.esprit.project.entity.Parent;
 //import com.esprit.project.entity.Parent;
 import com.esprit.project.service.IKinderGardenService;
 //import com.esprit.project.service.IParentService;
@@ -26,8 +27,15 @@ public class KinderGardenServiceImplAddTest {
 	
 	@Test
 	public void test() throws ParseException, java.text.ParseException {
-		KinderGarden kinderGarden1 = new KinderGarden(1, "firstName", "lastName",22, "email", "adress",10);
+		KinderGarden kinderGarden1 = new KinderGarden(1, "kids", "study",93147141, "kidsstydy@esprit.tn", "kairouan",10);
 		kinderGarden.addKinderGarden(kinderGarden1);
+		
+		KinderGarden kinderGarden2 = new KinderGarden(1, "jouri", "kids",93147141, "jourikids@esprit.tn", "tunis",10);
+		kinderGarden.addKinderGarden(kinderGarden2);
+		
+		
+	
+		
 	}
 
 }

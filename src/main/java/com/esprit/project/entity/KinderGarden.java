@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -34,10 +35,19 @@ public class KinderGarden extends User {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="kinderGarden")
 	private Set<Inscription> inscriptions;
 	
-	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<Event> event;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="kindergarten")
+	private Set<Parent> parents;
 	
 
+	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<Reclamation> reclamation ;
+	
+	@ManyToMany(mappedBy = "kindergartens",  cascade =   CascadeType.ALL )
+    private 	List<Event>  Events;
+	
+	
 	
 	public KinderGarden(){
 		
@@ -56,10 +66,53 @@ public class KinderGarden extends User {
 		this.id = id;
 	}
 
+	
+	
+	public Set<Visitor> getVisitors() {
+		return visitors;
+	}
+
+	public void setVisitors(Set<Visitor> visitors) {
+		this.visitors = visitors;
+	}
+
+	public Set<Inscription> getInscriptions() {
+		return inscriptions;
+	}
+
+	public void setInscriptions(Set<Inscription> inscriptions) {
+		this.inscriptions = inscriptions;
+	}
+
+	public List<Reclamation> getReclamation() {
+		return reclamation;
+	}
+
+	public void setReclamation(List<Reclamation> reclamation) {
+		this.reclamation = reclamation;
+	}
+
 	@Override
 	public String toString() {
 		return "KinderGarden [id=" + id + "]";
 	}
+
+	public Set<Parent> getParents() {
+		return parents;
+	}
+
+	public void setParents(Set<Parent> parents) {
+		this.parents = parents;
+	}
+
+	public List<Event> getEvents() {
+		return Events;
+	}
+
+	public void setEvents(List<Event> events) {
+		Events = events;
+	}
+	
 	
 	
 }
