@@ -1,0 +1,30 @@
+2021-04-11 19:53:27.606  INFO 384 --- [main] c.e.project.JardinDEnfantApplication     : Starting JardinDEnfantApplication using Java 1.8.0_271 on DESKTOP-0AERG9V with PID 384 (C:\Users\user\Desktop\Jardin-d-enfant\target\classes started by user in C:\Users\user\Desktop\Jardin-d-enfant)
+2021-04-11 19:53:27.609  INFO 384 --- [main] c.e.project.JardinDEnfantApplication     : No active profile set, falling back to default profiles: default
+2021-04-11 19:53:28.618  INFO 384 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-11 19:53:28.744  INFO 384 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 116 ms. Found 12 JPA repository interfaces.
+2021-04-11 19:53:29.173  INFO 384 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2679311f' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-11 19:53:29.188  INFO 384 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-11 19:53:29.591  INFO 384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-04-11 19:53:29.603  INFO 384 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-11 19:53:29.604  INFO 384 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-11 19:53:29.724  INFO 384 --- [main] o.a.c.c.C.[.[localhost].[/SpringMVC]     : Initializing Spring embedded WebApplicationContext
+2021-04-11 19:53:29.724  INFO 384 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2068 ms
+2021-04-11 19:53:29.805  WARN 384 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-11 19:53:30.114  INFO 384 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-11 19:53:30.210  INFO 384 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.29.Final
+2021-04-11 19:53:30.472  INFO 384 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-11 19:53:30.671  INFO 384 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-11 19:53:30.974  INFO 384 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-11 19:53:30.999  INFO 384 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-04-11 19:53:32.314  INFO 384 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-11 19:53:32.322  INFO 384 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-11 19:53:32.935  INFO 384 --- [main] com.esprit.project.TwilioInitializer     : Twilio initialized ... with account sid ACcedffe08bbff66cf00f7293c985cef24 
+2021-04-11 19:53:33.783  INFO 384 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@45790cb, org.springframework.security.web.context.SecurityContextPersistenceFilter@7ac1b6c0, org.springframework.security.web.header.HeaderWriterFilter@53a09566, org.springframework.web.filter.CorsFilter@73a5d86c, org.springframework.security.web.authentication.logout.LogoutFilter@4449b273, com.esprit.project.security.jwt.AuthTokenFilter@45424c0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7fb82f73, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74a5bef0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2cf88901, org.springframework.security.web.session.SessionManagementFilter@6f655dbd, org.springframework.security.web.access.ExceptionTranslationFilter@2295566b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1280bae3]
+2021-04-11 19:53:33.854  INFO 384 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-11 19:53:33.963  WARN 384 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-04-11 19:53:34.093  INFO 384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/SpringMVC'
+2021-04-11 19:53:34.105  INFO 384 --- [main] c.e.project.JardinDEnfantApplication     : Started JardinDEnfantApplication in 6.999 seconds (JVM running for 7.979)
+2021-04-11 19:54:02.541  INFO 384 --- [http-nio-8081-exec-2] o.a.c.c.C.[.[localhost].[/SpringMVC]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-11 19:54:02.542  INFO 384 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-11 19:54:02.544  INFO 384 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-04-11 19:54:02.601 ERROR 384 --- [http-nio-8081-exec-2] c.e.p.security.jwt.AuthEntryPointJwt     : Unauthorized error: Full authentication is required to access this resource
