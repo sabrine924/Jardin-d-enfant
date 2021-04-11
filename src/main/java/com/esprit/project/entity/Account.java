@@ -30,7 +30,7 @@ public class Account implements Serializable {
 	private String password;
 	
 	@Enumerated(EnumType.STRING)
-	Role role;
+	ERole role;
 	
 	@ManyToOne
 	Administrator administrator;
@@ -42,7 +42,7 @@ public class Account implements Serializable {
 		
 	}
 	
-	public Account(long id, String login, String password, Role role) {
+	public Account(long id, String login, String password, ERole role) {
 		super();
 		this.id = id;
 		this.login = login;
@@ -74,11 +74,11 @@ public class Account implements Serializable {
 		this.password = password;
 	}
 
-	public Role getRole() {
+	public ERole getRole() {
 		return role;
 	}
 
-	public void setRole(Role role) {
+	public void setRole(ERole role) {
 		this.role = role;
 	}
 	

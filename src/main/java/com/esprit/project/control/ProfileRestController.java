@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.esprit.project.entity.Adresse;
+import com.esprit.project.entity.Preference;
 //import com.esprit.project.entity.Account;
 //import com.esprit.project.entity.Administrator;
 //import com.esprit.project.entity.Delegate;
@@ -78,29 +80,44 @@ public class ProfileRestController {
 	return profileService.updateProfile(profile);
 	}
 	
-	/*
-	/ http://localhost:8081/SpringMVC/servlet/retrive-user-jpql/{d1}/{d2}
-	@GetMapping("/retrive-user-jpql/{d1}/{d2}")
-	@ResponseBody
-	public List<User> retrieveUserbybirthdate(@PathVariable("d1") String d1,@PathVariable("d2") String d2) throws ParseException {
-	Date date1=new SimpleDateFormat("yyyy-MM-dd").parse(d1);  
-	Date date2=new SimpleDateFormat("yyyy-MM-dd").parse(d2);
-	return userService.retrieveUsersByBirthDate(date1, date2);
+	// http://localhost:8081/SpringMVC/servlet/retrieve-profileK-adress/{adress}
+		@GetMapping("/retrieve-profileK-adress/{adress}")
+		@ResponseBody
+		public List<Profile> retrieveProfileKByAdress(@PathVariable("adress") String adresse) {
+			Adresse adresse1 = Adresse.valueOf(adresse);
+			return profileService.retrieveProfileKByAdress(adresse1);
+			}
+		// http://localhost:8081/SpringMVC/servlet/retrieve-profileP-adress/{adress}
+				@GetMapping("/retrieve-profileP-adress/{adress}")
+				@ResponseBody
+				public List<Profile> retrieveProfilePByAdress(@PathVariable("adress") String adresse) {
+					Adresse adresse1 = Adresse.valueOf(adresse);
+					return profileService.retrieveProfilePByAdress(adresse1);
+					}
+		
+	// http://localhost:8081/SpringMVC/servlet/retrieve-profile-preference/{preference}
+		@GetMapping("/retrieve-profile-preference/{preference}")
+		@ResponseBody
+		public List<Profile> retrieveProfileByPreference(@PathVariable("preference") String preference) {
+			Preference preference1 = Preference.valueOf(preference);
+			return profileService.retrieveProfileByPreference(preference1);
+					
 	}
+	// http://localhost:8081/SpringMVC/servlet/retrieve-cibleprofile-adress/{adress}
+		@GetMapping("/retrieve-cibleprofile-adress/{adress}")
+		@ResponseBody
+		public List<Profile> retrieveCibleProfileByPreference(@PathVariable("adress") String adresse) {
+			Adresse adresse1 = Adresse.valueOf(adresse);
+			return profileService.retrieveCibleProfileByAdress(adresse1);
+			}
 	
-	// http://localhost:8081/SpringMVC/servlet/retrive-user-sql/{date1}/{date2}
-	@GetMapping("retrive-user-sql/{date1}/{date2}")
-	@ResponseBody
-	public List<User> retrieveUserbybirthdateSql(@PathVariable("date1") String d1,@PathVariable("date2") String d2) throws ParseException {
-	Date date1=new SimpleDateFormat("yyyy-MM-dd").parse(d1);  
-	Date date2=new SimpleDateFormat("yyyy-MM-dd").parse(d2);
-	return userService.retrieveUsersByBirthDatesql(date1, date2);
-	}
-	
-	// http://localhost:8081/SpringMVC/servlet/retrieve-user-role/{role}
-	@GetMapping("/retrieve-user-role/{role}")
-	@ResponseBody
-	public List<User> retrieveUserbybirthdateRole(@PathVariable("role") Role role) {
-	return userService.retrieveUsersByRole(role);
-		}*/
+	// http://localhost:8081/SpringMVC/servlet/retrieve-stat/{adress}
+		@GetMapping("/retrieve-stat/{adress}")
+		@ResponseBody
+		public  String StatPrefernce(@PathVariable("adress") String adresse) {
+					Adresse adresse1 = Adresse.valueOf(adresse);
+					return profileService.StatPrefernce(adresse1);
+			}
+		
+		
 }

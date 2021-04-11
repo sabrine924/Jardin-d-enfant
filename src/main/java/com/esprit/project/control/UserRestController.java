@@ -1,10 +1,13 @@
 package com.esprit.project.control;
 
-
+/*import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;*/
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,8 +17,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.esprit.project.entity.User;
 import com.esprit.project.service.IUserService;
+
+
 
 @RestController
 public class UserRestController {
@@ -23,8 +29,10 @@ public class UserRestController {
 	@Autowired 
 	IUserService userService;
 	
+	
 	// http://localhost:8081/SpringMVC/servlet/retrieve-all-users
 	@GetMapping("/retrieve-all-users")
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseBody
 	public List<User> getUsers() {
 	List<User> list = userService.retrieveAllUsers();
@@ -33,6 +41,7 @@ public class UserRestController {
 	
 	// http://localhost:8081/SpringMVC/servlet/retrieve-user/{user-id}
 	@GetMapping("/retrieve-user/{user-id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseBody
 	public Optional<User> retrieveUser(@PathVariable("user-id") String userId) {
 	return userService.retrieveUser(userId);
@@ -48,6 +57,7 @@ public class UserRestController {
 	
 	// http://localhost:8081/SpringMVC/servlet/remove-user/{user-id}
 	@DeleteMapping("/remove-user/{user-id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseBody
 	public void removeUser(@PathVariable("user-id") String userId) {
 	userService.deleteUser(userId);
@@ -55,13 +65,13 @@ public class UserRestController {
 	
 	// http://localhost:8081/SpringMVC/servlet/modify-user
 	@PutMapping("/modify-user")
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseBody
 	public User modifyUser(@RequestBody User user) {
 	return userService.updateUser(user);
 	}
-}
 	
-	/* http://localhost:8081/SpringMVC/servlet/retrive-user-jpql/{d1}/{d2}
+	/*/ http://localhost:8081/SpringMVC/servlet/retrive-user-jpql/{d1}/{d2}
 	@GetMapping("/retrive-user-jpql/{d1}/{d2}")
 	@ResponseBody
 	public List<User> retrieveUserbybirthdate(@PathVariable("d1") String d1,@PathVariable("d2") String d2) throws ParseException {
@@ -85,4 +95,5 @@ public class UserRestController {
 	public List<User> retrieveUserbybirthdateRole(@PathVariable("role") Role role) {
 	return userService.retrieveUsersByRole(role);
 		}*/
-
+	// http://localhost:8081/SpringMVC/servlet/retrieve-all-accounts
+}

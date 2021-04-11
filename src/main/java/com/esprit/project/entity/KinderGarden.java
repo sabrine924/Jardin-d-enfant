@@ -16,6 +16,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 
 
@@ -53,12 +56,39 @@ public class KinderGarden extends User {
 		
 	}
 	
-	public KinderGarden(long id, String firstName, String lastName, int phone, String email, String adress, long id2) {
-		super(id, firstName, lastName, phone, email, adress);
-		id = id2;
+	
+
+	public KinderGarden(Long id, @NotBlank @Size(max = 20) String username,
+			@NotBlank @Size(max = 50) @Email String email, @NotBlank @Size(max = 120) String password, String firstName,
+			String lastName, int phone, String adress, Set<Role> roles) {
+		super(id, username, email, password, firstName, lastName, phone, adress, roles);
+		// TODO Auto-generated constructor stub
 	}
 
-	public long getId() {
+
+
+	public KinderGarden(@NotBlank @Size(max = 20) String username, @NotBlank @Size(max = 50) @Email String email,
+			@NotBlank @Size(max = 120) String password, String firstName, String lastName, int phone, String adress) {
+		super(username, email, password, firstName, lastName, phone, adress);
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+	public KinderGarden(String username, String email, String password) {
+		super(username, email, password);
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+	public KinderGarden(int i, String string, String string2, int j, String string3, String string4, int k) {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+	public Long getId() {
 		return id;
 	}
 

@@ -6,6 +6,7 @@ package com.esprit.project.entity;
 import java.util.List;
 //import java.util.Set;
 //import java.util.Set;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -20,6 +21,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 //import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -88,14 +92,7 @@ public class Parent extends User {
 		
 	}
 	
-	public Parent(long idParent, String firstName, String lastName, int phone, String email, String adress,
-			String firstNameChild, String lastNameChild, String age, String health) {
-		super(idParent, firstName, lastName, phone, email, adress);
-		this.firstNameChild = firstNameChild;
-		this.lastNameChild = lastNameChild;
-		this.age = age;
-		this.health = health;
-	}
+	
 
 	
 
@@ -110,6 +107,45 @@ public class Parent extends User {
 	}*/
 	
 	
+
+
+	public Parent(Long id, @NotBlank @Size(max = 20) String username, @NotBlank @Size(max = 50) @Email String email,
+			@NotBlank @Size(max = 120) String password, String firstName, String lastName, int phone, String adress,
+			Set<Role> roles) {
+		super(id, username, email, password, firstName, lastName, phone, adress, roles);
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
+	public Parent(@NotBlank @Size(max = 20) String username, @NotBlank @Size(max = 50) @Email String email,
+			@NotBlank @Size(max = 120) String password, String firstName, String lastName, int phone, String adress) {
+		super(username, email, password, firstName, lastName, phone, adress);
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
+	public Parent(String username, String email, String password) {
+		super(username, email, password);
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
+	public Parent(int i, String string, String string2, int j, String string3, String string4, String string5,
+			String string6, String string7, String string8) {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 
 
 	public long getid() {

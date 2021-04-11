@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,8 +25,8 @@ public class Profile implements Serializable {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name="Number_Employees")
-	private int numberemployes;
+	@Column(name="Number_Childs")
+	private int numberchilds;
 	
 	@Temporal(TemporalType.DATE)
 	private Date datecreaction;
@@ -33,10 +35,15 @@ public class Profile implements Serializable {
 	private int phone;
 	
 	@Column(name="Adress")
-	private String adress;
+	@Enumerated(EnumType.STRING)
+	private Adresse adress;
 
 	@Column(name="Location")
 	private String location;
+	
+	@Column(name="Preference")
+	@Enumerated(EnumType.STRING)
+	private Preference prefernce;
 
 	@OneToOne
 	private User user;
@@ -45,30 +52,43 @@ public class Profile implements Serializable {
 	public Profile(){
 		
 	}
-	public Profile(long id, int numberemployes, Date datecreaction, int phone, String adress, String location) {
+	public Profile(long id, int numberchilds, Date datecreaction, int phone, Adresse adress, String location) {
 		super();
 		this.id = id;
-		this.numberemployes = numberemployes;
+		this.numberchilds = numberchilds;
 		this.datecreaction = datecreaction;
 		this.phone = phone;
 		this.adress = adress;
 		this.location = location;
 	}
+	
+	
 
-	public long getid() {
+	public Profile(long id, int numberchilds, Date datecreaction, int phone, Adresse adress, String location,
+			Preference preferncer) {
+		super();
+		this.id = id;
+		this.numberchilds = numberchilds;
+		this.datecreaction = datecreaction;
+		this.phone = phone;
+		this.adress = adress;
+		this.location = location;
+		this.prefernce = prefernce;
+	}
+	public long getId() {
 		return id;
 	}
 
-	public void setid(long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public int getNumberemployes() {
-		return numberemployes;
+	public int getNumberchilds() {
+		return numberchilds;
 	}
 
-	public void setNumberemployes(int numberemployes) {
-		this.numberemployes = numberemployes;
+	public void setNumberchilds(int numberchilds) {
+		this.numberchilds = numberchilds;
 	}
 
 	public Date getDatecreaction() {
@@ -87,11 +107,11 @@ public class Profile implements Serializable {
 		this.phone = phone;
 	}
 
-	public String getAdress() {
+	public Adresse getAdress() {
 		return adress;
 	}
 
-	public void setAdress(String adress) {
+	public void setAdress(Adresse adress) {
 		this.adress = adress;
 	}
 
@@ -102,7 +122,23 @@ public class Profile implements Serializable {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+	public Preference getPrefernce() {
+		return prefernce;
+	}
+	public void setPrefernce(Preference prefernce) {
+		this.prefernce = prefernce;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	
-	
+	public String toString(){
+		return "id :" +id +"phone :" +phone+"adress :" +adress+"prefernce :" +prefernce;
+		
+	}
+
 	
 }
