@@ -29,5 +29,7 @@ public interface IEventService {
 	Event findbyId(long id);
 	List<Event> filterByCategory(CategoryEvent category);
 	String affecterCategoryEvent(String category, long idEvent);
+	// public List<Event> listAll( );
+	List<Event> upcomeEvents();
 
 }

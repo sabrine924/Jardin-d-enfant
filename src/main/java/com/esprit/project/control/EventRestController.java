@@ -3,14 +3,20 @@ package com.esprit.project.control;
 
 
 
+import java.io.IOException;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
+
 import com.esprit.project.service.Service;
 //import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,6 +25,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
 //import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,12 +38,14 @@ import com.esprit.project.entity.KinderGarden;
 import com.esprit.project.entity.Parent;
 //import com.esprit.project.entity.Parent;
 import com.esprit.project.entity.User;
-import com.esprit.project.service.EventServiceImpl;
+import com.esprit.project.service.EventPDFExporter;
+
 import com.esprit.project.service.IEventService;
 import com.esprit.project.service.IKinderGardenService;
 import com.esprit.project.service.IParentService;
 import com.esprit.project.service.IUserService;
 import com.esprit.project.service.SmsRequest;
+import com.lowagie.text.DocumentException;
 
 
 @RestController
@@ -52,6 +61,8 @@ public class EventRestController {
 	IUserService us ;
 	@Autowired  
 	IKinderGardenService  ks;
+	 
+	
 	
      
 	//http://localhost:8081/SpringMVC/servlet/retrieve-all-events
@@ -129,17 +140,19 @@ public class EventRestController {
 			@PathVariable("id") Long  id,
 			@PathVariable("idEvent") Long idEvent) {
 		eventService.parentJoinEvent(idEvent, id);
-		Optional<User> p = us.retrieveUser(id+"");
-		if(p.isPresent()){
+		Optional<User> u = us.retrieveUser(id+"");
+		Optional<Parent> p =  parentService.retrieveParent(id);
+		if(u.isPresent()){
 			Optional<Event> e = eventService.retrieveEvents(idEvent+"");
 			if(e.isPresent()){
-				User parent = p.get() ;
+				User user = u.get() ;
+				Parent parent = p.get();
 				Event event = e.get();
-				String message = "Bonjour Mr/Mme "+parent.getLastName()+" "+parent.getFirstName() + "  " + " \n Vous etes  inscrit  a l'evenemement  "+ " " +event.getName()
+				String message = "Bonjour Mr/Mme "+user.getFirstName()+" "+user.getLastName() + "  " + " \n Vous etes  inscrit  a l'evenemement  "+ " " +event.getName()
 						+ " localise a "+ " "+ event.getLocation()+" a "+ " "+event.getStartHour()+"h" + "    "+ "." + "Le prix de ticket vaut "+event.getJackpotDonation()+" dt";
 				SmsRequest smsRequest = new SmsRequest("+216"+parent.getPhone(), message);
 				System.out.println(smsRequest);
-				//service.sendSms(smsRequest);
+				service.sendSms(smsRequest);
 				
 			}
 			
@@ -245,6 +258,31 @@ public class EventRestController {
 					return eventService.affecterCategoryEvent(category, idEvent);
 					
 		}
-
+		//http://localhost:8081/SpringMVC/servlet/events/export/pdf
+		   @GetMapping("/events/export/pdf")
+		    public void exportToPDF(HttpServletResponse response) throws DocumentException, IOException, ParseException {
+		        response.setContentType("application/pdf");
+		        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+		        String currentDateTime = dateFormatter.format(new Date());
+		        String headerKey = "Content-Disposition";
+		        String headerValue = "attachment; filename=events_" + currentDateTime + ".pdf";
+		        response.setHeader(headerKey, headerValue);
+		         System.out.println("here we are ");
+		        List<Event> listEvents = eventService.retrieveAllEvents();
+		        EventPDFExporter exporter = new EventPDFExporter(listEvents);
+		        System.out.println("here we are?");
+		        exporter.export(response);
+		         
+		    }
+		 //http://localhost:8081/SpringMVC/servlet/event/upcomingEvent
+		   @GetMapping("/event/upcomingEvent")
+			public List<Event> upcomingEvents() {
+				List<Event> upevents = eventService.upcomeEvents();
+				System.out.println("hi="+upevents);
+				return upevents;
+			}
+			
+			
+		
 
 }

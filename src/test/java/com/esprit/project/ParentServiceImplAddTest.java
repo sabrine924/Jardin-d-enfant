@@ -24,17 +24,17 @@ public class ParentServiceImplAddTest {
 	
 	@Test
 	public void test() throws ParseException, java.text.ParseException {
-		Parent parent1 = new Parent(1,"lamis","zaghdoudi",93147141,"c", "saine",
-				"e", "f", "5", "g");
+		Parent parent1 = new Parent(1,"sabrine","hmidi",93147141,"sabrine.hmidi@esprit.tn", "kairouan",
+				"lamis", "zaghdoudi", "5", "s");
 		parent.addParent(parent1);
-		parent1 = new Parent(2,"aziz","abdi",93147141,"c", "sain",
-				"e", "f", "5", "g");
+		parent1 = new Parent(2,"oumayma","benrhayem",93147141,"oumayma.benrhaiem@esprit.tn", "Nabeul",
+				"jouri", "zaghdoudi", "5", "s");
 		parent.addParent(parent1);
-		parent1 = new Parent(3,"jouri","zaghdoudi",93147141,"saine", "d",
-				"e", "f", "5", "g");
+		parent1 = new Parent(3,"maryem","Gomri",93147141,"maryem.gomri@esprit.tn", "Tunis",
+				"aziz", "abidi", "5", "s");
 		parent.addParent(parent1);
-		parent1 = new Parent(4,"saja","abidi",93147141,"saine", "d",
-				"e", "f", "5", "g");
+		parent1 = new Parent(4,"hechmi","abidi",93147141,"hechmi.abidi@gmail.com", "SidiBouzid",
+				"saja", "abidi", "5", "s");
 		parent.addParent(parent1);
 	}
 

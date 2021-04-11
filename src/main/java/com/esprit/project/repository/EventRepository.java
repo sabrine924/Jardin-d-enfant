@@ -5,6 +5,7 @@ package com.esprit.project.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -28,7 +29,12 @@ public interface EventRepository extends  CrudRepository<Event, Long > {
 	
 
 	@Query(value ="SELECT ev FROM Event ev WHERE ev.category = :category")
-	List<Event> filterByCategory(@Param("category") CategoryEvent category);	
+	List<Event> filterByCategory(@Param("category") CategoryEvent category);
+
+	List<Event> findAll(Sort ascending);
+
+	@Query("SELECT ev FROM Event ev WHERE ev.date >= CURRENT_DATE()")
+	public List<Event> upcomingEvents();	
 
 	
 

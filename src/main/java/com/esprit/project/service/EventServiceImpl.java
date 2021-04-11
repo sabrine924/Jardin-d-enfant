@@ -23,6 +23,8 @@ import com.esprit.project.repository.CagnotteRepository;
 import com.esprit.project.repository.EventRepository;
 import com.esprit.project.repository.KinderGardenRepository;
 import com.esprit.project.repository.ParentRepository;
+import org.springframework.data.domain.Sort;
+
 
 
 
@@ -43,6 +45,14 @@ public class EventServiceImpl implements IEventService {
 	@Autowired 
 	com.esprit.project.service.Service service;
 	private static final Logger L = LogManager.getLogger(EventServiceImpl.class);
+	
+	
+	 
+	     
+	   /* public List<Event> listAll() {
+	        return eventRepository.findAll(Sort.by("Description").ascending());
+	    }*/
+	     
 	
 
 	@Override
@@ -343,7 +353,15 @@ public class EventServiceImpl implements IEventService {
 		}
 		return msg;
 	}
-
+   
+	
+	
+	@Override
+	public List<Event> upcomeEvents() {
+		List<Event> list= eventRepository.upcomingEvents();
+		
+		return list;	
+			}
 	
 }
 

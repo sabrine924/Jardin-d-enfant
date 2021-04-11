@@ -43,11 +43,12 @@ public class CommentRestController {
 			commentservice.deleteById(id);
 }
 		
-		//URL: http://localhost:9293/SpringMVC/servlet/Comment/search/?pattern=
-				/*		@GetMapping("/Comment/search/")
-						public List<Comment> commentSearch(@RequestParam("pattern")String pattern){
-							//System.out.println(pattern);
-							return commentservice.searchComments(pattern);
-						
-						}*/
+		
+		//http://localhost:8081/SpringMVC/servlet/Comment/comments-by-event/{idEvent}
+		@GetMapping("/Comment/comments-by-event/{idEvent}")
+		public List<Comment> getCommentsByPost(@PathVariable("idEvent") long idEvent) {
+			return commentservice.getCommentsByEventId(idEvent);
+
+		}
+
 }

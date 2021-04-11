@@ -74,9 +74,6 @@ public class Event implements Serializable {
 	@OneToMany(mappedBy="event", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Comment> comments;
 	
-	
-
-	
 	@ManyToMany( cascade=  CascadeType.ALL )
 	@JsonIgnore
 	private List<Parent> parents;
@@ -91,6 +88,8 @@ public class Event implements Serializable {
 	//@JsonBackReference
 	@OneToOne
 	private Cagnotte cagnotte;
+	
+
 
 	
 	public Long getidEvent() {

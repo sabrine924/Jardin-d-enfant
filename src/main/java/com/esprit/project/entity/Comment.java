@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity
@@ -30,6 +32,7 @@ public class Comment {
      private List<Parent> parents;
      
 	@ManyToOne(fetch=FetchType.LAZY)
+	@JsonIgnore
 	private Event event;
 
 
