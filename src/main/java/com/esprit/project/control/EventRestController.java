@@ -234,6 +234,9 @@ public class EventRestController {
 			 Event ev =  eventService.findEventByName(name);
 			return ev;
 			}
+		
+		
+		
 		//http://localhost:8081/SpringMVC/servlet/event/getEventsBetweenTwoDates/{date1}/{date2}
 		@GetMapping("/event/getEventsBetweenTwoDates/{date1}/{date2}")
 		public List<String> getEventBetweenTwoDates(@PathVariable("date1")String date1,@PathVariable("date2")String date2) throws java.text.ParseException {
@@ -243,12 +246,18 @@ public class EventRestController {
 			Date date2Converted = dateFormat.parse(date2);
 			return eventService.getEventTwoDatesBeetween(date1Converted,date2Converted);
 		}
+		
+		
+		
 		//http://localhost:8081/SpringMVC/servlet/event/retrieve-Event-ByCategory/{category}
 		@GetMapping("/event/retrieve-Event-ByCategory/{category}")
 		public List<Event> getEventByCategory(@PathVariable CategoryEvent category) {
 			 List<Event> ev = eventService.filterByCategory(category);
 			return ev;
 			}
+		
+		
+		
 		
 		//http://localhost:8081/SpringMVC/servlet/event/affecter-category-event/{category}/{idevent}
 		@PutMapping("/event/affecter-category-event/{category}/{idevent}")  
@@ -258,6 +267,9 @@ public class EventRestController {
 					return eventService.affecterCategoryEvent(category, idEvent);
 					
 		}
+		
+		
+		
 		//http://localhost:8081/SpringMVC/servlet/events/export/pdf
 		   @GetMapping("/events/export/pdf")
 		    public void exportToPDF(HttpServletResponse response) throws DocumentException, IOException, ParseException {
@@ -274,6 +286,8 @@ public class EventRestController {
 		        exporter.export(response);
 		         
 		    }
+		   
+		   
 		 //http://localhost:8081/SpringMVC/servlet/event/upcomingEvent
 		   @GetMapping("/event/upcomingEvent")
 			public List<Event> upcomingEvents() {
