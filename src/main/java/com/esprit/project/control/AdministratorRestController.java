@@ -2,7 +2,7 @@ package com.esprit.project.control;
 
 /*import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;*/
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +21,7 @@ import com.esprit.project.entity.Administrator;
 //import com.esprit.project.entity.User;
 //import com.esprit.project.service.IAccountService;
 import com.esprit.project.service.IAdministratorService;
-//import com.esprit.project.service.IUserService;
+import com.esprit.project.service.IUserService;
 
 
 
@@ -68,7 +68,7 @@ public class AdministratorRestController {
 	return administratorService.updateAdministrator(administrator);
 	}
 	
-	/*
+	
 	/ http://localhost:8081/SpringMVC/servlet/retrive-user-jpql/{d1}/{d2}
 	@GetMapping("/retrive-user-jpql/{d1}/{d2}")
 	@ResponseBody
@@ -92,5 +92,6 @@ public class AdministratorRestController {
 	@ResponseBody
 	public List<User> retrieveUserbybirthdateRole(@PathVariable("role") Role role) {
 	return userService.retrieveUsersByRole(role);
-		}*/
+		}
 }
+*/

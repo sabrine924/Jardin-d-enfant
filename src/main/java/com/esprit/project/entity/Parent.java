@@ -2,14 +2,20 @@ package com.esprit.project.entity;
 
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -19,9 +25,9 @@ import javax.persistence.Table;
 public class Parent extends User {
 	private static final long serialVersionUID = 1l;
 	
-	/*@Id
+	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private long id;*/
+	private long id;
 	@Column(name="First_Name_Child")
 	private String firstNameChild;
 	
@@ -37,10 +43,13 @@ public class Parent extends User {
 	@ManyToOne
 	Inscription inscription;
 	
-	@ManyToMany(mappedBy="Parents", cascade = CascadeType.ALL)
+	@ManyToMany( cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<Event> events;
 	
-	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Set<Offre> OffreParent;
 	
 	public Parent(){
 		
@@ -70,7 +79,7 @@ public class Parent extends User {
 
 
 
-	/*public long getId() {
+public long getId() {
 		return id;
 	}
 
@@ -78,15 +87,16 @@ public class Parent extends User {
 
 	public void setId(long id) {
 		this.id = id;
-	}*/
+	}
 
+	
 
 
 	public String getFirstNameChild() {
 		return firstNameChild;
 	}
 
-
+	
 	public void setFirstNameChild(String firstNameChild) {
 		this.firstNameChild = firstNameChild;
 	}
@@ -137,6 +147,25 @@ public class Parent extends User {
 
 	public void setEvents(List<Event> events) {
 		this.events = events;
+	}
+
+	public List<Offre> getOffres() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+	public Set<Offre> getOffreParent() {
+		return OffreParent;
+	}
+
+	public void setOffreParent(Set<Offre> offreParent) {
+		OffreParent = offreParent;
+	}
+
+	public List<Offre> getOffres1() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

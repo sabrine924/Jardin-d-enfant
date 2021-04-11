@@ -3,7 +3,7 @@ package com.esprit.project.control;
 /*import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;*/
-import java.util.List;
+/*import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.esprit.project.entity.Account;
 //import com.esprit.project.entity.User;
 import com.esprit.project.service.IAccountService;
-//import com.esprit.project.service.IUserService;
+import com.esprit.project.service.IUserService;
 
 
-
+/*
 @RestController
 public class AccountRestController {
 	
@@ -35,8 +35,8 @@ public class AccountRestController {
 	public List<Account> getAccounts() {
 	List<Account> list = accountService.retrieveAllAccounts();
 	return list;
-	}
-	
+	}*/
+	/*
 	// http://localhost:8081/SpringMVC/servlet/retrieve-account/{account-id}
 	@GetMapping("/retrieve-account/{account-id}")
 	@ResponseBody
@@ -65,18 +65,18 @@ public class AccountRestController {
 	public Account modifyAccount(@RequestBody Account account) {
 	return accountService.updateAccount(account);
 	}
+	*/
 	
-	/*
-	/ http://localhost:8081/SpringMVC/servlet/retrive-user-jpql/{d1}/{d2}
+	/*http:localhost:8081/SpringMVC/servlet/retrive-user-jpql/{d1}/{d2}
 	@GetMapping("/retrive-user-jpql/{d1}/{d2}")
 	@ResponseBody
 	public List<User> retrieveUserbybirthdate(@PathVariable("d1") String d1,@PathVariable("d2") String d2) throws ParseException {
 	Date date1=new SimpleDateFormat("yyyy-MM-dd").parse(d1);  
 	Date date2=new SimpleDateFormat("yyyy-MM-dd").parse(d2);
 	return userService.retrieveUsersByBirthDate(date1, date2);
-	}
+	}*/
 	
-	// http://localhost:8081/SpringMVC/servlet/retrive-user-sql/{date1}/{date2}
+	/*// http://localhost:8081/SpringMVC/servlet/retrive-user-sql/{date1}/{date2}
 	@GetMapping("retrive-user-sql/{date1}/{date2}")
 	@ResponseBody
 	public List<User> retrieveUserbybirthdateSql(@PathVariable("date1") String d1,@PathVariable("date2") String d2) throws ParseException {
@@ -90,5 +90,5 @@ public class AccountRestController {
 	@ResponseBody
 	public List<User> retrieveUserbybirthdateRole(@PathVariable("role") Role role) {
 	return userService.retrieveUsersByRole(role);
-		}*/
-}
+		}
+}*/

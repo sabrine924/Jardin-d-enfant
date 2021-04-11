@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 @Entity
@@ -37,16 +39,43 @@ public class KinderGarden extends User {
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Event> event;
 	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JsonIgnore
+	 private List<Offre> offres;
 
 	
+	@Override
+	public String toString() {
+		return "KinderGarden [id=" + id + "]";
+	}
+
+
+
+	public KinderGarden(long id, Set<Visitor> visitors, Set<Inscription> inscriptions, List<Event> event,
+			List<Offre> offres) {
+		super();
+		this.id = id;
+		this.visitors = visitors;
+		this.inscriptions = inscriptions;
+		this.event = event;
+		this.offres = offres;
+	}
+	
+
+	
+
+	public KinderGarden(long id, String firstName, String lastName, int phone, String email, String adress) {
+		super(id, firstName, lastName, phone, email, adress);
+		this.id = id;
+	}
+
+
+
 	public KinderGarden(){
 		
 	}
 	
-	public KinderGarden(long id, String firstName, String lastName, int phone, String email, String adress, long id2) {
-		super(id, firstName, lastName, phone, email, adress);
-		id = id2;
-	}
+	
 
 	public long getId() {
 		return id;
@@ -56,10 +85,40 @@ public class KinderGarden extends User {
 		this.id = id;
 	}
 
-	@Override
-	public String toString() {
-		return "KinderGarden [id=" + id + "]";
+
+
+	public Set<Visitor> getVisitors() {
+		return visitors;
 	}
+
+	public void setVisitors(Set<Visitor> visitors) {
+		this.visitors = visitors;
+	}
+
+	public Set<Inscription> getInscriptions() {
+		return inscriptions;
+	}
+
+	public void setInscriptions(Set<Inscription> inscriptions) {
+		this.inscriptions = inscriptions;
+	}
+
+	public List<Event> getEvent() {
+		return event;
+	}
+
+	public void setEvent(List<Event> event) {
+		this.event = event;
+	}
+	
+	public List<Offre> getOffres() {
+		return offres;
+	}
+
+	public void setOffres(List<Offre> offres) {
+		this.offres = offres;
+	}
+	
 	
 	
 }
