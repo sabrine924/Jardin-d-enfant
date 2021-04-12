@@ -27,4 +27,5 @@ public interface IProfileService {
 	List<Profile> retrieveCibleProfileByAdress(Adresse adresse);
 	String StatPrefernce(Adresse adresse);
 	List<Profile> retrieveProfilePByAdress(Adresse adresse);
+	void affecterProfileAUser(int profileId, int userId);
 }

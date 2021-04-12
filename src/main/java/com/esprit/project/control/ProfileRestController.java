@@ -119,5 +119,12 @@ public class ProfileRestController {
 					return profileService.StatPrefernce(adresse1);
 			}
 		
+		// http://localhost:8081/SpringMVC/servlet/affect-profile-user/{idprofile}/{iduser}
+				@PutMapping("/affect-profile-user/{idprofile}/{iduser}")
+				//@ResponseBody
+				public void affecterProfileAUser(@PathVariable("idprofile")int profileId,@PathVariable("iduser") int userId){
+					profileService.affecterProfileAUser(profileId, userId);
+				}
+		
 		
 }

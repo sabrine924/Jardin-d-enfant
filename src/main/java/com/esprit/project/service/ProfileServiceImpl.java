@@ -12,8 +12,10 @@ import com.esprit.project.entity.Adresse;
 import com.esprit.project.entity.Preference;
 //import com.esprit.project.entity.Administrator;
 import com.esprit.project.entity.Profile;
+import com.esprit.project.entity.User;
 //import com.esprit.project.repository.AdministratorRepository;
 import com.esprit.project.repository.ProfileRepository;
+import com.esprit.project.repository.UserRepository;
 
 
 
@@ -24,6 +26,9 @@ public class ProfileServiceImpl implements IProfileService{
 	
 	@Autowired
 	private ProfileRepository profileRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
 	
 	private static final Logger l = LogManager.getLogger(ProfileServiceImpl.class);
 	
@@ -115,6 +120,14 @@ public class ProfileServiceImpl implements IProfileService{
 	
 	}
 
-	
+	@Override
+	public void affecterProfileAUser(int profileId, int userId) {
+		Profile profile = profileRepository.findById((long) profileId).get();
+		User user = userRepository.findById((long) userId).get();
+		profile.setUser(user);
+		user.setProfile(profile);
+		profileRepository.save(profile);
+		userRepository.save(user);
+	}
 
 }

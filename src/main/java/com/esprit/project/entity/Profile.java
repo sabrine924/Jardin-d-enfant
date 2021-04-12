@@ -48,7 +48,6 @@ public class Profile implements Serializable {
 	@OneToOne
 	private User user;
 	
-	
 	public Profile(){
 		
 	}

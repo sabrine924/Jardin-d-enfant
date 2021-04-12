@@ -167,6 +167,15 @@ public class User {
 		this.adress = adress;
 	}
 	
+	
+	public Profile getProfile() {
+		return profile;
+	}
+
+	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
+
 	public String toString(){
 		return "id :" + id +"firstName :" + firstName +"lastName :"+ lastName +"phone :" +phone +"adress :"+adress;
 	}
