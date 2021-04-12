@@ -24,12 +24,12 @@ public class Comment {
 	
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Long idComment;
 	@Column(name="content")
 	private String content;
 	
-     @ManyToMany(mappedBy="comments", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-     private List<Parent> parents;
+     @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+     private Parent parents;
      
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonIgnore
@@ -37,18 +37,19 @@ public class Comment {
 
 
 	public Long getId() {
-		return id;
+		return idComment;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(Long idComment) {
+		this.idComment = idComment;
 	}
 
-	public List<Parent> getParents() {
+
+	public Parent getParents() {
 		return parents;
 	}
 
-	public void setParents(List<Parent> parents) {
+	public void setParents(Parent parents) {
 		this.parents = parents;
 	}
 
@@ -76,14 +77,14 @@ public class Comment {
 	}
 
 
-	public Comment(Long id, String content) {
-		this.id = id;
+	public Comment(Long idComment, String content) {
+		this.idComment = idComment;
 		this.content = content;
 	}
 
 	@Override
 	public String toString() {
-		return "Comment [id=" + id + ", content=" + content + "]";
+		return "Comment [idComment=" + idComment+ ", content=" + content + "]";
 	}
 
 	

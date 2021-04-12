@@ -1,6 +1,7 @@
 package com.esprit.project.control;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -8,11 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.esprit.project.entity.Comment;
 import com.esprit.project.service.ICommentService;
+
 
 @RestController
 public class CommentRestController {
@@ -49,6 +50,17 @@ public class CommentRestController {
 		public List<Comment> getCommentsByPost(@PathVariable("idEvent") long idEvent) {
 			return commentservice.getCommentsByEventId(idEvent);
 
+		}
+		
+		//http://localhost:8081/SpringMVC/servlet/parents/{id}/comments/{idComment}
+		@PostMapping( "/parents/{id}/comments/{idComment}")
+		@ResponseBody
+		public void   parentCommentEvent(
+				@PathVariable("idComment") Long  idComment,
+				@PathVariable("id") Long id)   {
+			commentservice.parentCommentEvent(idComment, id);
+			
+			
 		}
 
 }

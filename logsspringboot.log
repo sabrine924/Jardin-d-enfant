@@ -1,62 +1,64 @@
-2021-04-11 19:53:27.606  INFO 384 --- [main] c.e.project.JardinDEnfantApplication     : Starting JardinDEnfantApplication using Java 1.8.0_271 on DESKTOP-0AERG9V with PID 384 (C:\Users\user\Desktop\Jardin-d-enfant\target\classes started by user in C:\Users\user\Desktop\Jardin-d-enfant)
-2021-04-11 19:53:27.609  INFO 384 --- [main] c.e.project.JardinDEnfantApplication     : No active profile set, falling back to default profiles: default
-2021-04-11 19:53:28.618  INFO 384 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-04-11 19:53:28.744  INFO 384 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 116 ms. Found 12 JPA repository interfaces.
-2021-04-11 19:53:29.173  INFO 384 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2679311f' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-04-11 19:53:29.188  INFO 384 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-04-11 19:53:29.591  INFO 384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2021-04-11 19:53:29.603  INFO 384 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-04-11 19:53:29.604  INFO 384 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
-2021-04-11 19:53:29.724  INFO 384 --- [main] o.a.c.c.C.[.[localhost].[/SpringMVC]     : Initializing Spring embedded WebApplicationContext
-2021-04-11 19:53:29.724  INFO 384 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2068 ms
-2021-04-11 19:53:29.805  WARN 384 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-04-11 19:53:30.114  INFO 384 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-04-11 19:53:30.210  INFO 384 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.29.Final
-2021-04-11 19:53:30.472  INFO 384 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-04-11 19:53:30.671  INFO 384 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-04-11 19:53:30.974  INFO 384 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-04-11 19:53:30.999  INFO 384 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2021-04-11 19:53:32.314  INFO 384 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-04-11 19:53:32.322  INFO 384 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-04-11 19:53:32.935  INFO 384 --- [main] com.esprit.project.TwilioInitializer     : Twilio initialized ... with account sid ACcedffe08bbff66cf00f7293c985cef24 
-2021-04-11 19:53:33.783  INFO 384 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@45790cb, org.springframework.security.web.context.SecurityContextPersistenceFilter@7ac1b6c0, org.springframework.security.web.header.HeaderWriterFilter@53a09566, org.springframework.web.filter.CorsFilter@73a5d86c, org.springframework.security.web.authentication.logout.LogoutFilter@4449b273, com.esprit.project.security.jwt.AuthTokenFilter@45424c0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7fb82f73, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74a5bef0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2cf88901, org.springframework.security.web.session.SessionManagementFilter@6f655dbd, org.springframework.security.web.access.ExceptionTranslationFilter@2295566b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1280bae3]
-2021-04-11 19:53:33.854  INFO 384 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-04-11 19:53:33.963  WARN 384 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
-2021-04-11 19:53:34.093  INFO 384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/SpringMVC'
-2021-04-11 19:53:34.105  INFO 384 --- [main] c.e.project.JardinDEnfantApplication     : Started JardinDEnfantApplication in 6.999 seconds (JVM running for 7.979)
-2021-04-11 19:54:02.541  INFO 384 --- [http-nio-8081-exec-2] o.a.c.c.C.[.[localhost].[/SpringMVC]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-04-11 19:54:02.542  INFO 384 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-04-11 19:54:02.544  INFO 384 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2021-04-11 19:54:02.601 ERROR 384 --- [http-nio-8081-exec-2] c.e.p.security.jwt.AuthEntryPointJwt     : Unauthorized error: Full authentication is required to access this resource
-2021-04-11 20:08:41.387 ERROR 384 --- [http-nio-8081-exec-5] c.e.p.security.jwt.AuthEntryPointJwt     : Unauthorized error: Full authentication is required to access this resource
-2021-04-11 20:09:26.472  INFO 384 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2021-04-11 20:09:26.825  INFO 384 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-04-11 20:09:26.831  INFO 384 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-04-11 20:09:26.834  INFO 384 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-04-11 20:09:26.847  INFO 384 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-04-11 20:12:35.518  INFO 8832 --- [main] c.e.project.JardinDEnfantApplication     : Starting JardinDEnfantApplication using Java 1.8.0_271 on DESKTOP-0AERG9V with PID 8832 (C:\Users\user\Desktop\Jardin-d-enfant\target\classes started by user in C:\Users\user\Desktop\Jardin-d-enfant)
-2021-04-11 20:12:35.521  INFO 8832 --- [main] c.e.project.JardinDEnfantApplication     : No active profile set, falling back to default profiles: default
-2021-04-11 20:12:36.265  INFO 8832 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-04-11 20:12:36.382  INFO 8832 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 105 ms. Found 13 JPA repository interfaces.
-2021-04-11 20:12:37.192  INFO 8832 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2021-04-11 20:12:37.201  INFO 8832 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-04-11 20:12:37.202  INFO 8832 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
-2021-04-11 20:12:37.301  INFO 8832 --- [main] o.a.c.c.C.[.[localhost].[/SpringMVC]     : Initializing Spring embedded WebApplicationContext
-2021-04-11 20:12:37.301  INFO 8832 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1734 ms
-2021-04-11 20:12:37.610  INFO 8832 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-04-11 20:12:37.667  INFO 8832 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.29.Final
-2021-04-11 20:12:37.827  INFO 8832 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-04-11 20:12:37.940  INFO 8832 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-04-11 20:12:38.172  INFO 8832 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-04-11 20:12:38.187  INFO 8832 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2021-04-11 20:12:39.608  INFO 8832 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-04-11 20:12:39.616  INFO 8832 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-04-11 20:12:39.629  INFO 8832 --- [main] com.esprit.project.TwilioInitializer     : Twilio initialized ... with account sid ACcedffe08bbff66cf00f7293c985cef24 
-2021-04-11 20:12:40.455  WARN 8832 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-04-11 20:12:40.622  INFO 8832 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-04-11 20:12:40.853  WARN 8832 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
-2021-04-11 20:12:40.972  INFO 8832 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/SpringMVC'
-2021-04-11 20:12:40.985  INFO 8832 --- [main] c.e.project.JardinDEnfantApplication     : Started JardinDEnfantApplication in 5.946 seconds (JVM running for 6.997)
-2021-04-11 20:12:45.948  INFO 8832 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/SpringMVC]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-04-11 20:12:45.948  INFO 8832 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-04-11 20:12:45.953  INFO 8832 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2021-04-12 01:37:07.684  INFO 1476 --- [http-nio-8081-exec-4] c.e.project.service.UserServiceImpl      : user :Optional[KinderGarden [id=5]]
+2021-04-12 01:37:07.689  INFO 1476 --- [http-nio-8081-exec-4] c.e.project.service.ParentServiceImpl    : Parent :Optional.empty
+2021-04-12 01:37:07.693 ERROR 1476 --- [http-nio-8081-exec-4] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/SpringMVC] threw exception [Request processing failed; nested exception is java.util.NoSuchElementException: No value present] with root cause
+
+java.util.NoSuchElementException: No value present
+	at java.util.Optional.get(Optional.java:135) ~[na:1.8.0_271]
+	at com.esprit.project.control.EventRestController.parentJoinEvent(EventRestController.java:146) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_271]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_271]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_271]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_271]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) ~[tomcat-embed-core-9.0.44.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.44.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_271]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_271]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_271]
+
+2021-04-12 01:37:25.824  INFO 1476 --- [http-nio-8081-exec-6] c.e.project.service.UserServiceImpl      : user :Optional[Parent [id=1, firstNameChild=lamis, lastNameChild=zaghdoudi, age=5, health=s, inscription=null, Events=[Event [idEvent=1, Subject=Faire plaisir a nos enfants, Description=evenement qui contient plusieurs activites tel que sport ,dance ,dessin, startHour=10, EndHour=12, date=2021-11-01, nbrlike=1500, Name= plaisir, Location=Ariana, JackpotDonation=5.0, category=Sortie], Event [idEvent=2, Subject=Faire plaisir a nos enfants, Description=evenement qui contient plusieurs activites tel que sport ,dance ,dessin, startHour=10, EndHour=12, date=2022-11-01, nbrlike=100, Name=Evenemement et plaisir, Location=Ariana, JackpotDonation=10.0, category=Animations]], comments=[]]]
+2021-04-12 01:37:25.826  INFO 1476 --- [http-nio-8081-exec-6] c.e.project.service.ParentServiceImpl    : Parent :Optional[Parent [id=1, firstNameChild=lamis, lastNameChild=zaghdoudi, age=5, health=s, inscription=null, Events=[Event [idEvent=1, Subject=Faire plaisir a nos enfants, Description=evenement qui contient plusieurs activites tel que sport ,dance ,dessin, startHour=10, EndHour=12, date=2021-11-01, nbrlike=1500, Name= plaisir, Location=Ariana, JackpotDonation=5.0, category=Sortie], Event [idEvent=2, Subject=Faire plaisir a nos enfants, Description=evenement qui contient plusieurs activites tel que sport ,dance ,dessin, startHour=10, EndHour=12, date=2022-11-01, nbrlike=100, Name=Evenemement et plaisir, Location=Ariana, JackpotDonation=10.0, category=Animations]], comments=[]]]
+2021-04-12 01:37:26.526  INFO 1476 --- [http-nio-8081-exec-6] c.e.project.service.TwilioSmsSender      : Send sms SmsRequest{phoneNumber= ...', message='Bonjour Mr/Mme sabrine hmidi   
+ Vous etes  inscrit  a l'evenemement   Evenemement et plaisir localise a  Ariana a  10h    .Le prix de ticket vaut 10.0 dt'}
+2021-04-12 01:37:31.029  INFO 1476 --- [http-nio-8081-exec-7] c.e.project.service.UserServiceImpl      : user :Optional[Parent [id=2, firstNameChild=jouri, lastNameChild=zaghdoudi, age=5, health=s, inscription=  id  2  statut  Status, Events=[Event [idEvent=2, Subject=Faire plaisir a nos enfants, Description=evenement qui contient plusieurs activites tel que sport ,dance ,dessin, startHour=10, EndHour=12, date=2022-11-01, nbrlike=100, Name=Evenemement et plaisir, Location=Ariana, JackpotDonation=10.0, category=Animations], Event [idEvent=2, Subject=Faire plaisir a nos enfants, Description=evenement qui contient plusieurs activites tel que sport ,dance ,dessin, startHour=10, EndHour=12, date=2022-11-01, nbrlike=100, Name=Evenemement et plaisir, Location=Ariana, JackpotDonation=10.0, category=Animations]], comments=[Comment [idComment=2, content=Amazing event]]]]
+2021-04-12 01:37:31.031  INFO 1476 --- [http-nio-8081-exec-7] c.e.project.service.ParentServiceImpl    : Parent :Optional[Parent [id=2, firstNameChild=jouri, lastNameChild=zaghdoudi, age=5, health=s, inscription=  id  2  statut  Status, Events=[Event [idEvent=2, Subject=Faire plaisir a nos enfants, Description=evenement qui contient plusieurs activites tel que sport ,dance ,dessin, startHour=10, EndHour=12, date=2022-11-01, nbrlike=100, Name=Evenemement et plaisir, Location=Ariana, JackpotDonation=10.0, category=Animations], Event [idEvent=2, Subject=Faire plaisir a nos enfants, Description=evenement qui contient plusieurs activites tel que sport ,dance ,dessin, startHour=10, EndHour=12, date=2022-11-01, nbrlike=100, Name=Evenemement et plaisir, Location=Ariana, JackpotDonation=10.0, category=Animations]], comments=[Comment [idComment=2, content=Amazing event]]]]

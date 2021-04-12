@@ -2,6 +2,7 @@ package com.esprit.project.service;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -362,6 +363,66 @@ public class EventServiceImpl implements IEventService {
 		
 		return list;	
 			}
+
+	@Override
+	public Map<Integer, Integer> getEventsByNbrLike() {
+		List<Integer>listId = new ArrayList<>();
+		List<Integer>listViews = new ArrayList<>();
+		Map<Integer,Integer> h = new HashMap<>();
+
+		
+		for(Event e : eventRepository.findAll()) {
+			
+			listId.add(Math.toIntExact(e.getidEvent()));
+			listViews.add(e.getNbrlike());
+			
+		}
+		List<Integer>sortedList = new ArrayList<>(listViews);
+		Collections.sort(sortedList);
+		
+		for(int i = 0 ; i <2 ; i++) {
+			int max = sortedList.get(sortedList.size()-1);
+			int ind = listId.get(listViews.indexOf(max));// prend nbre de vue et retourne id d'event corresspondant
+			h.put(ind, max);
+
+			System.out.println(ind +" "+ max);
+			sortedList.remove(sortedList.size()-1);
+			listViews.set(listViews.indexOf(max), -1);
+		}
+		return h;
+	}
+	@Override
+	public List<String> displayBestEventsByNbrLike() {
+		
+		List<String>list = new ArrayList<>();
+		String s ="";
+		List<Integer>listId = new ArrayList<>();
+		List<Integer>listLikes = new ArrayList<>();
+		
+		List<Event> listEvent = (List<Event>)eventRepository.findAll();
+		
+		for(Event e : listEvent) {
+			listId.add(Math.toIntExact(e.getidEvent()));
+			listLikes.add(e.getNbrlike());
+		
+		}
+		
+		List<Integer> sortedList = new ArrayList<>(listLikes);
+		
+		Collections.sort(sortedList);
+		
+		for(int i = 0 ; i<2 ; i++) {
+			int max = sortedList.get(sortedList.size()-1);
+			int ind = listId.get(listLikes.indexOf(max));
+			s = (i+1)+"--Event: "+eventRepository.findById((long) Math.toIntExact(ind)).get().getName()+"  = with"+max+" Likes";
+			list.add(s);
+			sortedList.remove(sortedList.size()-1);
+			listLikes.set(listLikes.indexOf(max), -1);
+			}
+		
+		
+		return list;
+	}
 	
 }
 

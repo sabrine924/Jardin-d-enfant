@@ -13,7 +13,7 @@ public interface ICommentService {
 	public void  deleteById(String id);
 	List<Comment>  retrieveAllComments();
 	List<Comment> getCommentsByEventId(long idEvent);
-	
+	public void parentCommentEvent(Long idComment,  Long id);
 	
 	
 }

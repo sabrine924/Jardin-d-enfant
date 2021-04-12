@@ -62,9 +62,6 @@ public class EventRestController {
 	@Autowired  
 	IKinderGardenService  ks;
 	 
-	
-	
-     
 	//http://localhost:8081/SpringMVC/servlet/retrieve-all-events
 	@GetMapping("/retrieve-all-events")
 	@ResponseBody
@@ -209,7 +206,7 @@ public class EventRestController {
 					+event.getName()+"  "+"qui va se derouler a " +event.getLocation()+"  "+"de" + " " +event.getStartHour()+"a"+event.getEndHour()+" ";
 					smsRequest = new SmsRequest("+216"+kindergarten.getPhone(), message);
 					System.out.println(smsRequest);
-				  // service.sendSms(smsRequest);
+				 service.sendSms(smsRequest);
 					
 					
 					//sending Message to kinderGarden's parents
@@ -217,7 +214,7 @@ public class EventRestController {
 					for(Inscription in : kindergarten.getInscriptions()){
 						for(Parent par: in.getParents()){
 				  
-							message = "Bonjour  Mr/Mme  " +par.getFirstName() +""+par.getLastName()+ "vous etes invites a rejoindre l'evenement de competition entre les differents jardin d'enfant " 
+							message = "Bonjour  Mr/Mme  " +par.getFirstName() +""+par.getLastName()+"   "+ "vous etes invites a rejoindre l'evenement de competition entre les differents jardin d'enfant " 
 									+event.getName()+""+"qui va se derouler a " +event.getLocation()+"de"+event.getStartHour()+"a"+event.getEndHour()+" ";
 							smsRequest = new SmsRequest("+216"+kindergarten.getPhone(), message);
 							service.sendSms(smsRequest);
@@ -230,9 +227,11 @@ public class EventRestController {
 	}
 		//http://localhost:8081/SpringMVC/servlet/event/retrieve-Event-ByName/{name}
 		@GetMapping("/event/retrieve-Event-ByName/{name}")
-		public Event getEventByName(@PathVariable String name) {
-			 Event ev =  eventService.findEventByName(name);
-			return ev;
+		public List<String> getEventByName(@PathVariable String name) {
+			// Event ev =  eventService.findEventByName(name);
+			//return  List<Event>;
+			return 
+					(List<String>) eventService.findEventByName(name);
 			}
 		
 		
@@ -295,6 +294,20 @@ public class EventRestController {
 				System.out.println("hi="+upevents);
 				return upevents;
 			}
+		   
+		   //http://localhost:8081/SpringMVC/servlet/event/bestEventsByNbLike
+		   @GetMapping("/event/bestEventsByNbLike")
+			public Map<Integer, Integer> bestEventsByNbLike(){
+				return eventService.getEventsByNbrLike();
+				}
+		   
+		   //http://localhost:8081/SpringMVC/servlet/event/displaybestEventsNbLike
+		   @GetMapping("/event/displaybestEventsNbLike")
+			public List<String> displaybestEventsNbLike(){
+				return eventService.displayBestEventsByNbrLike();
+				}
+			
+			
 			
 			
 		

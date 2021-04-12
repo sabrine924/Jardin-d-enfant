@@ -18,6 +18,7 @@ import javax.persistence.Id;
 //import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -77,13 +78,12 @@ public class Parent extends User {
 	/*@ManyToOne
 	private Event events;*/
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "parents",cascade = CascadeType.ALL)
     private 	List<Comment>  comments;
 	
 	
 	
-	/*@ManyToMany(mappedBy="cagnotteparents", cascade = CascadeType.ALL)
-	private List<Cagnotte> cagnotte;*/
+
 	public Parent(){
 		
 	}

@@ -36,6 +36,4 @@ public interface EventRepository extends  CrudRepository<Event, Long > {
 	@Query("SELECT ev FROM Event ev WHERE ev.date >= CURRENT_DATE()")
 	public List<Event> upcomingEvents();	
 
-	
-
 }

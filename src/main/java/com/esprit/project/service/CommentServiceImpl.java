@@ -4,12 +4,17 @@ package com.esprit.project.service;
 
 
 import java.util.List;
+
+import javax.transaction.Transactional;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.esprit.project.entity.Comment;
+import com.esprit.project.entity.Parent;
 import com.esprit.project.repository.CommentRepositroy;
+import com.esprit.project.repository.ParentRepository;
 
 
 
@@ -21,6 +26,8 @@ public class CommentServiceImpl implements ICommentService {
 	
 	@Autowired 
 	CommentRepositroy commentrepository;
+	@Autowired 
+	ParentRepository parentrepository;
 
 	@Override
 	public Comment saveComment(Comment c) {
@@ -46,6 +53,26 @@ public class CommentServiceImpl implements ICommentService {
 	public List<Comment> getCommentsByEventId(long idEvent) {
 		return commentrepository.getCommentsByEventId(idEvent);
 	}
+	
+	@Override
+		public void parentCommentEvent(Long idComment,  Long id) {
+			
+	    	  
+	    	if   
+	    	    ( parentrepository.findById(id).isPresent())
+	    	{
+	    		 Comment commententity =   commentrepository.findById(idComment).get();
+	    	 
+	              Parent    parententity = parentrepository.findById(id).get();
+	    	
+	              parententity.getComments().add(commententity);
+	              commentrepository.save(commententity);
+	    	}
+	    	 else 
+	    		 System.out.println(" id is not exist ");
+	    	
+				
+		}
 }
      
 	
