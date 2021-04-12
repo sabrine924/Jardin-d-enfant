@@ -1,6 +1,7 @@
 package com.esprit.project.entity;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -52,6 +53,15 @@ public class User {
 	
 	@OneToOne
 	private Profile profile;
+	
+	@OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+	private List<Post> posts;
+	
+	@OneToMany(mappedBy="user1",cascade=CascadeType.ALL)
+	private List<Reaction> reactions1;
+	
+	@OneToMany(mappedBy="user2", cascade=CascadeType.ALL )
+	private List<CommentPost> commentsPost1;
 	
 	public User() {
 	}
@@ -174,6 +184,32 @@ public class User {
 
 	public void setProfile(Profile profile) {
 		this.profile = profile;
+	}
+	
+	
+
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
+
+	public List<Reaction> getReactions1() {
+		return reactions1;
+	}
+
+	public void setReactions1(List<Reaction> reactions1) {
+		this.reactions1 = reactions1;
+	}
+
+	public List<CommentPost> getCommentsPost1() {
+		return commentsPost1;
+	}
+
+	public void setCommentsPost1(List<CommentPost> commentsPost1) {
+		this.commentsPost1 = commentsPost1;
 	}
 
 	public String toString(){
