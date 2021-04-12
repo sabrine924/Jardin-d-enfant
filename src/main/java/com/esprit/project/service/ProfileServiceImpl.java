@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.esprit.project.entity.Adresse;
 import com.esprit.project.entity.Preference;
+import com.esprit.project.entity.Profession;
 //import com.esprit.project.entity.Administrator;
 import com.esprit.project.entity.Profile;
 import com.esprit.project.entity.User;
@@ -116,7 +117,7 @@ public class ProfileServiceImpl implements IProfileService{
 			}
 		      }
 	somme = ANIMATION+	EXCURSION+PARTICIPATION;
-	return "ANIMATION présente" +Float.toString((float)(ANIMATION/somme)*100) +"EXCURSION présente" + Float.toString((float)(EXCURSION/somme)*100)+"PARTICIPATION présente" +Float.toString((float)(PARTICIPATION/somme)*100);
+	return "ANIMATION présente  " +Float.toString((float)(ANIMATION/somme)*100)+" % " +" EXCURSION présente " + Float.toString((float)(EXCURSION/somme)*100)+" % "+" PARTICIPATION présente " + Float.toString((float)(PARTICIPATION/somme)*100) + " % ";
 	
 	}
 
@@ -128,6 +129,36 @@ public class ProfileServiceImpl implements IProfileService{
 		user.setProfile(profile);
 		profileRepository.save(profile);
 		userRepository.save(user);
+	}
+	
+	@Override
+	public String StatProfession(Adresse adresse) {
+		List<Profile> profiles = (List<Profile>) profileRepository.retrieveProfilePByAdress(adresse);
+		float INGENIEUR = 0 ;
+		float AVOCAT = 0;
+		float MEDECIN = 0 ;
+		float ENSEIGNANT = 0 ;
+		Profession prof = null;
+		float somme = 0;
+		for (Profile profile : profiles){
+		//String pref = profile.getPrefernce().toString();
+			if (profile.getProfession() == prof.AVOCAT){
+				AVOCAT++;
+			}
+			if (profile.getProfession() == prof.ENSEIGNANT){
+				ENSEIGNANT++;
+			}
+			if (profile.getProfession() == prof.INGENIEUR){
+				INGENIEUR++;
+			}
+			if (profile.getProfession() == prof.MEDECIN){
+				MEDECIN++;
+			}
+			
+		      }
+	somme = AVOCAT+ENSEIGNANT+INGENIEUR+MEDECIN;
+	return "AVOCAT présente  " +Float.toString((float)(AVOCAT/somme)*100)+" % " +" ENSEIGNANT présente " + Float.toString((float)(ENSEIGNANT/somme)*100)+" % "+" INGENIEUR présente " + Float.toString((float)(INGENIEUR/somme)*100) + " % "+" MEDECIN présente " + Float.toString((float)(MEDECIN/somme)*100) + " % ";
+	
 	}
 
 }

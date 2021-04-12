@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name="T_Profile")
@@ -44,8 +46,13 @@ public class Profile implements Serializable {
 	@Column(name="Preference")
 	@Enumerated(EnumType.STRING)
 	private Preference prefernce;
-
+	
+	@Column(name="Profession")
+	@Enumerated(EnumType.STRING)
+	private Profession profession;
+	
 	@OneToOne
+	@JsonIgnore
 	private User user;
 	
 	public Profile(){
@@ -61,10 +68,8 @@ public class Profile implements Serializable {
 		this.location = location;
 	}
 	
-	
-
 	public Profile(long id, int numberchilds, Date datecreaction, int phone, Adresse adress, String location,
-			Preference preferncer) {
+			Preference prefernce) {
 		super();
 		this.id = id;
 		this.numberchilds = numberchilds;
@@ -74,6 +79,22 @@ public class Profile implements Serializable {
 		this.location = location;
 		this.prefernce = prefernce;
 	}
+	
+	
+	
+	public Profile(long id, int numberchilds, Date datecreaction, int phone, Adresse adress, String location,
+			Preference prefernce, Profession profession) {
+		super();
+		this.id = id;
+		this.numberchilds = numberchilds;
+		this.datecreaction = datecreaction;
+		this.phone = phone;
+		this.adress = adress;
+		this.location = location;
+		this.prefernce = prefernce;
+		this.profession = profession;
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -127,6 +148,13 @@ public class Profile implements Serializable {
 	public void setPrefernce(Preference prefernce) {
 		this.prefernce = prefernce;
 	}
+	
+	public Profession getProfession() {
+		return profession;
+	}
+	public void setProfession(Profession profession) {
+		this.profession = profession;
+	}
 	public User getUser() {
 		return user;
 	}
@@ -135,7 +163,7 @@ public class Profile implements Serializable {
 	}
 	
 	public String toString(){
-		return "id :" +id +"phone :" +phone+"adress :" +adress+"prefernce :" +prefernce;
+		return "id :" +id +"phone :" +phone+"adress :" +adress+"prefernce :" +prefernce +"profession"+profession;
 		
 	}
 

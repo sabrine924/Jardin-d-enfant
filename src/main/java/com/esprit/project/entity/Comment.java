@@ -22,7 +22,7 @@ public class Comment {
 	
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Long idComment;
 	@Column(name="content")
 	private String content;
 	
@@ -34,11 +34,11 @@ public class Comment {
 
 
 	public Long getId() {
-		return id;
+		return idComment;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.idComment = id;
 	}
 
 	public List<Parent> getParents() {
@@ -74,13 +74,13 @@ public class Comment {
 
 
 	public Comment(Long id, String content) {
-		this.id = id;
+		this.idComment = id;
 		this.content = content;
 	}
 
 	@Override
 	public String toString() {
-		return "Comment [id=" + id + ", content=" + content + "]";
+		return "Comment [id=" + idComment + ", content=" + content + "]";
 	}
 
 	
