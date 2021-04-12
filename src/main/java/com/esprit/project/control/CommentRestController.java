@@ -47,7 +47,7 @@ public class CommentRestController {
 		
 		//http://localhost:8081/SpringMVC/servlet/Comment/comments-by-event/{idEvent}
 		@GetMapping("/Comment/comments-by-event/{idEvent}")
-		public List<Comment> getCommentsByPost(@PathVariable("idEvent") long idEvent) {
+		public List<Comment> getCommentsByEvent(@PathVariable("idEvent") long idEvent) {
 			return commentservice.getCommentsByEventId(idEvent);
 
 		}
