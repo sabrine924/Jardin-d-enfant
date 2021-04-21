@@ -125,6 +125,12 @@ public class ProfileRestController {
 				public void affecterProfileAUser(@PathVariable("idprofile")int profileId,@PathVariable("iduser") int userId){
 					profileService.affecterProfileAUser(profileId, userId);
 				}
-		
+		// http://localhost:8081/SpringMVC/servlet/retrieve-stat-profession/{adress}
+			@GetMapping("/retrieve-stat-profession/{adress}")
+			@ResponseBody
+			public  String StatProfession(@PathVariable("adress") String adresse) {
+							Adresse adresse1 = Adresse.valueOf(adresse);
+							return profileService.StatProfession(adresse1);
+					}
 		
 }
