@@ -129,5 +129,35 @@ public class ProfileServiceImpl implements IProfileService{
 		profileRepository.save(profile);
 		userRepository.save(user);
 	}
+	
+	@Override
+	public String StatProfession(Adresse adresse) {
+		List<Profile> profiles = (List<Profile>) profileRepository.retrieveProfilePByAdress(adresse);
+		float INGENIEUR = 0 ;
+		float AVOCAT = 0;
+		float MEDECIN = 0 ;
+		float ENSEIGNANT = 0 ;
+		Profession prof = null;
+		float somme = 0;
+		for (Profile profile : profiles){
+		//String pref = profile.getPrefernce().toString();
+			if (profile.getProfession() == prof.AVOCAT){
+				AVOCAT++;
+			}
+			if (profile.getProfession() == prof.ENSEIGNANT){
+				ENSEIGNANT++;
+			}
+			if (profile.getProfession() == prof.INGENIEUR){
+				INGENIEUR++;
+			}
+			if (profile.getProfession() == prof.MEDECIN){
+				MEDECIN++;
+			}
+			
+		      }
+	somme = AVOCAT+ENSEIGNANT+INGENIEUR+MEDECIN;
+	return "AVOCAT présente  " +Float.toString((float)(AVOCAT/somme)*100)+" % " +" ENSEIGNANT présente " + Float.toString((float)(ENSEIGNANT/somme)*100)+" % "+" INGENIEUR présente " + Float.toString((float)(INGENIEUR/somme)*100) + " % "+" MEDECIN présente " + Float.toString((float)(MEDECIN/somme)*100) + " % ";
+	
+	}
 
 }
