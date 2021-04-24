@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.esprit.project.entity.KinderGarden;
 import com.esprit.project.entity.Parent;
 import com.esprit.project.entity.User;
 import com.esprit.project.repository.ParentRepository;
@@ -56,9 +57,5 @@ public class ParentServiceImpl implements IParentService{
 		return parent;
 	}
 	
-	public Optional<Parent>  findById(Long id) {
-		
-		return ParentRepository.findById(id);
-	}
 	
 }

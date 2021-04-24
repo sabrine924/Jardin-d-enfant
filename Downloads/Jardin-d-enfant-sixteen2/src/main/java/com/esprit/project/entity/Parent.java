@@ -3,6 +3,7 @@ package com.esprit.project.entity;
 
 
 
+import java.util.HashSet;
 import java.util.List;
 //import java.util.Set;
 //import java.util.Set;
@@ -11,6 +12,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 //import javax.persistence.FetchType;
 //import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -26,6 +28,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 //import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -56,7 +60,9 @@ public class Parent extends User {
 	
 	@Column(name="Health")
 	private String health;
-	
+
+	@OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="parent")
+	private Set<Reclamation> reclamations = new HashSet<>();
 	@ManyToOne
 	Inscription inscription;
 	
@@ -67,7 +73,9 @@ public class Parent extends User {
 	//@JoinColumn(name = "id_parent")
 	private List<Rdv> rdvs;
 	
-	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Set<Offre> OffreParent;
 	
 	
 	/*@ManyToMany( cascade=  CascadeType.ALL )
@@ -307,6 +315,24 @@ public class Parent extends User {
 	}
 
 	
+	public List<Offre> getOffres() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+	public Set<Offre> getOffreParent() {
+		return OffreParent;
+	}
+
+	public void setOffreParent(Set<Offre> offreParent) {
+		OffreParent = offreParent;
+	}
+
+	public List<Offre> getOffres1() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
 	

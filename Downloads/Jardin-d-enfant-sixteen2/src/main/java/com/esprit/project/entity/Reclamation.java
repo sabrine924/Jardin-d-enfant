@@ -42,6 +42,10 @@ import javax.persistence.TemporalType;
 		@ManyToOne
 		@JoinColumn(name="kinderGarden_id") 
 		private KinderGarden kinderGarden;
+		@ManyToOne
+		@JoinColumn(name="parent_id") 
+		private Parent parent;
+
 
 		public Long getId() {
 			return id;
@@ -108,12 +112,21 @@ import javax.persistence.TemporalType;
 		public void setKinderGarden(KinderGarden kinderGarden) {
 			this.kinderGarden = kinderGarden;
 		}
+		
 
 		/*@Override
 		public String toString() {
 			return "Reclamation [id=" + id + ", subject=" + subject + ", description=" + description
 					+ ", categoryOfReclamation=" + categoryOfReclamation + ", statusOfReclamation=" + statusOfReclamation
 					+ ", senderReclamation=" + senderReclamation + ", date=" + date + ", kinderGarden=" + kinderGarden + "]";
+		}*/
+
+		/*public Parent getParent() {
+			return parent;
+		}
+
+		public void setParent(Parent parent) {
+			this.parent = parent;
 		}*/
 
 		public Reclamation(String subject, String description, String categoryOfReclamation, String senderReclamation,
@@ -127,6 +140,7 @@ import javax.persistence.TemporalType;
 			this.senderReclamation = senderReclamation;
 			//this.date = date;
 			this.kinderGarden = kinderGarden;
+			//this.parent = parent;
 		}
 
 		public Reclamation() {

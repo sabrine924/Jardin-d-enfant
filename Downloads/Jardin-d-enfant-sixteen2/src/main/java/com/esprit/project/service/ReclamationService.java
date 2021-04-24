@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.esprit.project.entity.CategoryOfReclamation;
 import com.esprit.project.entity.KinderGarden;
+
 import com.esprit.project.entity.Reclamation;
 import com.esprit.project.repository.KinderGardenRepository;
 import com.esprit.project.repository.ParentRepository;
@@ -25,7 +26,7 @@ public class ReclamationService implements IReclamationService {
 	@Autowired
 	ParentRepository parentRepository;
 	@Autowired
-	IParentService parentservice;
+	ParentServiceImpl parentservice;
 	@Autowired
 	ReclamationRepository reclamationRepository;
 	@Autowired
@@ -60,7 +61,6 @@ public class ReclamationService implements IReclamationService {
 	
 	  @Override
 	  public void store(Long garden_id, Reclamation reclamation, String mailTo) throws IOException {
-		  
 		  
 		  KinderGarden kinderGarden = KinderGardenService.findById(garden_id);
 		  int recNbr = kinderGarden.getReclamation_nbr()+1;

@@ -22,6 +22,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity
@@ -48,7 +50,9 @@ public class KinderGarden extends User {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="kindergarten")
 	private Set<Parent> parents;
 	
-
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JsonIgnore
+	 private List<Offre> offres;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="kinderGarden")
 	private Set<Reclamation> reclamations = new HashSet<>();
@@ -170,6 +174,13 @@ public class KinderGarden extends User {
 		Events = events;
 	}
 	
+	public List<Offre> getOffres() {
+		return offres;
+	}
+
+	public void setOffres(List<Offre> offres) {
+		this.offres = offres;
+	}
 	
 	
 }
