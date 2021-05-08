@@ -1,52 +1,45 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'app/auth/auth.service';
-import { SignUpInfo } from 'app/auth/signup-info';
-
-
+import { AuthService } from 'app/service/auth.service';
+//import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  form: any = {};
-  signupInfo: SignUpInfo;
-  isSignedUp = false;
+  form: any = {
+    username: null,
+    firstName: null,
+    lastName: null,
+    phone: null,
+    email: null,
+    adress: null,
+    password: null,
+    
+  };
+  isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
-  authService: any;
-  constructor() { }
 
-  ngOnInit() {}
+  constructor(private authService: AuthService) { }
 
-  onSubmit() {
-    console.log(this.form);
+  ngOnInit(): void {
+  }
 
-    this.signupInfo = new SignUpInfo(
-      this.form.firstname,
-      this.form.username,
-      this.form.email,
-      this.form.lastname,
-      this.form.adress,
-      this.form.phone,
-      this.form.password);
-     
+  onSubmit(): void {
+    const { username,firstName,lastName,phone, email,adress, password} = this.form;
 
-    this.authService.signUp(this.signupInfo).subscribe(
+    this.authService.register(username,firstName,lastName,phone, email,adress, password).subscribe(
       data => {
         console.log(data);
-        this.isSignedUp = true;
+        this.isSuccessful = true;
         this.isSignUpFailed = false;
       },
-      error => {
-        console.log(error);
-        this.errorMessage = error.error.message;
+      err => {
+        this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
       }
     );
   }
-   
-
-
 }

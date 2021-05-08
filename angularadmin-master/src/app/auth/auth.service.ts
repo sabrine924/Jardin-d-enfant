@@ -16,7 +16,7 @@ const httpOptions = {
 export class AuthService {
 
   private loginUrl = 'http://localhost:8081/SpringMVC/servlet/signin';
-  private signupUrl =  'http://localhost:8081/SpringMVC/servlet/signup';
+  private signupUrl =  'http://localhost:8081/signup';
 
   constructor(private http: HttpClient) {
   }
