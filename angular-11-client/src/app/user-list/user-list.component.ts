@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../User';
 import { UserService } from '../User.service';
+import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
   selector: 'app-user-list',
@@ -9,11 +10,12 @@ import { UserService } from '../User.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-
+  id1!: number;
+  user!: User 
   users!: User[];
-
-  constructor(private userService: UserService,
-    private router: Router) { }
+  currentUser: any;
+  constructor(private token: TokenStorageService,private userService: UserService,
+    private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getUsers();

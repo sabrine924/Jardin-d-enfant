@@ -4,6 +4,7 @@ import { User } from '../User';
 import { UserListComponent } from '../user-list/user-list.component';
 import { UserService } from '../User.service';
 import {Location} from '@angular/common';
+import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
   selector: 'app-user-details',
@@ -14,9 +15,11 @@ export class UserDetailsComponent implements OnInit {
 
   id!: number;
   user!: User 
-  constructor(private route: ActivatedRoute, private userService: UserService,
+  currentUser: any;
+  constructor(private token: TokenStorageService, private route: ActivatedRoute, private userService: UserService,
     private router: Router) { }
   ngOnInit(): void {
+    this.currentUser = this.token.getUser();
     this.id = this.route.snapshot.params['id'];
 
     this.user = new User();

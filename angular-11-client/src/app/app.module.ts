@@ -28,9 +28,10 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     BoardAdminComponent,
     BoardModeratorComponent,
     BoardUserComponent,
-    UserListComponent,
+    //UserListComponent,
     UserDetailsComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
