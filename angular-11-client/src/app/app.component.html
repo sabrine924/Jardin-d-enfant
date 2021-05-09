@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark">
+<div id="app">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
     <a href="#" class="navbar-brand">bezKoder</a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
@@ -34,5 +35,7 @@
     </ul>
   </nav>
 
-<router-outlet></router-outlet>
-
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
