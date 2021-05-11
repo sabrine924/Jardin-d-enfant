@@ -15,13 +15,13 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 const routes: Routes = [
   { path: 'retrieve-all-users', component: UserListComponent},
   { path: 'user-details/:id', component: UserDetailsComponent},
-  {path: 'update-user/:id', component: UpdateUserComponent},
+  { path: 'update-user/:id', component: UpdateUserComponent},
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: BoardUserComponent },
-  { path: 'mod', component: BoardModeratorComponent },
+  { path: 'kindergarden', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
