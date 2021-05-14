@@ -1,0 +1,5 @@
+export enum Preference {
+  ANIMATION = "ANIMATION",
+  EXCURSION = "EXCURSION",
+  PARTICIPATION = "PARTICIPATION",
+}

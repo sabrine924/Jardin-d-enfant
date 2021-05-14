@@ -11,9 +11,11 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { ProfileListComponent } from './profile-list/profile-list.component';
 
 const routes: Routes = [
   { path: 'retrieve-all-users', component: UserListComponent},
+  { path: 'retrieve-all-profiles', component: ProfileListComponent},
   { path: 'user-details/:id', component: UserDetailsComponent},
   { path: 'update-user/:id', component: UpdateUserComponent},
   { path: 'home', component: HomeComponent },
