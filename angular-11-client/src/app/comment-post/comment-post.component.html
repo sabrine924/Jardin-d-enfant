@@ -1,0 +1,29 @@
+<table class = "table table-striped">
+  <thead>
+  <tr>
+    <th> content</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor = "let comment of listComment" >
+    <td> {{ comment.content }} </td>
+    <td>
+      <button (click) = "updateComment(comment.id)" class = "btn btn-info"> Update</button>
+      <button (click) = "deleteComment(comment.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div class="col-md-6 offset-md-3">
+  <h3> Create Comment </h3>
+  <form (ngSubmit) = "onSubmit()">
+
+    <div class="form-group">
+      <label> Comment</label>
+      <input type="text" class ="form-control" id = "firstName"
+             [(ngModel)] = "commentPost.content" name = "firstName">
+    </div>
+    <button class = "btn btn-success" type ="submit">Submit</button>
+
+  </form>
+</div>

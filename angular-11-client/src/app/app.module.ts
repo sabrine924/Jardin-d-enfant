@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -19,6 +19,14 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { ProfileListComponent } from './profile-list/profile-list.component';
+import { PostComponent } from './post/post.component';
+import { PostlistnewComponent } from './postlistnew/postlistnew.component';
+import { AddpostComponent } from './addpost/addpost.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
+import { CommentPostComponent } from './comment-post/comment-post.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { UpdateCommentComponent } from './update-comment/update-comment.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -34,13 +42,22 @@ import { ProfileListComponent } from './profile-list/profile-list.component';
     UserDetailsComponent,
     UpdateUserComponent,
     UserListComponent,
-    ProfileListComponent
+    ProfileListComponent,
+    PostComponent,
+    PostlistnewComponent,
+    AddpostComponent,
+    PostDetailComponent,
+    CommentPostComponent,
+    SidebarComponent,
+    UpdateCommentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

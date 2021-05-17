@@ -12,6 +12,10 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { ProfileListComponent } from './profile-list/profile-list.component';
+import {AddpostComponent} from "./addpost/addpost.component";
+import {PostlistnewComponent} from "./postlistnew/postlistnew.component";
+import {PostDetailComponent} from "./post-detail/post-detail.component";
+import {UpdateCommentComponent} from "./update-comment/update-comment.component";
 
 const routes: Routes = [
   { path: 'retrieve-all-users', component: UserListComponent},
@@ -25,6 +29,11 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'kindergarden', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
+  {path: 'addpost', component: AddpostComponent},
+  {path: 'postlistnew', component: PostlistnewComponent},
+  {path: 'post-details/:id' , component: PostDetailComponent},
+  {path: 'update-comment/:id', component: UpdateCommentComponent},
+  {path: 'comments', component: PostlistnewComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
