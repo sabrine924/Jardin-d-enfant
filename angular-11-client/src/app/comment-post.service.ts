@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {CommentPost} from "./models/CommentPost";
 import {Observable} from "rxjs";
+import {Reaction} from "./models/Reaction";
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,9 @@ export class CommentPostService {
   constructor(private http: HttpClient) { }
   createComment(commentPost, idPost): Observable<CommentPost> {
     return this.http.put<CommentPost>(this.baseUrl + '/add-commentPostSimple/' + idPost, JSON.stringify(commentPost), this.httpOptions);
+  }
+  createCommentPost(commentPost, idPost, idUser): Observable<CommentPost> {
+    return this.http.put<CommentPost>(this.baseUrl + '/add-commentPost/' + idPost + '/' + idUser, JSON.stringify(commentPost), this.httpOptions);
   }
   getCommentbyId(idPost): Observable<CommentPost[]> {
     return this.http.get<CommentPost[]>(this.baseUrl + '/getAllCommentByPost/' + idPost);

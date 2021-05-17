@@ -16,6 +16,7 @@ import {AddpostComponent} from "./addpost/addpost.component";
 import {PostlistnewComponent} from "./postlistnew/postlistnew.component";
 import {PostDetailComponent} from "./post-detail/post-detail.component";
 import {UpdateCommentComponent} from "./update-comment/update-comment.component";
+import {PostlistadminComponent} from "./postlistadmin/postlistadmin.component";
 
 const routes: Routes = [
   { path: 'retrieve-all-users', component: UserListComponent},
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path: 'post-details/:id' , component: PostDetailComponent},
   {path: 'update-comment/:id', component: UpdateCommentComponent},
   {path: 'comments', component: PostlistnewComponent},
+  {path: 'postlistadmin', component: PostlistadminComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

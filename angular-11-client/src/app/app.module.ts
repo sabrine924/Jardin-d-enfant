@@ -27,6 +27,7 @@ import { CommentPostComponent } from './comment-post/comment-post.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { UpdateCommentComponent } from './update-comment/update-comment.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { PostlistadminComponent } from './postlistadmin/postlistadmin.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     PostDetailComponent,
     CommentPostComponent,
     SidebarComponent,
-    UpdateCommentComponent
+    UpdateCommentComponent,
+    PostlistadminComponent
   ],
   imports: [
     BrowserModule,
