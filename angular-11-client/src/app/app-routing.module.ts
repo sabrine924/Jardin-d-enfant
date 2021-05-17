@@ -17,6 +17,17 @@ import {PostlistnewComponent} from "./postlistnew/postlistnew.component";
 import {PostDetailComponent} from "./post-detail/post-detail.component";
 import {UpdateCommentComponent} from "./update-comment/update-comment.component";
 import {PostlistadminComponent} from "./postlistadmin/postlistadmin.component";
+import { CreateConversationComponent } from './create-conversation/create-conversation.component';
+import { CreateMessageComponent } from './create-message/create-message.component';
+import { CreateRdvComponent } from './create-rdv/create-rdv.component';
+import { EmailComponent } from './email/email.component';
+import { ListConversationComponent } from './list-conversation/list-conversation.component';
+import { ListMessageComponent } from './list-message/list-message.component';
+import { MessageComponent } from './message/message.component';
+import { RdvDetailsComponent } from './rdv-details/rdv-details.component';
+import { RdvListComponent } from './rdv-list/rdv-list.component';
+import { RdvComponent } from './rdv/rdv.component';
+import { UpdateRdvComponent } from './update-rdv/update-rdv.component';
 
 const routes: Routes = [
   { path: 'retrieve-all-users', component: UserListComponent},
@@ -36,6 +47,18 @@ const routes: Routes = [
   {path: 'update-comment/:id', component: UpdateCommentComponent},
   {path: 'comments', component: PostlistnewComponent},
   {path: 'postlistadmin', component: PostlistadminComponent},
+  { path: 'rdv-list', component: RdvListComponent},
+  { path: 'create-rdv', component: CreateRdvComponent },
+  { path: 'rdvs',component: RdvComponent},
+  { path: 'update-rdv/:idRdv', component: UpdateRdvComponent},
+  { path: 'rdv-details/:idRdv', component: RdvDetailsComponent},
+  { path: 'sendingemail', component: EmailComponent},
+  { path: 'message', component: MessageComponent},
+  //{ path: 'sendmessage', component: SendMessageComponent},
+  { path: 'list-message/:convId', component: ListMessageComponent},
+  { path: 'list-conversation', component: ListConversationComponent},
+  { path: 'create-conversation', component: CreateConversationComponent},
+  { path: 'create-message', component: CreateMessageComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

@@ -12,7 +12,7 @@ import {TokenStorageService} from "../_services/token-storage.service";
 })
 export class PostlistnewComponent implements OnInit {
   currentUser: any;
-  reaction: Reaction ;
+  reaction: Reaction | undefined ;
   reaction = new Reaction();
   listposts?: Post[];
 

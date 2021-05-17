@@ -1,0 +1,47 @@
+<div class="" id="page-wrapper">
+    <div class="container-fluid">
+    <div class="row justify-content-center">
+    <div class="col-xl-10 col-lg-10 col-md-8">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="card-body p-0">
+    <div class="row">
+<h2 style="color:Tomato;"> Rdv List </h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <!--<th> idRdv </th>-->
+            <th> date </th>
+            <th> Subject </th>
+            <!--<th> parent </th>
+            <th> kinderGarden </th>-->
+            <th> User </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let rdv of rdvTab">
+            <!--<td> {{ rdv.idRdv }}</td>-->
+            <td> {{ rdv.date }}</td>
+            <td> {{ rdv.subject }}</td>
+            <!--<td> {{ rdv.parent }}</td>
+            <td> {{ rdv.kinderGarden }}</td>-->
+            <td> {{ rdv.user.firstName }}</td>
+            <td>
+                <button (click) = "Rdvdetails(rdv.idRdv)" class = "btn btn-info" style="margin-left: 10px" > View</button>
+                <button [routerLink]="['/update-rdv', rdv.idRdv]" routerLinkActive="active" class = "btn btn-info" style="margin-left: 10px" > Update</button>
+                <button (click) = "deleteRdv(rdv.idRdv)" class =  "btn btn-danger" style="margin-left: 10px"> Delete</button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+<button style="margin-left: 800px" class="btn btn-link" onclick="window.location.href='/create-rdv';">
+    Add Rdv
+  </button>
+</div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>

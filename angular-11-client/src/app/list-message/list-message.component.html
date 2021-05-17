@@ -1,0 +1,35 @@
+<div class="" id="page-wrapper">
+    <div class="container-fluid">
+    <div class="row justify-content-center">
+    <div class="col-xl-10 col-lg-10 col-md-8">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="card-body p-0">
+    <div class="row">
+<h2 style="color:Tomato;"> Message </h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> id </th>
+            <th> Text </th>
+            <!--<th> Conversation </th>-->
+            <!--<th> Actions </th>-->
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let message of messages">
+            <td> {{ message.id }}</td>
+            <td> {{ message.text }}</td>
+            <!--<td> {{ message.conversation }}</td>-->
+        </tr>
+    </tbody>
+</table>
+<button style="margin-left: 800px" class="btn btn-link" onclick="window.location.href='/create-message';">
+    Add message
+  </button>
+</div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>

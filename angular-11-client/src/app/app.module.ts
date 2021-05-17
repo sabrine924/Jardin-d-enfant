@@ -28,6 +28,18 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { UpdateCommentComponent } from './update-comment/update-comment.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { PostlistadminComponent } from './postlistadmin/postlistadmin.component';
+import { ConversationComponent } from './conversation/conversation.component';
+import { CreateConversationComponent } from './create-conversation/create-conversation.component';
+import { CreateMessageComponent } from './create-message/create-message.component';
+import { CreateRdvComponent } from './create-rdv/create-rdv.component';
+import { EmailComponent } from './email/email.component';
+import { ListConversationComponent } from './list-conversation/list-conversation.component';
+import { ListMessageComponent } from './list-message/list-message.component';
+import { MessageComponent } from './message/message.component';
+import { RdvDetailsComponent } from './rdv-details/rdv-details.component';
+import { RdvListComponent } from './rdv-list/rdv-list.component';
+import { RdvComponent } from './rdv/rdv.component';
+import { UpdateRdvComponent } from './update-rdv/update-rdv.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +63,22 @@ import { PostlistadminComponent } from './postlistadmin/postlistadmin.component'
     CommentPostComponent,
     SidebarComponent,
     UpdateCommentComponent,
-    PostlistadminComponent
+    PostlistadminComponent,
+    EmailComponent,
+    RdvListComponent,
+    RdvComponent,
+    CreateRdvComponent,
+    UpdateRdvComponent,
+    RdvDetailsComponent,
+    MessageComponent,
+    ListMessageComponent,
+    //SendMessageComponent,
+    //ConversationComponent,
+    ListConversationComponent,
+    //DetailConversationComponent,
+    CreateConversationComponent,
+    CreateMessageComponent,
+    ConversationComponent,
   ],
   imports: [
     BrowserModule,

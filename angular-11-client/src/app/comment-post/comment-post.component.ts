@@ -11,10 +11,10 @@ import {TokenStorageService} from "../_services/token-storage.service";
 })
 export class CommentPostComponent implements OnInit {
   currentUser: any;
-  listComment: CommentPost[];
+  listComment: CommentPost[] | undefined;
   commentPost: CommentPost = new CommentPost();
   id: number | undefined;
-  idCom: number;
+  idCom: number | undefined;
 
   constructor(private http: ActivatedRoute, private commentPostService: CommentPostService, private router: Router, private token: TokenStorageService) { }
 

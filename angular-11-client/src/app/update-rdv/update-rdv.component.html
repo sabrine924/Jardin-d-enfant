@@ -1,0 +1,21 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Update Rdv</h3>
+    <form>
+        <div class="form-group">
+            <label>date</label>
+            <input type="text" class="form-control" id="date" name = "date" [(ngModel)]="date"> 
+        </div>
+        <div class="form-group">
+            <label> Subject</label>
+             <input type="text" class ="form-control" id = "Subject" placeholder="Entrez le sujet " name = "Subject" [(ngModel)]="subject"> <br>
+        </div>
+        <div class="form-group">
+            <label>user</label>
+            <input type="text" class="form-control" id="user"
+                [(ngModel)] = "rdv.user" name = "user" [(ngModel)]="user"> 
+        </div>
+    
+        <button class = "btn btn-success" (click)= "onSubmit(idRdv, date, subject, user)">Update</button>
+        <a class="btn btn-primary" href="rdv-list" class =  "btn btn-danger" style="margin-left: 10px" role="button">Back</a>
+    </form>
+    </div>
