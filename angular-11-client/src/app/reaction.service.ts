@@ -15,10 +15,10 @@ export class ReactionService {
   }
 
   constructor(private http: HttpClient) { }
-  addLike(reaction, idPost, idUser): Observable<Reaction> {
-    return this.http.put<Reaction>(this.baseUrl + '/addLike/' + idPost + '/' + idUser, JSON.stringify(reaction), this.httpOptions);
+  //addLike(reaction, idPost, idUser): Observable<Reaction> {
+   // return this.http.put<Reaction>(this.baseUrl + '/addLike/' + idPost + '/' + idUser, JSON.stringify(reaction), this.httpOptions);
   }
-  addDislike(reaction, idPost, idUser): Observable<Reaction> {
-    return this.http.put<Reaction>(this.baseUrl + '/addDislike/' + idPost + '/' + idUser, JSON.stringify(reaction), this.httpOptions);
-  }
-}
+ // addDislike(reaction, idPost, idUser): Observable<Reaction> {
+    //return this.http.put<Reaction>(this.baseUrl + '/addDislike/' + idPost + '/' + idUser, JSON.stringify(reaction), this.httpOptions);
+ // }
+//}

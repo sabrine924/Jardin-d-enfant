@@ -9,7 +9,7 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./update-comment.component.css']
 })
 export class UpdateCommentComponent implements OnInit {
-  id: number;
+  'id': number;
   commentPost: CommentPost = new CommentPost();
 
   constructor(private commentPostService: CommentPostService,

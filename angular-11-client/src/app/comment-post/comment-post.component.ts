@@ -36,7 +36,7 @@ export class CommentPostComponent implements OnInit {
   saveComment(){
     this.commentPostService.createCommentPost(this.commentPost, this.id, this.currentUser.id).subscribe( data => {
         console.log('comment created');
-        this.listComment = [this.commentPost, ...this.listComment];
+       // this.listComment = [this.commentPost, ...this.listComment];
       },
       error => console.log(error));
   }

@@ -1,0 +1,580 @@
+<br>
+<br>
+<br> 
+<form class="col-sm-4" >
+  <p >   here you can Search Event by Location  </p>
+<select 
+name="location"
+                  [(ngModel)]="location"
+                  class="form-control"
+                  (change)="findUserByLocation()"
+                >
+
+    <option [ngValue]="null" [disabled]="true"
+    >Recherche par adresse</option
+  >
+  <option value="Tunis">Tunis</option>
+  <option value="Ben arous">Ben arous</option>
+  <option value="Bizerte">Bizerte</option>
+  <option value="Bizerte">Beja</option>
+  <option value="zahra">Zahra</option>
+  <option value="rades">Rades</option>
+  <option value="zaghouan">Zaghouan</option>
+  <option value="kef">Kef</option>
+  <option value="Sfax">Sfax</option>
+  <option value="Sousse">Sousse</option>
+  <option value="Monastir">Monastir</option>
+  <option value="Ariana">Ariana</option>
+  <option value="Manouba">Manouba</option>
+  <option value="Kairouan">Kairouan</option>
+  <option value="Jendouba">Jendouba</option>
+  <option value="Gafsa">Gafsa</option>
+  <option value="Gabes">Gabes</option>
+  <option value="Siliana">Siliana</option>
+  <option value="Kebili">Kebili</option>
+  <option value="Tataouine">Tataouine</option>
+  <option value="Djerba">Djerba</option>
+  <option value="Sidi Bouzid">Sidi Bouzid</option>
+  <option value="Nabeul">Nabeul</option>
+  <option value="Mahdia">Mahdia</option>
+</select>
+<br>
+<p >  here you can Search Event by Category </p>
+  <div class="form-group">
+   <select
+      name="category"
+      [(ngModel)]="category"
+      class="form-control"
+      (change)="findEventByCategory()" 
+    >
+      <option [ngValue]="null" [disabled]="true" 
+        >Search By category</option
+      >
+      <option value="Sortie">Sortie</option>
+      <option value="Donation">Donation</option>
+      <option value="Ateliers">Ateliers</option>
+      <option value="Animations">Animations</option>
+    </select>
+  </div>
+</form>
+<br> 
+<div >
+  <input
+    class="form-control my-0 py-1"
+    type="text"
+    placeholder="Search for event .. Enter the name  "
+    aria-label="Search"
+    [(ngModel)]='name'        
+  />
+  <div class="input-group-append">
+    <span id="basic-text1">
+      <button
+        class="btn btn-primary"
+        type="button"
+        (click)="findEventByName()"
+      > 
+      <span class="glyphicon glyphicon-search"></span>
+      Search 
+     </button >
+
+
+  <br> 
+  <br>
+<div class="panel panel-default" >  
+  <div class="panel-heading">  
+      <h1 style="text-align: center">Events</h1><br>  
+      <div class="row" [hidden]="!deleteMessage">  
+             
+                <div class="col-sm-4"></div>  
+                <div class="col-sm-4">  
+                        <div class="alert alert-info alert-dismissible">  
+                                <button type="button" class="close" data-dismiss="alert">×</button>  
+                                <strong>Event Data Deleted</strong>  
+                        </div>  
+                </div>  
+                <div class="col-sm-6"></div>  
+        </div>             
+    </div>  
+  
+    
+  <div class="panel-body">  
+      <table  class="table table-hover table-sm" datatable [dtOptions]="dtOptions"  
+      [dtTrigger]="dtTrigger"  >  
+          <thead class="thead-light">  
+              <tr>  
+                <th>idEvent</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>JackpotDonation</th>
+                <th>Location</th>
+                <th> Subject</th>
+                   
+                <th> category</th>
+                <th>date</th>
+               <th> startHour</th>
+                <th>EndHour</th>
+                <th > Actions </th>
+              </tr>  
+          </thead>  
+          <tbody>  
+               <tr *ngFor="let event of events  | paginate: { itemsPerPage: 4, currentPage: p }  "> 
+
+                <td>{{event.idEvent}}</td>
+                <td>{{event.name}}</td>
+                <td>{{event.description }}</td>
+                <td>{{event.jackpotDonation}}</td>
+                <td>{{event.location}}</td>
+                <td>{{event.subject}}</td>
+                <td>{{event.category}}</td>
+                <td>{{event.date}}</td>
+                <td>{{event.startHour}}</td>
+                <td>{{event.endHour}}</td>
+               
+             
+              
+          
+          
+              
+            
+                  <td><button (click)="deleteEvent(event.idEvent)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>  </td> 
+                  <td><button (click)="updateEvent1(event.idEvent)" class='btn btn-info'  
+                    data-toggle="modal" data-target="#myModal">Update</button>  
+                  </td>  
+                  <td>
+                    <button (click) = "eventDetails(event.idEvent)" class = "btn btn-info" style="margin-left: 10px"> Details</button>
+                </td>
+                </tr>   
+          </tbody><br>  
+      </table> 
+      <pagination-controls (pageChange)="p = $event">
+      </pagination-controls>  
+  </div>  
+</div>   
+  
+
+<div class="modal" id="myModal">  
+        <div class="modal-dialog">  
+          <div class="modal-content">  
+               <form>  
+            <!-- Modal Header -->  
+            <div class="modal-header">  
+              <h4 class="modal-title" style="text-align: center">Update Event</h4>  
+                
+            </div>  
+            
+
+            <!-- Modal body -->  
+            <div class="modal-body " *ngFor="let event of events">  
+                <div [hidden]="isupdated">  
+
+
+
+                    <input type="hidden" class="form-control"    formControlName="idEvent"
+                      [(ngModel)] = "event.idEvent">
+
+
+
+                            <div class="form-group">  
+                              <label for="name">Event Name</label>  
+                              <input type="text" class="form-control"  formControlName="name" [(ngModel)] = "event.name">  
+                          </div>  
+
+
+                          <div class="form-group">  
+                            <label for="name">Event jackpotDonation</label>  
+                            <input type="text" class="form-control"  formControlName="jackpotDonation" [(ngModel)] = "event.jackpotDonation">  
+                        </div>    
+                        
+                        
+                        <div class="form-group">  
+                          <label for="name">Event description </label>  
+                          <input type="text" class="form-control"  formControlName=" description "   [(ngModel)] = "event.description ">  
+                      </div>  
+
+                      <div class="form-group">  
+                        <label for="name">Event Subject</label>  
+                        <input type="text" class="form-control"  formControlName="subject"  [(ngModel)] = "event.subject">  
+                    </div>  
+
+
+                    <div class="form-group">  
+                      <label for="name">Event startHour</label>  
+                      <input type="number" class="form-control"  formControlName="startHour" [(ngModel)] = "event.startHour">  
+                  </div> 
+
+
+                  <div class="form-group">  
+                    <label for=" name">Event  endHour</label>  
+                    <input type="number" class="form-control"  formControlName="  endHour" [(ngModel)] = "event.endHour">  
+                </div>
+                
+                
+                <div class="form-group">  
+                  <label for="name">Event date</label>  
+                  <input type="date" class="form-control"  formControlName="date" [(ngModel)] = "event.date">  
+              </div> 
+
+
+
+
+              
+              <div class="form-group">  
+                <label for="name">Event category</label>  
+                  <select class="form-control" formControlName="category" required>                                     
+                    <option value="Sortie">Sortie</option>
+                    <option value="Donation">Donation</option>
+                    <option value="Ateliers">Ateliers</option>
+                    <option value="Animations">Animations</option>
+                  </select>                                 
+            </div>  
+
+
+
+                      <div class="form-group">  
+                        <label for="name">Event Location</label>  
+                          <select class="form-control" formControlName="location" required>                                     
+                            <option value="Ben arous">Ben arous</option>
+                            <option value="Bizerte">Bizerte</option>
+                            <option value="Bizerte">Beja</option>
+                            <option value="zahra">Zahra</option>
+                            <option value="rades">Rades</option>
+                            <option value="zaghouan">Zaghouan</option>
+                            <option value="kef">Kef</option>
+                            <option value="Sfax">Sfax</option>
+                            <option value="Sousse">Sousse</option>
+                            <option value="Monastir">Monastir</option>
+                            <option value="Ariana">Ariana</option>
+                            <option value="Manouba">Manouba</option>
+                            <option value="Kairouan">Kairouan</option>
+                            <option value="Jendouba">Jendouba</option>
+                            <option value="Gafsa">Gafsa</option>
+                            <option value="Gabes">Gabes</option>
+                            <option value="Siliana">Siliana</option>
+                            <option value="Kebili">Kebili</option>
+                            <option value="Tataouine">Tataouine</option>
+                            <option value="Djerba">Djerba</option>
+                            <option value="Sidi Bouzid">Sidi Bouzid</option>
+                            <option value="Nabeul">Nabeul</option>
+                            <option value="Mahdia">Mahdia</option>
+                          </select>                                 
+                    </div>                     
+
+                                
+                  
+
+                         
+                       
+                  </div>    
+                  <div [hidden]="!isupdated">  
+                      <h4>Event Detail Updated!</h4>  
+                  </div>                                
+            </div>                
+            <!-- Modal footer -->  
+            <div class="modal-footer" >  
+              <button type="submit" class="btn btn-success" [hidden]="isupdated">Update</button>  
+              <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="changeisUpdate()">Close</button>  
+            </div>  
+        </form>  
+          </div>  
+        </div>  
+      </div>  
+
+
+      <br>
+      <h3 style = "text-align:center;" >CHoose Export Format</h3>
+      <br>
+      <div class = "row">
+          <div class="col-12">
+              <div style="text-align: center;margin-top: 80px;">
+              <div class="col-3" style="display: inline-block; cursor: pointer;margin-right: 80px;">
+              <a (click)= "exportEventsPdf();" class="improvebutton">
+                  <img src="assets/img/pdf.png"></a>
+                </div>
+               </div>
+            
+          </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<h1>Angular 11 Datatables Example - Tutsmake.com</h1>
+<table datatable [dtOptions]="dtOptions" class="row-border hover">
+  <thead>
+    <tr>
+      <th>idEvent</th>
+            <th>Description</th>
+            <th>EndHour</th>
+            <th>JackpotDonation</th>
+            <th>Location</th>
+            <th>Name</th>
+            <th> Subject</th>
+            <th> category</th>
+            <th>date</th>
+           
+           <th> startHour</th>
+            <th class="A"> Actions </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let event of events | paginate: { itemsPerPage: 5, currentPage: p }  ">
+      <td>{{event.idEvent}}</td>
+      <td>{{event.description}}</td>
+      <td>{{event.endHour}}</td>
+      <td>{{event.jackpotDonation}}</td>
+      <td>{{event.location}}</td>
+      <td>{{event.name}}</td>
+      <td>{{event.subject}}</td>
+      <td>{{event.category}}</td>
+      <td>{{event.date}}</td>
+      <td>{{event.startHour}}</td>
+      <td>
+          <button  (click) = "deleteEvent(event.idEvent)" class="btn btn-danger">Delete</button>
+      </td>
+      <td>
+          <button (click) = "updateEvent(event.idEvent)" class = "btn btn-info"  style="margin-left: 10px" > Update</button>
+          
+      </td>
+      <td>
+          <button (click) = "eventDetails(event.idEvent)" class = "btn btn-info" style="margin-left: 10px"> Details</button>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<!--<h2 > Event List</h2>
+  <!--houni l search par aadresse   -->
+<!--<form class="form-inline md-form mr-auto mb-4">
+  <div class="form-group">
+<select 
+name="location"
+                  [(ngModel)]="location"
+                  class="form-control"
+                  (change)="findUserByLocation()"
+                >
+
+    <option [ngValue]="null" [disabled]="true"
+    >Recherche par adresse</option
+  >
+  <option value="Tunis">Tunis</option>
+  <option value="Ben arous">Ben arous</option>
+  <option value="Bizerte">Bizerte</option>
+  <option value="Bizerte">Beja</option>
+  <option value="zahra">Zahra</option>
+  <option value="rades">Rades</option>
+  <option value="zaghouan">Zaghouan</option>
+  <option value="kef">Kef</option>
+  <option value="Sfax">Sfax</option>
+  <option value="Sousse">Sousse</option>
+  <option value="Monastir">Monastir</option>
+  <option value="Ariana">Ariana</option>
+  <option value="Manouba">Manouba</option>
+  <option value="Kairouan">Kairouan</option>
+  <option value="Jendouba">Jendouba</option>
+  <option value="Gafsa">Gafsa</option>
+  <option value="Gabes">Gabes</option>
+  <option value="Siliana">Siliana</option>
+  <option value="Kebili">Kebili</option>
+  <option value="Tataouine">Tataouine</option>
+  <option value="Djerba">Djerba</option>
+  <option value="Sidi Bouzid">Sidi Bouzid</option>
+  <option value="Nabeul">Nabeul</option>
+  <option value="Mahdia">Mahdia</option>
+</select>
+</div>
+</form>
+<br>
+  
+<form class="form-inline md-form mr-auto mb-4">
+  <div class="form-group">
+   <select
+      name="category"
+      [(ngModel)]="category"
+      class="form-control"
+      (change)="findEventByCategory()" 
+    >
+      <option [ngValue]="null" [disabled]="true" 
+        >Search By category</option
+      >
+      <option value="Sortie">Sortie</option>
+      <option value="Donation">Donation</option>
+      <option value="Ateliers">Ateliers</option>
+      <option value="Animations">Animations</option>
+    </select>
+  </div>
+</form>
+<br> 
+
+
+
+
+    <div class="input-group md-form form-sm form-2 pl-0">
+      <input
+        class="form-control my-0 py-1"
+        type="text"
+        placeholder="Search for event .. Enter the name  "
+        aria-label="Search"
+        [(ngModel)]='name'        
+      />
+      <div class="input-group-append">
+        <span id="basic-text1">
+          <button
+            class="btn btn-primary"
+            type="button"
+            (click)="findEventByName()"
+          >
+          <i class="bi bi-search"></i>
+            <span class="glyphicon glyphicon-search"></span>
+            <i
+              class="fas fa-search text-grey"
+              aria-hidden="true"
+            ></i></button >
+          </span>
+</div>
+
+      <br> 
+      <br> 
+
+      
+<form [formGroup]="checkoutForm" >
+
+  <div>
+    <label for="date1">
+      date1
+    </label>
+    <input id="name" type="date" formControlName="date1">
+  </div>
+
+  <div>
+    <label for="date2">
+     date2
+    </label>
+    <input id="date2" type="date" formControlName="date2">
+  </div>
+
+  <button class="button" type="submit">Search </button>
+
+</form>
+
+<div class="input-group md-form form-sm form-2 pl-0">
+    <input
+    class="form-control my-0 py-1"
+    type="date"
+    placeholder="Ender date1  "
+    aria-label="Search"
+    [(ngModel)]='date1'        
+  />
+  <input
+  class="form-control my-0 py-1"
+  type="date"
+  placeholder="Ender date2  "
+  aria-label="Search"
+  [(ngModel)]='date2'         
+/>
+<button
+            class="btn btn-primary"
+            type="button"
+            (click)="findEventBetweentwodates()"
+          >
+          <i class="bi bi-search"></i>
+            <span class="glyphicon glyphicon-search"></span>
+            <i
+              class="fas fa-search text-grey"
+              aria-hidden="true"
+            ></i></button >
+        
+</div>
+<div class="input-group-append">
+  <span id="basic-text1">
+       <br> 
+  --> 
+<!--<table class = "table table-striped" >
+    <thead>
+        <tr>
+            <th>idEvent</th>
+            <th>Description</th>
+            <th>EndHour</th>
+            <th>JackpotDonation</th>
+            <th>Location</th>
+            <th>Name</th>
+            <th> Subject</th>
+            <th> category</th>
+            <th>date</th>
+           
+           <th> startHour</th>
+            <th class="A"> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor = "let event of events | paginate: { itemsPerPage: 5, currentPage: p }  ">
+        <td>{{event.idEvent}}</td>
+        <td>{{event.description}}</td>
+        <td>{{event.endHour}}</td>
+        <td>{{event.jackpotDonation}}</td>
+        <td>{{event.location}}</td>
+        <td>{{event.name}}</td>
+        <td>{{event.subject}}</td>
+        <td>{{event.category}}</td>
+        <td>{{event.date}}</td>
+        <td>{{event.startHour}}</td>
+        <td>
+            <button  (click) = "deleteEvent(event.idEvent)" class="btn btn-danger">Delete</button>
+        </td>
+        <td>
+            <button (click) = "updateEvent(event.idEvent)" class = "btn btn-info"  style="margin-left: 10px" > Update</button>
+            
+        </td>
+        <td>
+            <button (click) = "eventDetails(event.idEvent)" class = "btn btn-info" style="margin-left: 10px"> Details</button>
+        </td>
+    </tr>
+</tbody>
+</table>
+<br>
+<h3 style = "text-align:center;" >CHoose Export Format</h3>
+<br>
+<div class = "row">
+    <div class="col-12">
+        <div style="text-align: center;margin-top: 80px;">
+        <div class="col-3" style="display: inline-block; cursor: pointer;margin-right: 90px;">
+        <a (click)= "exportEventsPdf();" class="improvebutton">
+            <img src="assets/img/pdf.png"></a>
+          </div>
+         </div>
+    </div>
+    <pagination-controls (pageChange)="p = $event">
+      </pagination-controls> 
+</div>
+
+-->

@@ -1,0 +1,307 @@
+
+
+
+<h3>Create Event</h3>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4" >  
+    <div [hidden]="submitted" style="width: 400px;">  
+      <form [formGroup]="eventsaveform" #saveEvent() (ngSubmit)="saveEvent()">  
+          <div class="form-group">  
+              <label for="name">Event Name</label>  
+              <input type="text" class="form-control"  formControlName="name" data-toggle="tooltip"   
+                 data-placement="right" title="Enter Event Name" >  
+    
+              </div>
+
+              <div class="form-group"> 
+                <label for="description">Event Description</label>  
+                <input type="text" class="form-control"  formControlName="description" data-toggle="tooltip"   
+                   data-placement="right" title="Enter Event description" >  
+                </div>
+             
+
+                <div class="form-group"> 
+                  <label for="jackpotDonation">Event jackpotDonation</label>  
+                  <input type="number" class="form-control"  formControlName="jackpotDonation" data-toggle="tooltip"   
+                     data-placement="right" title="Enter Event EndHour" > 
+                     </div>
+
+
+
+                     <div class="form-group">  
+                      <label for="location">Event Location </label>
+                      <select class="form-control" formControlName="location" data-toggle="tooltip"   
+                                data-placement="right" title="Select Event Location">
+                                <option value="null">--Select location--</option>
+                                <option value="Tunis">Tunis</option>
+                                <option value="BenArous">Ben arous</option>
+                               <option value="Bizerte">Bizerte</option>
+                              <option value="Bizerte">Beja</option>
+                                <option value="zahra">Zahra</option>
+                                <option value="rades">Rades</option>
+                               <option value="zaghouan">Zaghouan</option>
+                                <option value="kef">Kef</option>
+                               <option value="Sfax">Sfax</option>
+                                <option value="Sousse">Sousse</option>
+                               <option value="Monastir">Monastir</option>
+                               <option value="Ariana">Ariana</option>
+                                <option value="Manouba">Manouba</option>
+                                <option value="Kairouan">Kairouan</option>
+                               <option value="Jendouba">Jendouba</option>
+                                <option value="Gafsa">Gafsa</option>
+                                <option value="Gabes">Gabes</option>
+                               <option value="Siliana">Siliana</option>
+                               <option value="Kebili">Kebili</option>
+                               <option value="Tataouine">Tataouine</option>
+                                <option value="Djerba">Djerba</option>
+                                <option value="SidiBouzid">Sidi Bouzid</option>
+                               <option value="Nabeul">Nabeul</option>
+                               <option value="Mahdia">Mahdia</option>
+                              
+                    </select>  
+                    </div>
+
+
+
+
+
+              <div class="form-group"> 
+                <label for="name">Event Subject</label>  
+                <input type="text" class="form-control"  formControlName="subject" data-toggle="tooltip"   
+                   data-placement="right" title="Enter Event Subject" > 
+                   </div>
+                  
+ 
+
+                   <div class="form-group">  
+                    <label for="branch">Event Category</label>
+                    <select
+                    class="form-control" formControlName="category" data-toggle="tooltip"   
+                              data-placement="right" title="Select Event category">
+                              <option value="null">--Select Category--</option> 
+                    <option value="Sortie">Sortie</option>
+                    <option value="Donation">Donation</option>
+                    <option value="Ateliers">Ateliers</option>
+                    <option value="Animations">Animations</option>
+                  </select>  
+                   </div>
+         
+                   
+
+             
+                  <div class="form-group"> 
+                    <label for="name">Event date</label>  
+                    <input type="date" class="form-control"  formControlName="date" data-toggle="tooltip"   
+                       data-placement="right" title="Enter Event date" > 
+                       </div>
+                  
+                   <div class="form-group"> 
+                      <label for="name">Event startHour</label>  
+                      <input type="number" class="form-control"  formControlName="startHour" data-toggle="tooltip"   
+                         data-placement="right" title="Enter Event startHour" > 
+                         </div>
+                         <div class="form-group"> 
+                          <label for="name">Event EndHour</label>  
+                          <input type="number" class="form-control"  formControlName="endHour" data-toggle="tooltip"   
+                             data-placement="right" title="Enter Event EndHour" > 
+                             </div>
+                           
+                        
+           
+  
+   
+
+
+          <button type="submit" class="btn btn-success">Submit</button>  
+  
+      </form>
+      </div>
+      </div>
+     <div class="col-sm-4"></div>  
+      </div>  
+      <div class="row">  
+        <div class="col-sm-4"></div>  
+        <div class="col-sm-4">  
+            <div [hidden]="!submitted">  
+               <h4>Event Added SuccessFully!</h4>  
+               <button (click)="addEventForm()" class='btn btn-primary'>Add More Event</button>  
+            </div>        
+        </div>  
+        <div class="col-sm-4"></div>  
+
+
+      </div>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="container-fluid d-flex align-items-center">
+<html lang="en" dir="ltr">
+    <head>
+    <title>Form</title>
+    </head>
+  
+     <body>  
+<fieldset>
+<form  (ngSubmit) = "onSubmit()"  >
+    <h1>Create Event !</h1>
+    <hr>
+    <table>
+ <tr>
+  <tr>
+    <label>  Name</label>
+    <td><input type="text" class ="form-control" id = "name" placeholder="Entrez le nom "
+        [(ngModel)] = "event.name" name = "name">
+        <br> </td>
+</tr>
+    <tr>
+            <label> description</label>
+            <td>  <input type="text" class ="form-control" id = "Description"
+                    [(ngModel)] = "event.description" name = "Description" placeholder="Entrez la description ">  <br> </td>      
+        </tr>
+
+
+         <tr>
+            <label> JackpotDonation</label>
+            <td> <input type="number" class ="form-control" id = "jackpotDonation" placeholder="Entrez le montant du cagnotte "
+                [(ngModel)] = "event.jackpotDonation" name = "jackpotDonation"> <br> </td>
+        </tr>
+  
+        <tr> <label class="form-control-label" for="name"
+          >Location</label>
+    <td> <select
+              type="text"
+              class="form-control"
+              id="location"
+              required
+              [(ngModel)]="event.location"
+              name="location"
+              style="overflow: scroll;"
+            > 
+            <option [ngValue]="null" [disabled]="true">
+              <i class="ni ni-pin-3">Ville</i></option
+            >
+            <option value="Tunis">Tunis</option>
+            <option value="BenArous">Ben arous</option>
+           <option value="Bizerte">Bizerte</option>
+          <option value="Bizerte">Beja</option>
+            <option value="zahra">Zahra</option>
+            <option value="rades">Rades</option>
+           <option value="zaghouan">Zaghouan</option>
+            <option value="kef">Kef</option>
+           <option value="Sfax">Sfax</option>
+            <option value="Sousse">Sousse</option>
+           <option value="Monastir">Monastir</option>
+           <option value="Ariana">Ariana</option>
+            <option value="Manouba">Manouba</option>
+            <option value="Kairouan">Kairouan</option>
+           <option value="Jendouba">Jendouba</option>
+            <option value="Gafsa">Gafsa</option>
+            <option value="Gabes">Gabes</option>
+           <option value="Siliana">Siliana</option>
+           <option value="Kebili">Kebili</option>
+           <option value="Tataouine">Tataouine</option>
+            <option value="Djerba">Djerba</option>
+            <option value="SidiBouzid">Sidi Bouzid</option>
+           <option value="Nabeul">Nabeul</option>
+           <option value="Mahdia">Mahdia</option>
+          
+            </select> 
+            </td>
+            <br>   
+      
+   <br>     
+<br>
+ <tr>
+     <label> Subject</label>
+     <td>    <input type="text" class ="form-control" id = "subject"
+            [(ngModel)] = "event.subject" name = "subject" placeholder="Entrez le sujet">   <br>
+        </td>      
+ </tr>
+<tr>
+        <label class="form-control-label" for="name"
+          >Category</label
+        >
+
+      <td>  <select
+          type="text"
+          class="form-control"
+          id="category"
+          required
+          [(ngModel)]="event.category"
+          name="category"
+          style="overflow: scroll;"
+        >
+          <option [ngValue]="null" [disabled]="true">
+            <i class="ni ni-pin-3">Category</i></option
+          >
+
+          <option value="Sortie">Sortie</option>
+          <option value="Donation">Donation</option>
+          <option value="Ateliers">Ateliers</option>
+          <option value="Animations">Animations</option>
+        </select>
+      
+</tr>
+<br>
+<tr>
+    <label> date</label>
+    <td> <input type="date" class ="form-control" id = "date" placeholder="Entrez la date "
+        [(ngModel)] = "event.date" name = "date"> <br> </td>  
+</tr>
+
+<tr>
+   
+     <label>startHour</label>
+     <td>    <input type="number" class ="form-control" id = "startHour"
+            [(ngModel)] = "event.startHour" name = "startHour" placeholder="Entrez l'heure de debut ">  <br> </td>             
+</tr> 
+
+<tr>
+  <label>EndHour</label>
+  <td> <input type="number" class ="form-control" id = "endHour" placeholder="Entrez l'heure du fin "
+          [(ngModel)] = "event.endHour" name = "endHour">  <br></td>           
+</tr> 
+
+    <div class="container-fluid d-flex align-items-center">
+        <button type="button" class="btn btn-info" (click)="goToEventList()">
+            Come back to the Event list 
+          </button> 
+    <button class = "btn btn-success" type ="submit">Submit</button>
+   
+   </div>
+</table>
+</form>
+</fieldset>
+</body>
+
+</html>-->
+
+
+  

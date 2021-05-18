@@ -1,0 +1,120 @@
+<!--<h2> View Event Details</h2>
+<div>
+  <div>
+    <label> <b> idEvent: </b></label> {{event.idEvent}}
+  </div>
+  <div>
+    <label> <b> Description : </b></label> {{event.description}}
+  </div>
+  <h2> All About JackpotDonation</h2>
+  <div>
+    <label> <b> id Cagnottte : </b></label> {{event?.cagnotte?.idCagnotte }}
+</div>
+
+<div>
+    <label> <b> TotalAmount : </b></label> {{event?.cagnotte?.totalAmount}}
+    <div>
+      <label> <b> Location : </b></label> {{event.location}}
+    </div>
+ <hr class="my-4" />
+   
+<h6 class="heading-small text-muted mb-4">Address on map</h6>
+
+
+  <agm-map [latitude]="lat" [longitude]="lng" >
+    <agm-marker [latitude]="lat" [longitude]="lng" >
+    </agm-marker>
+  </agm-map>
+ </div>-->
+
+ <div
+ class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+  style="
+    min-height: 400px;
+    background-image: url(assets/img/profileevent.jpg.jpg);
+    background-size: cover;
+    background-position: center ;">
+
+  <!-- Mask -->
+  <span class="mask bg-gradient-danger opacity-8">
+
+  </span>
+  <!-- Header container -->
+  <br>
+  <br>
+
+</div>
+      <div class="container-fluid mt--7">
+        <div class="col-xl-12 order-xl-10">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h1 class="mb-0"> Event Infomations 
+                    </h1>   
+
+                </div>
+              </div>
+              <p class="mt-0 mb-5" style="color: blue;">
+                Event id: {{ event.idEvent }}  , Event Name: {{ event.name }} <br> Event Date:   {{ event.date| date }} <br>
+                Event StartHour:     {{ event.startHour}} <br> Event EndHour  :   {{event.endHour }} <br>  Event Description  :   {{event.description}}<br>
+                Event Subject :    {{event.subject}} <br>   Donation Amount  :    {{event.jackpotDonation}} <br> Id Cagnotte of  Event   :  {{event?.cagnotte?.idCagnotte }} <br>
+                Total Amount Of Cagnotte:  :   {{event?.cagnotte?.totalAmount}}
+               </p>
+               
+           <!--   <p class="mt-0 mb-5" style="color: blue;">
+               Event Name: {{ event.name }} 
+              </p>
+              <p class="mt-0 mb-5" style="color: blue;">
+                Event Date:   {{ event.date| date }}
+               </p>
+               <p class="mt-0 mb-5" style="color: blue;">
+                Event StartHour:     {{ event.startHour}}
+               </p>
+               <p class="mt-0 mb-5" style="color: blue;">
+                Event EndHour  :   {{event.endHour }}
+               </p>
+               <p class="mt-0 mb-5" style="color: blue;">
+                Event Description  :   {{event.description}}
+               </p>
+
+               <p class="mt-0 mb-5" style="color: blue;">
+                Event Subject :    {{event.subject}}
+               </p>
+               <p class="mt-0 mb-5" style="color: blue;">
+                Donation Amount  :    {{event.jackpotDonation}}
+               </p>
+               <p class="mt-0 mb-5" style="color: blue;">
+                Id Cagnotte of  Event   :  {{event?.cagnotte?.idCagnotte }}
+               </p>
+
+               <p class="mt-0 mb-5" style="color: blue;">
+                Total Amount Of Cagnotte:  :   {{event?.cagnotte?.totalAmount}}
+               </p>-->
+
+  <label class="form-control-label" for="input-username"
+  >
+  Event Location :   </label
+>
+<p class="mt-0 mb-5" style="color: rgb(206, 77, 156);">
+  {{event.location}}
+</p> 
+ <div>    
+<h2 class="heading-small text-muted mb-4"style="color: rgb(206, 77, 156);"> See Address on map
+  <div class="col-3" style="display: inline-block; cursor: pointer;margin-left: 500px;">
+    <button type="button" class="btn btn-info"  (click)="list()">
+      Come back to EventList 
+     </button>
+  </div>
+ 
+</h2>
+
+
+  <agm-map [latitude]="lat" [longitude]="lng" >
+    <agm-marker [latitude]="lat" [longitude]="lng" >
+    </agm-marker>
+  </agm-map>
+ </div>
+
+
+

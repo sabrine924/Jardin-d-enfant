@@ -37,7 +37,7 @@ export class UpdateRdvComponent implements OnInit {
     const rdv2 = {idRdv, date, subject} 
     const formdata = new FormData();
     formdata.append("rdvs",JSON.stringify(rdv2));
-    formdata.append("user", user);
+   // formdata.append("user", user);
     this.rdvService.updateRdv(formdata)
       .subscribe(data => {
         console.log(data);

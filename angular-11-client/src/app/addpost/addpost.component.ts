@@ -31,7 +31,7 @@ export class AddpostComponent implements OnInit {
   onUpload() {
     this.loading = !this.loading;
     console.log(this.file);
-    this.fileUploadService.upload(this.file).subscribe(
+   // this.fileUploadService.upload(this.file).subscribe(
       (event: any) => {
         if (typeof (event) === 'object') {
 
@@ -41,21 +41,22 @@ export class AddpostComponent implements OnInit {
           this.loading = false; // Flag variable
         }
       }
-    );
+   // );
   }
   savePost(){
-    this.postService.create(this.post, this.currentUser.id).subscribe( data => {
+   /* this.postService.create(this.post, this.currentUser.id).subscribe( data => {
         console.log(data);
       },
       error => console.log(error));
-  }
+  }*/
 
 
 
-  onSubmit(){
+ /* onSubmit(){
     console.log(this.post);
     this.savePost();
-  }
+  }*/
 
 
+}
 }

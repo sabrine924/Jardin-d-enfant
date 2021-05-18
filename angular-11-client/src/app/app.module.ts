@@ -2,8 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -40,6 +38,18 @@ import { RdvDetailsComponent } from './rdv-details/rdv-details.component';
 import { RdvListComponent } from './rdv-list/rdv-list.component';
 import { RdvComponent } from './rdv/rdv.component';
 import { UpdateRdvComponent } from './update-rdv/update-rdv.component';
+import { CreateEventComponent } from './create-event/create-event.component';
+import { EventListComponent } from './event-list/event-list.component';
+import { UpdateEventComponent } from './update-event/update-event.component';
+import { DetailsEventComponent } from './details-event/details-event.component';
+import { StatEventComponent } from './stat-event/stat-event.component';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { CommonModule } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AgmCoreModule } from '@agm/core';
+import { ChartsModule } from 'ng2-charts';
+import { DataTablesModule } from 'angular-datatables';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +61,6 @@ import { UpdateRdvComponent } from './update-rdv/update-rdv.component';
     BoardAdminComponent,
     BoardModeratorComponent,
     BoardUserComponent,
-    //UserListComponent,
     UserDetailsComponent,
     UpdateUserComponent,
     UserListComponent,
@@ -79,6 +88,11 @@ import { UpdateRdvComponent } from './update-rdv/update-rdv.component';
     CreateConversationComponent,
     CreateMessageComponent,
     ConversationComponent,
+    UserListComponent,
+    CreateEventComponent,
+    EventListComponent ,
+    UpdateEventComponent, 
+    DetailsEventComponent, StatEventComponent,      
   ],
   imports: [
     BrowserModule,
@@ -87,6 +101,16 @@ import { UpdateRdvComponent } from './update-rdv/update-rdv.component';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgbModule,
+    DataTablesModule,
+    CommonModule,
+    NgxPaginationModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAKaOKiwaa9Dh337qjYZKFb5nhtSgNS2gU',
+    }),
+    BrowserAnimationsModule ,
+    ChartsModule, 
+
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

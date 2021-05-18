@@ -1,0 +1,152 @@
+ <html lang="en" dir="ltr">
+    <head>
+    <title>Form</title>
+    </head>
+     <body>   
+
+<div class="col-md-6 offset-md-3">
+    <fieldset>
+        <form  (ngSubmit) = "onSubmit()">
+        
+<h3>Update Event</h3>
+
+<hr>
+<table>
+    <tr>
+        <label> idEvent</label>
+        <td>  <input type="number" class ="form-control" id = "idEvent" placeholder="Entrez l'id "
+                    [(ngModel)] = "event.idEvent" name = "idEvent"> <br> </td>
+                </tr>
+          
+                <tr>
+                    <label> description</label>
+                    <td>  <input type="text" class ="form-control" id = "Description"
+                            [(ngModel)] = "event.description" name = "Description" placeholder="Entrez la description ">  <br> </td>      
+                </tr>
+        
+                <tr>
+                    <label>EndHour</label>
+                    <td> <input type="number" class ="form-control" id = "endHour" placeholder="Entrez l'heure du fin "
+                            [(ngModel)] = "event.endHour" name = "endHour">  <br></td>           
+                 </tr> 
+        
+                 <tr>
+                    <label> JackpotDonation</label>
+                    <td> <input type="number" class ="form-control" id = "jackpotDonation" placeholder="Entrez le montant du cagnotte "
+                        [(ngModel)] = "event.jackpotDonation" name = "jackpotDonation"> <br> </td>
+                </tr>
+                <tr> <label class="form-control-label" for="name"
+                    >Location</label>
+              <td> <select
+                        type="text"
+                        class="form-control"
+                        id="location"
+                        required
+                        [(ngModel)]="event.location"
+                        name="location"
+                        style="overflow: scroll;"
+                      > 
+                      <option [ngValue]="null" [disabled]="true">
+                        <i class="ni ni-pin-3">Ville</i></option
+                      >
+                      <option value="Tunis">Tunis</option>
+                      <option value="BenArous">Ben arous</option>
+                      <option value="Bizerte">Bizerte</option>
+                      <option value="Bizerte">Beja</option>
+                      <option value="zahra">Zahra</option>
+                      <option value="rades">Rades</option>
+                      <option value="zaghouan">Zaghouan</option>
+                      <option value="kef">Kef</option>
+                      <option value="Sfax">Sfax</option>
+                      <option value="Sousse">Sousse</option>
+                      <option value="Monastir">Monastir</option>
+                      <option value="Ariana">Ariana</option>
+                      <option value="Manouba">Manouba</option>
+                      <option value="Kairouan">Kairouan</option>
+                      <option value="Jendouba">Jendouba</option>
+                      <option value="Gafsa">Gafsa</option>
+                      <option value="Gabes">Gabes</option>
+                      <option value="Siliana">Siliana</option>
+                      <option value="Kebili">Kebili</option>
+                      <option value="Tataouine">Tataouine</option>
+                      <option value="Djerba">Djerba</option>
+                      <option value="SidiBouzid">Sidi Bouzid</option>
+                      <option value="Nabeul">Nabeul</option>
+                      <option value="Mahdia">Mahdia</option>
+                      </select> 
+                      </td>
+                     
+            <br>    
+        <tr>
+        
+            <label>  Name</label>
+            <td><input type="text" class ="form-control" id = "name" placeholder="Entrez le nom "
+                [(ngModel)] = "event.name" name = "name"> <br> </td>
+        </tr>
+         <tr>
+             <label> Subject</label>
+             <td>    <input type="text" class ="form-control" id = "subject"
+                    [(ngModel)] = "event.subject" name = "subject" placeholder="Entrez le sujet">   <br>
+                </td>      
+         </tr>
+         
+         <tr>
+            <label class="form-control-label" for="name"
+              >Category</label
+            >
+    
+       <td>  <select
+              type="text"
+              class="form-control"
+              id="category"
+              required
+              [(ngModel)]="event.category"
+              name="category"
+              style="overflow: scroll;"
+            >
+              <option [ngValue]="null" [disabled]="true">
+                <i class="ni ni-pin-3">Category</i></option
+              >
+    
+              <option value="Sortie">Sortie</option>
+              <option value="Donation">Donation</option>
+              <option value="Ateliers">Ateliers</option>
+              <option value="Animations">Animations</option>
+            </select>
+          
+    </tr>
+    <br>
+        
+        <tr>
+            <label> date</label>
+            <td> <input type="date" class ="form-control" id = "date" placeholder="Entrez la date "
+                [(ngModel)] = "event.date" name = "date"> <br> </td>  
+        </tr>
+        
+        <tr>
+           
+             <label>startHour</label>
+             <td>    <input type="number" class ="form-control" id = "startHour"
+                    [(ngModel)] = "event.startHour" name = "startHour" placeholder="Entrez l'heure de debut ">  <br> </td>             
+        </tr> 
+
+
+        <div>
+     
+   <div>
+        <button      type="button"   class = "btn btn-success" type ="submit">Submit</button>
+      </div>
+      <br>
+      <button type="button" class="btn btn-info" (click)="list()">
+        Come back to EventList 
+       </button>
+      </div>
+
+        
+    </table>
+</form>
+</fieldset>
+</div>
+</body>
+</html>
+  

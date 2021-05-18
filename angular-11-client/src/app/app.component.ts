@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
   showModeratorBoard = false;
   showParentBoard = false;
   username?: string;
+  lat = 35.671165;
+  lng = 10.100547;
 
   constructor(private tokenStorageService: TokenStorageService) { }
 

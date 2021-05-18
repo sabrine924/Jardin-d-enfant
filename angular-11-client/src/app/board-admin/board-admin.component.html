@@ -34,8 +34,8 @@
         <img src="assets/images.jpg" width="48" height="48" alt="User" />
       </div>
       <div class="info-container">
-        <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-        <div class="email">john.doe@example.com</div>
+        <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrator </div>
+        <div class="email">Admin.student@esprit.tn</div>
       </div>
     </div>
     <!-- #User Info -->
@@ -67,6 +67,31 @@
             <span>Chat</span>
           </a>
         </li>
+       
+
+        <li class="active" >
+          <a [routerLink]="['/eventlist']" >
+            <!--<i class="material-icons">calendar</i>-->
+            <span>Event List </span>
+          </a>
+        </li>
+
+        <li class="active">
+          <a [routerLink]="['/createevent']">
+            <!--<i class="material-icons">calendar</i>-->
+            <span>Add Event</span>
+          </a>
+        </li>
+
+        <li class="active">
+          <a [routerLink]="['/statevent']">
+            <!--<i class="material-icons">calendar</i>-->
+            <span>Statistics  Event </span>
+          </a>
+        </li>
+        
+       
+       
         <!--<li class="active">
           <a [routerLink]="['/addpost']">
             <i class="material-icons">widgets</i>
@@ -79,10 +104,12 @@
     <!-- Footer -->
     <div class="legal">
       <div class="copyright">
-        &copy; 2020 - 2021 AdminBSB - Material Design.
+        ESPRIT : Ecole Sup Privée d'Ingénierie 
+        et de Technologies
+        @esprit.tn  · Enseignement supérieur
       </div>
       <div class="version">
-        <b>Version: </b> 1.0.5
+        <b>   @esprit.tn  </b> · Enseignement supérieur 
       </div>
     </div>
     <!-- #Footer -->

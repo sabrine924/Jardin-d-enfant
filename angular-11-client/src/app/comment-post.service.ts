@@ -16,23 +16,23 @@ export class CommentPostService {
   }
 
   constructor(private http: HttpClient) { }
-  createComment(commentPost, idPost): Observable<CommentPost> {
+  createComment(commentPost: any, idPost: string): Observable<CommentPost> {
     return this.http.put<CommentPost>(this.baseUrl + '/add-commentPostSimple/' + idPost, JSON.stringify(commentPost), this.httpOptions);
   }
-  createCommentPost(commentPost, idPost, idUser): Observable<CommentPost> {
+  createCommentPost(commentPost: CommentPost, idPost: string | number | undefined, idUser: string): Observable<CommentPost> {
     return this.http.put<CommentPost>(this.baseUrl + '/add-commentPost/' + idPost + '/' + idUser, JSON.stringify(commentPost), this.httpOptions);
   }
-  getCommentbyId(idPost): Observable<CommentPost[]> {
+  getCommentbyId(idPost: string | number | undefined): Observable<CommentPost[]> {
     return this.http.get<CommentPost[]>(this.baseUrl + '/getAllCommentByPost/' + idPost);
     // return this.http.get(`${this.baseUrl}`);
   }
-  deleteComment(commentPostId): Observable<CommentPost>{
+  deleteComment(commentPostId: string | number): Observable<CommentPost>{
     return this.http.delete<CommentPost>(this.baseUrl + '/remove-commentPost/' + commentPostId);
   }
-  updateComment(commentPost, commentPostId): Observable<Comment> {
+  updateComment(commentPost: CommentPost, commentPostId: string | number): Observable<Comment> {
     return this.http.put<Comment>(this.baseUrl + '/modify-commentPost/' + commentPostId, commentPost);
   }
-  getCommentPostById(idCommentPost): Observable<CommentPost> {
+  getCommentPostById(idCommentPost: string | number): Observable<CommentPost> {
     return this.http.get<CommentPost>(this.baseUrl + '/retrieve-commentPost/' + idCommentPost);
     // return this.http.get(`${this.baseUrl}`);
   }

@@ -28,6 +28,12 @@ import { RdvDetailsComponent } from './rdv-details/rdv-details.component';
 import { RdvListComponent } from './rdv-list/rdv-list.component';
 import { RdvComponent } from './rdv/rdv.component';
 import { UpdateRdvComponent } from './update-rdv/update-rdv.component';
+import { EventListComponent } from './event-list/event-list.component';
+import { CreateEventComponent } from './create-event/create-event.component';
+import { UpdateEventComponent } from './update-event/update-event.component';
+import { DetailsEventComponent } from './details-event/details-event.component';
+import { StatEventComponent } from './stat-event/stat-event.component';
+import { AgmCoreModule } from '@agm/core';
 
 const routes: Routes = [
   { path: 'retrieve-all-users', component: UserListComponent},
@@ -59,11 +65,17 @@ const routes: Routes = [
   { path: 'list-conversation', component: ListConversationComponent},
   { path: 'create-conversation', component: CreateConversationComponent},
   { path: 'create-message', component: CreateMessageComponent},
+  {path:'eventlist',component:EventListComponent},
+  {path:'createevent', component:CreateEventComponent},
+  {path: 'update-event', component: UpdateEventComponent},
+   {path: 'event-details' ,component: DetailsEventComponent},
+   {path: 'statevent' ,component: StatEventComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+    AgmCoreModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

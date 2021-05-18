@@ -26,14 +26,14 @@ export class PostService {
   /*create(data: any): Observable<any> {
     return this.http.post(this.baseUrll, data);
   }*/
-  create(post, id): Observable<any> {
+  /*create(post, id): Observable<any> {
     return this.http.put<Post>(`${this.baseUrlllll}/${id}`, JSON.stringify(post), this.httpOptions);
-  }
+  }*/
 
   getPostById(id: number | undefined): Observable<Post>{
     return this.http.get<Post>(`${this.baseUrlll}/${id}`);
   }
-  deletePost(id): Observable<Post>{
+/*  deletePost(id): Observable<Post>{
     return this.http.delete<Post>(`${this.baseUrllll}/${id}`);
-  }
+  }*/
 }
