@@ -3,3 +3,66 @@
     <p>{{ content }}</p>
   </header>
 </div>
+<section>
+  <!-- Left Sidebar -->
+  <aside id="leftsidebar" class="sidebar">
+    <!-- User Info -->
+    <div class="user-info">
+      <div class="image">
+        <img src="assets/images.jpg" width="48" height="48" alt="User" />
+      </div>
+      <div class="info-container">
+        <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">kinderGarden</div>
+        <div class="email">john.doe@example.com</div>
+      </div>
+    </div>
+    <!-- #User Info -->
+    <!-- Menu -->
+    <div class="menu">
+      <ul class="list">
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="active">
+          <a [routerLink]="['/postlistnew']">
+            <i class="material-icons">home</i>
+            <span>Accueil</span>
+          </a>
+        </li>
+        <li class="active">
+          <a [routerLink]="['/addpost']">
+            <i class="material-icons">widgets</i>
+            <span>Add Post</span>
+          </a>
+        </li>
+        <li class="active">
+          <a [routerLink]="['/rdv-list']">
+            <!--<i class="material-icons">calendar</i>-->
+            <span>Rendez-vous</span>
+          </a>
+        </li>
+        <li class="active">
+          <a [routerLink]="['/sendingemail']">
+            <!--<i class="material-icons">Sending email</i>-->
+            <span>Sending email</span>
+          </a>
+        </li>
+        <li class="active">
+          <a [routerLink]="['/list-conversation']">
+            <!--<i class="material-icons">Chat</i>-->
+            <span>Chat</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- #Menu -->
+    <!-- Footer -->
+    <div class="legal">
+      <div class="copyright">
+        &copy; 2020 - 2021 AdminBSB - Material Design.
+      </div>
+      <div class="version">
+        <b>Version: </b> 1.0.5
+      </div>
+    </div>
+    <!-- #Footer -->
+  </aside>
+</section>

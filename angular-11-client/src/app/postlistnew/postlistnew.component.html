@@ -1,0 +1,6 @@
+<p>----</p>
+<p>----</p>
+
+
+<app-post *ngFor="let p of listposts" [post]="p" (incrementEvent)="incrementLike($event)" (incrementEventt)="incrementDislike($event)" (incrementEventtt)="deletePost($event)"></app-post>
+

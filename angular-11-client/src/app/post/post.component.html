@@ -1,0 +1,22 @@
+<p>   post Type: {{post.type}}</p>
+<p>   post Like: {{post.numbLikePost}}</p>
+<p>   post Dislike: {{post.numbDislikePost}}</p>
+<div class="card" style="width: 18rem;">
+  <img src="../../assets/enfants.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{post.descriptionPost}}</h5>
+    <p class="card-text">{{post.subjectPost}}</p>
+    <a class="btn btn-primary" (click) = "postDetails(post.idPost)">Comment</a>
+  </div>
+</div>
+<!-- Shareable short link of  uoloaded file -->
+<div class="container text-center jumbotron"
+     *ngIf="post.subjectPost">
+  <h2> Visit Here</h2>
+  <a href="{{post.subjectPost}}">{{post.subjectPost}}</a>
+</div>
+<button (click)="sendLike()" class = "btn btn-info" style="margin-left: 10px">like</button>
+<button (click)="sendDislike()" class = "btn btn-info" style="margin-left: 10px">Dislike</button>
+<button (click) = "senddeletePost()" class = "btn btn-info" style="margin-left: 10px"> Delete</button>
+<button (click) = "postDetails(post.idPost)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+

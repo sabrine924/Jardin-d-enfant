@@ -1,0 +1,69 @@
+<div class="col-md-6 offset-md-3">
+  <h3> Create Post </h3>
+  <form (ngSubmit) = "onSubmit()">
+
+    <div class="form-group">
+      <label> DescriptionPost</label>
+      <input type="text" class ="form-control" id = "firstName"
+             [(ngModel)] = "post.descriptionPost" name = "firstName">
+    </div>
+    <!--
+        <div class="form-group">
+          <label> Subject</label>
+          <input type="text" class ="form-control" id = "lastName"
+                 [(ngModel)] = "post.subjectPost" name = "lastName">
+        </div>
+    -->
+    <!--
+    <div class="form-group">
+      <label> Type</label>
+      <input type="text" class ="form-control" id = "emailId"
+             [(ngModel)] = "post.type" name = "emailId">
+    </div>
+    -->
+    <div class="form-group">
+      <!--<mat-radio-group aria-label="Select an option" class="form-control" id="typeId" [(ngModel)]="post.type" name="typeId">
+        <mat-radio-button value="PROMENADE">PROMENADE</mat-radio-button>
+        <mat-radio-button value="ETUDE">ETUDE</mat-radio-button>
+        <mat-radio-button value="SPORT">SPORT</mat-radio-button>
+      </mat-radio-group>
+      -->
+      <div class="btn-group" role="group" aria-label="Basic radio toggle button group" [(ngModel)]="post.type">
+        <input type="radio" value="PROMENADE" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" [(ngModel)]="post.type" checked>
+        <label class="btn btn-outline-primary" for="btnradio1">PROMENADE</label>
+
+        <input type="radio" value="ETUDE" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" [(ngModel)]="post.type">
+        <label class="btn btn-outline-primary" for="btnradio2">ETUDE</label>
+
+        <input type="radio" value="SPORT" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" [(ngModel)]="post.type">
+        <label class="btn btn-outline-primary" for="btnradio3">SPORT</label>
+      </div>
+    </div>
+    <div class="text-center">
+      <input class="form-control" type="file" id="subjectId"
+             (change)="onChange($event)" [(ngModel)]="post.subjectPost" name="subjetId">
+
+      <button (click)="onUpload()"
+              class="btn btn-success">
+        Upload
+      </button>
+    </div>
+
+    <!-- Shareable short link of  uoloaded file -->
+    <div class="container text-center jumbotron"
+         *ngIf="post.subjectPost">
+      <h2> Visit Here</h2>
+      <a href="{{post.subjectPost}}">{{post.subjectPost}}</a>
+    </div>
+
+    <!--Flag variable is used here-->
+
+    <div class="container" *ngIf="loading">
+      <h3>Loading ...</h3>
+    </div>
+
+    <button class = "btn btn-success" type ="submit">Submit</button>
+
+  </form>
+</div>
+

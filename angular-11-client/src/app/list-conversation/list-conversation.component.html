@@ -1,0 +1,46 @@
+<div class="" id="page-wrapper">
+    <div class="container-fluid">
+    <div class="row justify-content-center">
+    <div class="col-xl-10 col-lg-10 col-md-8">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="card-body p-0">
+    <div class="row">
+<h2 style="color:Tomato;"> Conversation List </h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <!--<th> idRdv </th>-->
+            <!--<th> message </th>-->
+            <th> users </th>
+            <!--<th> parent </th>
+            <th> kinderGarden </th>-->
+            <!--<th> User </th>-->
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let conversation of conversationTab ">
+            <!--<td> {{ rdv.idRdv }}</td>-->
+            <!--<td> {{ conversation.message }}</td>-->
+            <td> {{ conversation.users[0].firstName }}</td>
+           <!---- <td> {{ rdv.parent }}</td>
+            <td> {{ rdv.kinderGarden }}</td>-->
+            <!--<td> {{ rdv.user }}</td>-->
+            <td>
+                <button [routerLink]="['/list-message', conversation.id]" routerLinkActive="active" class = "btn btn-info" style="margin-left: 10px" > View</button>
+                <button (click) = "deleteConversation(conversation.id)" class =  "btn btn-danger" style="margin-left: 10px"> Delete</button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+<button style="margin-left: 800px" class="btn btn-link" onclick="window.location.href='/create-conversation';">
+    Add Conversation
+  </button>
+</div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>
